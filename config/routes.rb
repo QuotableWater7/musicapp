@@ -1,6 +1,8 @@
 Musicapp::Application.routes.draw do
   root to: 'pages#index'
 
+  get '/pages/about', to: 'pages#about'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
