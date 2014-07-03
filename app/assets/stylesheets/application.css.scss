@@ -12,3 +12,18 @@
  *= require bootstrap.min
  *= require_tree .
  */
+
+$site-bg: #ffbc40;
+$footer-height: 20px;
+
+.app-wrapper {
+  background-color: $site-bg;
+  min-height: 100%;
+  overflow: auto;
+  margin-bottom: -$footer-height;
+  padding-bottom: $footer-height;
+}
+
+.footer {
+  height: $footer-height;
+}
