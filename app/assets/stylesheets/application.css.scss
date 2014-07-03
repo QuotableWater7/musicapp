@@ -13,8 +13,18 @@
  *= require_tree .
  */
 
-$site-bg: #ffbc40;
+$site-bg: #efefef;
+
+$header-bg: #5577cc;
+$header-text-color: white;
+$header-text-active-color: lighten($header-bg, 30%);
+
 $footer-height: 20px;
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
 
 .app-wrapper {
   background-color: $site-bg;
@@ -22,6 +32,23 @@ $footer-height: 20px;
   overflow: auto;
   margin-bottom: -$footer-height;
   padding-bottom: $footer-height;
+}
+
+.header {
+  &.navbar-default {
+    background: $header-bg;
+
+    ul {
+      li a {
+        color: $header-text-color;
+        font-weight: bold;
+
+        &.active {
+          color: $header-text-active-color;
+        }
+      }
+    }
+  }
 }
 
 .footer {
