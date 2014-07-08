@@ -3,4 +3,8 @@ Musicapp::Application.routes.draw do
 
   get '/about', to: 'pages#about'
   get '/app', to: 'pages#app'
+
+  get '/signup', to: 'users#new'
+  get '/signin', to: 'sessions#new'
+  get '/signout', to: 'sessions#destroy'
 end
