@@ -28,6 +28,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bcrypt-ruby (3.0.1)
     builder (3.2.2)
     capybara (2.3.0)
       mime-types (>= 1.16)
@@ -140,6 +141,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby
   capybara
   coffee-rails
   execjs
