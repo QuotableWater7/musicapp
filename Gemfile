@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails'
 gem 'sqlite3'
+gem 'jquery-rails'
 
 # Gems added by me
 gem 'haml'
@@ -28,10 +29,9 @@ end
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
+  gem 'shoulda-matchers'
   gem 'capybara'
 end
-
-gem 'jquery-rails'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
