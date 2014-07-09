@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  validates_uniqueness_of :email
+
   validates :email, presence: true
-  validates :password, confirmation: true, length: { minimum: 8, maximum: 20 }
-  validates :password_confirmation, presence: true
+  validates :password, length: { minimum: 8, maximum: 20 }
 end

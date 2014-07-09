@@ -1,6 +1,8 @@
 .row
   .col-md-12
-    .alert= flash[:warning]
+    .danger= flash[:warning]
+    - @user.errors.each do |name, error|
+      .warning #{name}: #{error}
 .row
   .col-md-6.col-md-offset-3.text-center
     %h1 Create a New User
