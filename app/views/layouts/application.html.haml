@@ -10,4 +10,9 @@
       = render 'layouts/header'
       .container
         .app-content
+          .row
+            .col-md-12
+              - flash.each do |key, value|
+                - key = key == 'error' ? 'danger' : key
+                %div{class: "app-alert alert alert-#{key}"}= value.html_safe
           = yield

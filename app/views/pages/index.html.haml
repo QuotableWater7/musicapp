@@ -2,11 +2,6 @@
 
 .row
   .col-md-12
-    - if flash[:success]
-      .alert.alert-danger
-        = flash[:success]
-.row
-  .col-md-12
     - if current_user
       Hello #{current_user.email}!
     - else

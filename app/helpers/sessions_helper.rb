@@ -24,8 +24,8 @@ module SessionsHelper
 
   def require_login
     unless current_user
-      flash[:error] = 'You must be logged in to view that page'
-      render '/signin'
+      flash.now[:error] = 'You must be logged in to view that page'
+      render new_session_path
     end
   end
 end
