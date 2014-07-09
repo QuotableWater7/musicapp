@@ -2,7 +2,12 @@
 
 .row
   .col-md-12
-    = flash[:success]
+    - if flash[:success]
+      .alert.alert-danger
+        = flash[:success]
 .row
   .col-md-12
-    This is the home page.
+    - if current_user
+      Hello #{current_user.email}!
+    - else
+      You should log in dude!

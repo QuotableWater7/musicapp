@@ -14,10 +14,12 @@
  */
 
 $site-bg: #efefef;
+$site-secondary-color: rgba(230, 230, 100, 1);
 
 $content-padding: 10px;
 
 $header-bg: #5577cc;
+$header-bg-lighter: lighten($header-bg, 10%);
 $header-text-color: white;
 $header-text-active-color: lighten($header-bg, 30%);
 
@@ -61,6 +63,7 @@ html, body {
 
         &.active {
           color: $header-text-active-color;
+          background: $header-bg-lighter;
         }
       }
     }
