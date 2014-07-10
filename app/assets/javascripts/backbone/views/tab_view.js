@@ -1,4 +1,6 @@
 (function () {
+  'use strict';
+
   var TabView = Backbone.View.extend({
     el: '.app-container',
 
