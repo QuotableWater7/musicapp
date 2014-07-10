@@ -9,6 +9,7 @@ gem 'haml'
 gem 'execjs'
 gem 'protected_attributes'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'rails-backbone'
 
 # Gems used only for assets and not required
 # in production environments by default.
