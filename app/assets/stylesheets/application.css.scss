@@ -17,6 +17,7 @@ $site-bg: #efefef;
 $site-secondary-color: rgba(230, 230, 100, 1);
 
 $content-bg: white;
+$content-border-radius: 6px;
 
 $content-padding: 10px;
 
@@ -45,6 +46,7 @@ html, body {
 }
 
 .app-content {
+  border-radius: $content-border-radius;
   background: $content-bg;
   padding: $content-padding;
 }
