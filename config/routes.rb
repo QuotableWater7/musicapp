@@ -11,4 +11,6 @@ Musicapp::Application.routes.draw do
   resources :users, only: [:new, :create, :update, :edit]
 
   resources :sessions, only: [:new, :create, :destroy]
+
+  resources :tabs
 end
