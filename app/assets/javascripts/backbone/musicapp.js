@@ -1,6 +1,7 @@
 //= require_self
 //= require_tree ./templates
 //= require_tree ./models
+//= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
 
@@ -11,7 +12,7 @@ window.MusicApp = {
   Views: {},
 
   run: function () {
-    var view = new this.Views.TabView();
-    view.render();
+    var tabs_collection = new this.Collections.Tabs();
+    var view = new this.Views.TabsView({ collection: tabs_collection });
   }
 };

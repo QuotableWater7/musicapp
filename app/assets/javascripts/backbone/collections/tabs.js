@@ -1,8 +1,9 @@
 (function () {
   'use strict';
 
-  var TabCollection = Backbone.Collection.extend({
-    model: MusicApp.Models.Tab
+  var Tabs = Backbone.Collection.extend({
+    model: MusicApp.Models.Tab,
+    url: '/tabs'
   });
 
   MusicApp.Collections.Tabs = Tabs;

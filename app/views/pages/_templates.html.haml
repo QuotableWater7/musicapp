@@ -1,6 +1,24 @@
+%script#tabs-view{ type: 'text/template' }
+  %table.table.tabs-table
+    %thead
+      %tr
+        %th Song
+        %th Artist
+        %th Tab URL
+        %th Sessions
+        %th Minutes
+        %th
+    %tbody
+      %tr
+        %td.text-center{ colspan: 6 }
+          .btn.btn-small.btn-success.add-tab Add Tab
+
 %script#tab-view{ type: 'text/template' }
-  %ul.list-inline.tab-row
-    %li song
-    %li artist
-    %li link to the tab
-    %li completion percent
+  %tr.tab-row
+    %td {{= song }}
+    %td {{= artist }}
+    %td {{= url }}
+    %td {{= sessions_completed }}
+    %td {{= total_minutes }}
+    %td
+      .btn.btn-sm.btn-danger.remove-tab x

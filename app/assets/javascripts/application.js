@@ -15,3 +15,9 @@
 //= require bootstrap.min
 //= require underscore
 //= require backbone/manifest
+
+_.templateSettings = {
+  evaluate:    /\{\{(.+?)\}\}/g,
+  interpolate: /\{\{=(.+?)\}\}/g,
+  escape:      /\{\{-(.+?)\}\}/g
+};
