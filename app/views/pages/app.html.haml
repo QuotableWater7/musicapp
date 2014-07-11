@@ -2,11 +2,13 @@
 
 .row
   .col-md-12
-    Why hello there, user with email #{current_user.email}.
+    %h1 Guitar Practice Application
+    %hr
 %br
 .row
   .col-md-8
-    .app-container
+    %h3 Tab App
+    .tab-app-container
 
 = render 'templates'
 = javascript_include_tag 'app/app'

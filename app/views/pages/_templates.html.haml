@@ -17,7 +17,7 @@
   %tr.tab-row
     %td {{= song }}
     %td {{= artist }}
-    %td {{= url }}
+    %td= link_to '{{= url }}', '{{= url }}', target: '_blank'
     %td {{= sessions_completed }}
     %td {{= total_minutes }}
     %td

@@ -16,6 +16,8 @@
 $site-bg: #efefef;
 $site-secondary-color: rgba(230, 230, 100, 1);
 
+$content-bg: white;
+
 $content-padding: 10px;
 
 $header-bg: #5577cc;
@@ -43,6 +45,7 @@ html, body {
 }
 
 .app-content {
+  background: $content-bg;
   padding: $content-padding;
 }
 

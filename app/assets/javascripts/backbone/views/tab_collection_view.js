@@ -2,7 +2,7 @@
   'use strict';
 
   var TabsView = Backbone.View.extend({
-    el: '.app-container',
+    el: '.tab-app-container',
     tab_views: [],
 
     events: {
