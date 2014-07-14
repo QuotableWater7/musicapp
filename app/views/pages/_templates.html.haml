@@ -14,11 +14,10 @@
           .btn.btn-small.btn-success.add-tab Add Tab
 
 %script#tab-view{ type: 'text/template' }
-  %tr.tab-row
-    %td {{= song }}
-    %td {{= artist }}
-    %td= link_to '{{= url }}', '{{= url }}', target: '_blank'
-    %td {{= sessions_completed }}
-    %td {{= total_minutes }}
-    %td
-      .btn.btn-sm.btn-danger.remove-tab{ data: { url: '{{= url}}' } } x
+  %td.song {{= song }}
+  %td.artist {{= artist }}
+  %td.url= link_to '{{= url }}', '{{= url }}', target: '_blank'
+  %td.sessions-completed {{= sessions_completed }}
+  %td.total-minutes {{= total_minutes }}
+  %td
+    .btn.btn-sm.btn-danger.remove-tab{ data: { url: '{{= url}}' } } x

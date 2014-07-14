@@ -2,6 +2,7 @@
   'use strict';
 
   var TabView = Backbone.View.extend({
+    tagName: 'tr',
     template: _.template($('#tab-view').html()),
 
     events: {
@@ -10,20 +11,11 @@
 
     initialize: function () {
       _.bindAll(this, 'render');
-      this.$el = this.template(this.model.toJSON());
       this.model.on('change', this.render, this);
     },
 
     render: function () {
-      var $el = this.$el;
-      var model = this.model;
-
-      $el.find('.song').text(model.get('song'));
-      $el.find('.artist').text(model.get('artist'));
-      $el.find('.url').text(model.get('url'));
-      $el.find('.sessions-completed').text(model.get('sessions_completed'));
-      $el.find('.total-minutes').text(model.get('total_minutes'));
-
+      this.$el.html(this.template(this.model.toJSON()));
       return this;
     },
 
