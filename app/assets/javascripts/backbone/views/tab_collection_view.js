@@ -17,21 +17,20 @@
     render: function () {
       var self = this;
       this.$el.html('').append(this.template());
-      var $tbody = self.$el.find('.tabs-table tbody');
+      this.$tbody = self.$el.find('.tabs-table tbody tr:last-child');
 
       this.collection.each(function (tab) {
         var view = new MusicApp.Views.TabView({ model: tab });
-        $tbody.prepend(view.render().$el);
+        self.$tbody.before(view.render().$el);
       });
     },
 
     // helpers
     add: function () {
-      var $tbody = this.$el.find('.tabs-table tbody');
       var tab = new MusicApp.Models.Tab();
       this.collection.add(tab);
       var view = new MusicApp.Views.TabView({ model: tab });
-      $tbody.prepend(view.render().$el);
+      this.$tbody.before(view.render().$el);
     },
 
     // remove: function (e) {
