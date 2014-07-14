@@ -4,7 +4,6 @@
   var TabsView = Backbone.View.extend({
     el: '.tab-app-container',
     template: _.template($('#tabs-view').html()),
-    tab_views: [],
 
     events: {
       'click .add-tab': 'add'
@@ -23,7 +22,6 @@
       this.collection.each(function (tab) {
         var view = new MusicApp.Views.TabView({ model: tab });
         $tbody.prepend(view.render().$el);
-        self.tab_views.push(view);
       });
     },
 
@@ -34,7 +32,6 @@
       this.collection.add(tab);
       var view = new MusicApp.Views.TabView({ model: tab });
       $tbody.prepend(view.render().$el);
-      this.tab_views.push(view);
     },
 
     // remove: function (e) {

@@ -10,11 +10,20 @@
 
     initialize: function () {
       _.bindAll(this, 'render');
+      this.$el = this.template(this.model.toJSON());
       this.model.on('change', this.render, this);
     },
 
     render: function () {
-      this.setElement(this.template(this.model.toJSON()));
+      var $el = this.$el;
+      var model = this.model;
+
+      $el.find('.song').text(model.get('song'));
+      $el.find('.artist').text(model.get('artist'));
+      $el.find('.url').text(model.get('url'));
+      $el.find('.sessions-completed').text(model.get('sessions_completed'));
+      $el.find('.total-minutes').text(model.get('total_minutes'));
+
       return this;
     },
 
