@@ -75,6 +75,10 @@ html, body {
   }
 }
 
+.entry {
+  contenteditable: true;
+}
+
 .footer {
   height: $footer-height;
 }

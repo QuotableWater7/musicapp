@@ -12,6 +12,7 @@
     initialize: function () {
       _.bindAll(this, 'render');
       this.collection.fetch({ success: this.render });
+      window.c = this.collection;
     },
 
     render: function () {

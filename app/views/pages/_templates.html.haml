@@ -10,14 +10,21 @@
         %th
     %tbody
       %tr
-        %td.text-center{ colspan: 6 }
+        %td.text-center{ colspan: 7 }
           .btn.btn-small.btn-success.add-tab Add Tab
 
 %script#tab-view{ type: 'text/template' }
-  %td.song {{= song }}
-  %td.artist {{= artist }}
-  %td.url= link_to '{{= url }}', '{{= url }}', target: '_blank'
-  %td.sessions-completed {{= sessions_completed }}
-  %td.total-minutes {{= total_minutes }}
   %td
-    .btn.btn-sm.btn-danger.remove-tab{ data: { url: '{{= url}}' } } x
+    .editable.song {{= song }}
+  %td
+    .editable.artist {{= artist }}
+  %td
+    .editable.url= link_to '{{= url }}', '{{= url }}', target: '_blank'
+  %td
+    .editable.sessions-completed {{= sessions_completed }}
+  %td
+    .editable.total-minutes {{= total_minutes }}
+  %td
+    .btn.btn-sm.btn-success.save-tab Save
+  %td
+    .btn.btn-sm.btn-danger.remove-tab{ data: { url: '{{= url}}' } } Del
