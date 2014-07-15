@@ -37,6 +37,7 @@
         total_minutes: this.$el.find('.total-minutes').text()
       });
 
+      this.model.save();
       alert('Saved successfully');
     }
   });

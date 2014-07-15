@@ -4,8 +4,14 @@ class TabsController < ApplicationController
 
   def create
     @tab = Tab.new
+    @tab.user = current_user
 
     @tab.update_attributes(params[:tab])
+
+    respond_to do |format|
+      json = { message: "Created tab #{@tab.song} by #{@tab.artist}" }.to_json
+      format.json { render json: json }
+    end
   end
 
   def index
@@ -22,6 +28,11 @@ class TabsController < ApplicationController
   def update
     @tab = Tab.find(params[:id])
     @tab.update_attributes(params[:tab])
+
+    respond_to do |format|
+      json = { message: 'Success!' }.to_json
+      format.json { render json: json }
+    end
   end
 
   def destroy
