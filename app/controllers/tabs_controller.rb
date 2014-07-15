@@ -3,29 +3,16 @@ class TabsController < ApplicationController
   end
 
   def create
+    @tab = Tab.new
+
+    @tab.update_attributes(params[:tab])
   end
 
   def index
+    @tabs = Tab.where(user: current_user)
+
     respond_to do |format|
-      format.json do
-        json = [
-          {
-            song: 'Smells Like Teen Spirit',
-            artist: 'Nirvana',
-            url: 'http://nirvana.com',
-            sessions_completed: 5,
-            total_minutes: 10,
-          },
-          {
-            song: 'Give it Away',
-            artist: 'Red Hot Chili Peppers',
-            url: 'http://rhcp.com',
-            sessions_completed: 17,
-            total_minutes: 35,
-          }
-        ]
-        render json: json
-      end
+      format.json { render 'index' }
     end
   end
 
@@ -33,6 +20,8 @@ class TabsController < ApplicationController
   end
 
   def update
+    @tab = Tab.find(params[:id])
+    @tab.update_attributes(params[:tab])
   end
 
   def destroy

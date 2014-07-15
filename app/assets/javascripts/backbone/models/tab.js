@@ -11,8 +11,7 @@
       total_minutes: 0
     },
 
-    initialize: function () {
-    }
+    initialize: function () { }
   });
 
   MusicApp.Models.Tab = Tab;

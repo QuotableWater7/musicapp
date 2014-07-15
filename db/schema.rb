@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140710234614) do
+ActiveRecord::Schema.define(version: 20140715202121) do
 
   create_table "tabs", force: true do |t|
     t.string   "song"
@@ -21,7 +21,10 @@ ActiveRecord::Schema.define(version: 20140710234614) do
     t.integer  "total_minutes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "tabs", ["user_id"], name: "index_tabs_on_user_id"
 
   create_table "users", force: true do |t|
     t.text     "email"

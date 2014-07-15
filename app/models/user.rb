@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_many :tabs
+
   validates_uniqueness_of :email
 
   validates :email, presence: true
