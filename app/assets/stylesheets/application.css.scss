@@ -15,9 +15,10 @@
 
 $site-bg: #efefef;
 $site-secondary-color: rgba(230, 230, 100, 1);
+$site-width: 1000px;
 
 $content-bg: white;
-$content-border-radius: 6px;
+$content-border-radius: 8px;
 
 $content-padding: 10px;
 
@@ -42,7 +43,7 @@ html, body {
 }
 
 .container {
-  width: 1000px;
+  width: $site-width !important;
 }
 
 .app-content {
