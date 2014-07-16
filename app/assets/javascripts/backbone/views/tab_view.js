@@ -19,12 +19,23 @@
 
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));
+
+      if (this.model.default_values) {
+        this.$el.find('.editable').addClass('defaults');
+      }
+
       return this;
     },
 
     // ** helpers ** //
     makeEditable: function (e) {
       var $editable = $(e.target);
+
+      if ($editable.hasClass('defaults')) {
+        $editable.removeClass('defaults');
+        $editable.text('');
+      }
+
       $editable.attr('contenteditable', true);
       $editable.focus();
 

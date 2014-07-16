@@ -6,7 +6,7 @@
     template: _.template($('#tabs-view').html()),
 
     events: {
-      'click .add-tab': 'add'
+      'click .add-tab': 'newTab'
     },
 
     initialize: function () {
@@ -20,24 +20,22 @@
       this.$tbody = self.$el.find('.tabs-table tbody tr:last-child');
 
       this.collection.each(function (tab) {
-        var view = new MusicApp.Views.TabView({ model: tab });
-        self.$tbody.before(view.render().$el);
+        self.addTabView(tab);
       });
     },
 
     // helpers
-    add: function () {
+    newTab: function () {
       var tab = new MusicApp.Models.Tab();
+      tab.default_values = true;
       this.collection.add(tab);
-      var view = new MusicApp.Views.TabView({ model: tab });
-      this.$tbody.before(view.render().$el);
+      this.addTabView(tab);
     },
 
-    // remove: function (e) {
-    //   var url = $(e.target).data('url');
-    //   this.collection.remove(this.collection.getByUrl(url));
-    //   this.render();
-    // }
+    addTabView: function (tab) {
+      var view = new MusicApp.Views.TabView({ model: tab });
+      this.$tbody.before(view.render().$el);
+    }
   });
 
   MusicApp.Views.TabsView = TabsView;
