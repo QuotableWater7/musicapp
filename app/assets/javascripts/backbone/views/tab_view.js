@@ -43,6 +43,7 @@
 
       $editable.on('blur', function () {
         $editable.attr('contenteditable', false);
+
         if ($editable.hasClass('url')) {
           self.$el.find('.url-button').data('url', $editable.text());
         }
@@ -54,10 +55,10 @@
     },
 
     linkClick: function (e) {
+      window.open($(e.target).data('url'));
       var sessions_completed = parseInt(this.model.get('sessions_completed'));
       this.model.set('sessions_completed', sessions_completed + 1);
-      this.model.save();
-      window.open($(e.target).data('url'));
+      this.makeUnsaved();
     },
 
     destroyView: function () {
