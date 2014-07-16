@@ -7,6 +7,7 @@
         %th Song
         %th Artist
         %th Tab URL
+        %th
         %th Sessions
         %th Minutes
         %th
@@ -22,7 +23,10 @@
   %td
     .editable.artist {{= artist }}
   %td
-    .editable.url= link_to '{{= url }}', '{{= url }}', target: '_blank'
+    .editable.url
+      {{= url }}
+  %td
+    %a.url-button.pull-right{ data: { url: '{{= url}}' } } Go!
   %td
     .editable.sessions-completed {{= sessions_completed }}
   %td

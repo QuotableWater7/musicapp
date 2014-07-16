@@ -87,6 +87,10 @@ html, body {
   background: $tab-unsaved-bg;
 }
 
+.url-button {
+  cursor: pointer;
+}
+
 .footer {
   background: $footer-bg;
   height: $footer-height;
