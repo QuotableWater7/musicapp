@@ -6,6 +6,7 @@
     template: _.template($('#tab-view').html()),
 
     events: {
+      'dblclick .editable': 'makeEditable',
       'click .remove-tab': 'destroyView',
       'click .save-tab': 'update'
     },
@@ -17,11 +18,20 @@
 
     render: function () {
       this.$el.html(this.template(this.model.toJSON()));
-      this.$el.find('.editable').attr('contenteditable', true);
       return this;
     },
 
     // ** helpers ** //
+    makeEditable: function (e) {
+      var $editable = $(e.target);
+      $editable.attr('contenteditable', true);
+      $editable.focus();
+
+      $editable.on('blur', function () {
+        $editable.attr('contenteditable', false);
+      });
+    },
+
     destroyView: function () {
       var confirm_delete = confirm('Are you sure you want to delete this?');
 
