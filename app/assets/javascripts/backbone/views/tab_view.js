@@ -7,7 +7,7 @@
 
     events: {
       'dblclick .editable': 'makeEditable',
-      'keydown .editable': 'makeUnsaved',
+      'keydown .editable': 'changesMade',
       'click .remove-tab': 'destroyView',
       'click .save-tab': 'save',
       'click .url-button': 'linkClick',
@@ -50,15 +50,25 @@
       });
     },
 
-    makeUnsaved: function () {
-      this.$el.addClass('tab-unsaved')
+    changesMade: function (e) {
+      var self = this;
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+      var $editable;
+
+      this.$el.addClass('tab-unsaved');
+      if (keycode === 13) {
+        e.preventDefault();
+        $editable = self.$el.find('.editable');
+        $editable.attr('contenteditable', false);
+        $editable.blur();
+      }
     },
 
     linkClick: function (e) {
       window.open($(e.target).data('url'));
       var sessions_completed = parseInt(this.model.get('sessions_completed'));
       this.model.set('sessions_completed', sessions_completed + 1);
-      this.makeUnsaved();
+      this.changesMade();
     },
 
     destroyView: function () {
