@@ -13,21 +13,26 @@
  *= require_tree .
  */
 
+$white: white;
+
+
 $site-bg: #efefef;
 $site-secondary-color: rgba(230, 230, 100, 1);
 $site-width: 1000px;
 
-$content-bg: white;
+$content-bg: $white;
 $content-border-radius: 8px;
-
 $content-padding: 10px;
 
 $header-bg: #5577cc;
 $header-bg-lighter: lighten($header-bg, 10%);
-$header-text-color: white;
+$header-text-color: $white;
 $header-text-active-color: lighten($header-bg, 30%);
 
-$footer-height: 20px;
+$footer-height: 60px;
+$footer-bg: darken($site-bg, 30%);
+
+$border-default: 2px solid black;
 
 html, body {
   height: 100%;
@@ -81,5 +86,8 @@ html, body {
 }
 
 .footer {
+  background: $footer-bg;
   height: $footer-height;
+  border-top: $border-default;
+  color: $white;
 }

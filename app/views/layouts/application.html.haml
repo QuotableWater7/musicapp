@@ -16,3 +16,4 @@
                 - key = key == 'error' ? 'danger' : key
                 %div{class: "app-alert alert alert-#{key}"}= value.html_safe
           = yield
+    = render 'layouts/footer'
