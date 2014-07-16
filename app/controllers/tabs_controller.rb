@@ -36,5 +36,14 @@ class TabsController < ApplicationController
   end
 
   def destroy
+    tab = Tab.find(params[:id])
+    tab.destroy
+
+    respond_to do |format|
+      format.json do
+        json = { message: "Deleted tab #{tab.song} by #{tab.artist}" }.to_json
+        render json: json
+      end
+    end
   end
 end
