@@ -8,7 +8,8 @@
     events: {
       'dblclick .editable': 'makeEditable',
       'click .remove-tab': 'destroyView',
-      'click .save-tab': 'update'
+      'click .save-tab': 'update',
+      'click .url a': 'linkClick'
     },
 
     initialize: function () {
@@ -30,6 +31,12 @@
       $editable.on('blur', function () {
         $editable.attr('contenteditable', false);
       });
+    },
+
+    linkClick: function (e) {
+      var sessions_completed = parseInt(this.model.get('sessions_completed'));
+      this.model.set('sessions_completed', sessions_completed + 1);
+      this.model.save();
     },
 
     destroyView: function () {
