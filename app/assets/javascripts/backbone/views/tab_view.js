@@ -23,9 +23,13 @@
 
     // ** helpers ** //
     destroyView: function () {
-      this.model.destroy();
-      this.undelegateEvents();
-      this.$el.removeData().unbind().remove();
+      var confirm_delete = confirm('Are you sure you want to delete this?');
+
+      if (confirm_delete) {
+        this.model.destroy();
+        this.undelegateEvents();
+        this.$el.removeData().unbind().remove();
+      }
     },
 
     update: function () {
