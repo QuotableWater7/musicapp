@@ -1,6 +1,4 @@
 class TabsController < ApplicationController
-  def new
-  end
 
   def create
     @tab = Tab.new
@@ -46,4 +44,5 @@ class TabsController < ApplicationController
       end
     end
   end
+
 end

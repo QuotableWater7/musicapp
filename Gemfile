@@ -26,6 +26,7 @@ end
 
 group :development do
   gem 'spring'
+  gem 'database_cleaner', '~> 1.3.0'
 end
 
 group :development, :test do

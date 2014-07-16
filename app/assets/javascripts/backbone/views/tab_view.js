@@ -49,14 +49,14 @@
       this.$el.addClass('tab-unsaved')
     },
 
-    linkClick: function (e) {
+    linkClick: function () {
       var sessions_completed = parseInt(this.model.get('sessions_completed'));
       this.model.set('sessions_completed', sessions_completed + 1);
       this.model.save();
     },
 
     destroyView: function () {
-      var confirm_delete = confirm('Are you sure you want to delete this?');
+      var confirm_delete = confirm('Are you sure you want to delete this tab?');
 
       if (confirm_delete) {
         this.model.destroy();
