@@ -7,9 +7,10 @@
 
     events: {
       'dblclick .editable': 'makeEditable',
+      'keydown .editable': 'makeUnsaved',
       'click .remove-tab': 'destroyView',
-      'click .save-tab': 'update',
-      'click .url a': 'linkClick'
+      'click .save-tab': 'save',
+      'click .url a': 'linkClick',
     },
 
     initialize: function () {
@@ -44,6 +45,10 @@
       });
     },
 
+    makeUnsaved: function () {
+      this.$el.addClass('tab-unsaved')
+    },
+
     linkClick: function (e) {
       var sessions_completed = parseInt(this.model.get('sessions_completed'));
       this.model.set('sessions_completed', sessions_completed + 1);
@@ -60,7 +65,9 @@
       }
     },
 
-    update: function () {
+    save: function () {
+      var self = this;
+
       this.model.set({
         song: this.$el.find('.song').text(),
         artist: this.$el.find('.artist').text(),
@@ -70,7 +77,7 @@
       });
 
       this.model.save();
-      alert('Saved successfully');
+      self.$el.removeClass('tab-unsaved');
     }
   });
 
