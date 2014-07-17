@@ -19,16 +19,16 @@
 
 %script#tab-view{ type: 'text/template' }
   %td
-    .editable.song {{= song }}
+    .editable{ data: { attr: 'song' } } {{= song }}
   %td
-    .editable.artist {{= artist }}
+    .editable{ data: { attr: 'artist' } } {{= artist }}
   %td
-    .editable.url
+    .editable{ data: { attr: 'url' } }
       {{= url }}
   %td
     %a.url-button.pull-right{ data: { url: '{{= url}}' } } Go!
   %td
-    .editable.sessions-completed.text-center {{= sessions_completed }}
+    .editable.text-center{ data: { attr: 'sessions_completed' } } {{= sessions_completed }}
   %td
     .total-minutes.text-center {{= total_minutes }}
   %td

@@ -13,8 +13,12 @@
  *= require_tree .
  */
 
+
+// colors
 $white: white;
 
+// layout
+$margin-default: 20px;
 
 $site-bg: #efefef;
 $site-secondary-color: rgba(230, 230, 100, 1);
@@ -96,4 +100,5 @@ html, body {
   height: $footer-height;
   border-top: $border-default;
   color: $white;
+  margin-top: $margin-default;
 }

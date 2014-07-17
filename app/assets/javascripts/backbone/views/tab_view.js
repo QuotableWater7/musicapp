@@ -53,22 +53,24 @@
     changesMade: function (e) {
       var self = this;
       var keycode = (event.keyCode ? event.keyCode : event.which);
-      var $editable;
+      var $editable = $(e.target);
 
       this.$el.addClass('tab-unsaved');
+
       if (keycode === 13) {
         e.preventDefault();
-        $editable = self.$el.find('.editable');
         $editable.attr('contenteditable', false);
         $editable.blur();
+        this.model.set($editable.data('attr'), $editable.text());
       }
     },
 
     linkClick: function (e) {
       window.open($(e.target).data('url'));
-      var sessions_completed = parseInt(this.model.get('sessions_completed'));
-      this.model.set('sessions_completed', sessions_completed + 1);
-      this.changesMade();
+      var sessions = parseInt(this.model.get('sessions_completed')) + 1;
+      this.model.set('sessions_completed', sessions);
+      this.$el.find('.editable[data-attr="sessions_completed"]').text(sessions);
+      this.save();
     },
 
     destroyView: function () {
@@ -82,18 +84,8 @@
     },
 
     save: function () {
-      var self = this;
-
-      this.model.set({
-        song: this.$el.find('.song').text(),
-        artist: this.$el.find('.artist').text(),
-        url: this.$el.find('.url').text(),
-        sessions_completed: this.$el.find('.sessions-completed').text(),
-        total_minutes: this.$el.find('.total-minutes').text()
-      });
-
       this.model.save();
-      self.$el.removeClass('tab-unsaved');
+      this.$el.removeClass('tab-unsaved');
     }
   });
 

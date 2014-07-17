@@ -9,9 +9,7 @@
       url: 'http://',
       sessions_completed: 0,
       total_minutes: 0
-    },
-
-    initialize: function () { }
+    }
   });
 
   MusicApp.Models.Tab = Tab;
