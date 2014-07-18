@@ -10,8 +10,10 @@
     },
 
     initialize: function () {
+      var self = this;
       _.bindAll(this, 'render');
       this.collection.fetch({ success: this.render });
+      window.onbeforeunload = function () { return self.checkUnsavedChanges(); };
     },
 
     render: function () {
@@ -35,6 +37,14 @@
     addTabView: function (tab) {
       var view = new MusicApp.Views.TabView({ model: tab });
       this.$tbody.before(view.render().$el);
+    },
+
+    checkUnsavedChanges: function () {
+      var unsaved = this.$el.find('.tab-unsaved').length;
+
+      if (unsaved) {
+        return 'Warning!  You have not saved all your changes.';
+      }
     }
   });
 
