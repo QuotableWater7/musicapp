@@ -8,6 +8,8 @@
     initialize: function (params) {
       this.title = params.title;
       this.description = params.description;
+
+      return this;
     },
 
     render: function () {
