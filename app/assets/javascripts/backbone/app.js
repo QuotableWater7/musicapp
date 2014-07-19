@@ -30,12 +30,21 @@ window.App = {
   },
 
   musicApp: function () {
-    var header_view = new this.Views.HeaderView();
+    var header_view = new this.Views.HeaderView({
+      title: 'My Tabs',
+      description: 'Double click a cell to edit.'
+    });
+    header_view.render();
     var tabs_collection = new this.Collections.Tabs();
     var view = new this.Views.TabsView({ collection: tabs_collection });
   },
 
   visualizationApp: function () {
+    var header_view = new this.Views.HeaderView({
+      title: 'Visualization',
+      description: 'Improve your knowledge of the fretboard.'
+    });
+    header_view.render();
     var visualization_view = new this.Views.VisualizationView();
     $('.view').empty().html(visualization_view.render().$el);
   }
