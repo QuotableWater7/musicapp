@@ -30,6 +30,7 @@ window.App = {
   },
 
   musicApp: function () {
+    var header_view = new this.Views.HeaderView();
     var tabs_collection = new this.Collections.Tabs();
     var view = new this.Views.TabsView({ collection: tabs_collection });
   },
