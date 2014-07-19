@@ -47,6 +47,8 @@
         if ($editable.hasClass('url')) {
           self.$el.find('.url-button').data('url', $editable.text());
         }
+
+        self.model.set($editable.data('attr'), $editable.text());
       });
     },
 
@@ -59,9 +61,7 @@
 
       if (keycode === 13) {
         e.preventDefault();
-        $editable.attr('contenteditable', false);
         $editable.blur();
-        this.model.set($editable.data('attr'), $editable.text());
       }
     },
 
