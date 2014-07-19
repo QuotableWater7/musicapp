@@ -61,6 +61,7 @@ html, body {
   border-radius: $content-border-radius;
   background: $content-bg;
   padding: $content-padding;
+  margin-bottom: $margin-default;
 }
 
 .header {
@@ -100,5 +101,4 @@ html, body {
   height: $footer-height;
   border-top: $border-default;
   color: $white;
-  margin-top: $margin-default;
 }
