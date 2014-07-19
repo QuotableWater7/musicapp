@@ -1,6 +1,6 @@
 %script#tabs-view{ type: 'text/template' }
   .well.well-sm.text-center
-    %h2 Tab App
+    %h2 My Tabs
     %p Double click on a cell to edit.
   %table.table.tabs-table
     %thead
@@ -31,7 +31,7 @@
   %td
     .editable.text-center{ data: { attr: 'sessions_completed' } } {{= sessions_completed }}
   %td
-    .total-minutes.text-center {{= total_minutes }}
+    .editable.text-center{ data: { attr: 'total_minutes' } } {{= total_minutes }}
   %td
     .btn.btn-sm.btn-success.save-tab Save
   %td
