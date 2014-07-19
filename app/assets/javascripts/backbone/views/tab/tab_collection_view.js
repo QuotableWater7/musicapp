@@ -28,14 +28,14 @@
 
     // helpers
     newTab: function () {
-      var tab = new MusicApp.Models.Tab();
+      var tab = new App.Models.Tab();
       tab.default_values = true;
       this.collection.add(tab);
       this.addTabView(tab);
     },
 
     addTabView: function (tab) {
-      var view = new MusicApp.Views.TabView({ model: tab });
+      var view = new App.Views.TabView({ model: tab });
       this.$tbody.before(view.render().$el);
     },
 
@@ -48,5 +48,5 @@
     }
   });
 
-  MusicApp.Views.TabsView = TabsView;
+  App.Views.TabsView = TabsView;
 })();

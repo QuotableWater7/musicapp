@@ -2,7 +2,7 @@
   'use strict';
 
   var Tabs = Backbone.Collection.extend({
-    model: MusicApp.Models.Tab,
+    model: App.Models.Tab,
     url: '/tabs',
     getByUrl: function(url) {
       return this.filter(function (val) {
@@ -11,5 +11,5 @@
     }
   });
 
-  MusicApp.Collections.Tabs = Tabs;
+  App.Collections.Tabs = Tabs;
 })();

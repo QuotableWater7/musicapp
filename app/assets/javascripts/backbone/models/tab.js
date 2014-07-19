@@ -12,5 +12,5 @@
     }
   });
 
-  MusicApp.Models.Tab = Tab;
+  App.Models.Tab = Tab;
 })();

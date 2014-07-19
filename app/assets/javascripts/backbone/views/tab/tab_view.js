@@ -89,5 +89,5 @@
     }
   });
 
-  MusicApp.Views.TabView = TabView;
+  App.Views.TabView = TabView;
 })();

@@ -9,11 +9,13 @@
     },
 
     initialize: function () {
-
+      this.$el.html(this.template());
     },
 
     render: function () {
-
+      return this;
     }
   });
+
+  App.Views.VisualizationView = VisualizationView;
 })();
