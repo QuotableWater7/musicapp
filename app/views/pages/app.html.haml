@@ -4,10 +4,15 @@
   .col-md-12
     %h1 Guitar Practice
     %hr
+    %ul.list-inline.app-list
+      %li
+        .btn.btn-sm.btn-info{ data: { app: 'tabs'} } My Tabs
+      %li
+        .btn.btn-sm.btn-info.visualization-app{ data: { app: 'visualization' } } Visualization
 %br
 .row
   .col-md-12
     .view
 
-= render 'tabs/templates'
+= render 'backbone/tab/templates'
 = javascript_include_tag 'app/app'
