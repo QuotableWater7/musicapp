@@ -1,0 +1,20 @@
+// color definitions
+$white: white;
+$almost-white: #efefef;
+$blue: #5577cc;
+$blue-lighter: lighten($blue, 10%);
+$blue-lightest: lighten($blue-lighter, 30%);
+$secondary-color: rgba(230, 230, 100, 1);
+
+// site stuff
+$header-bg: $blue;
+$header-bg-lighter: $blue-lighter;
+$header-text-color: $white;
+$header-text-active-color: $blue-lightest;
+
+$site-bg: $almost-white;
+$content-bg: $white;
+
+$footer-bg: darken($site-bg, 30%);
+
+$tab-unsaved-bg: #ffddbb;

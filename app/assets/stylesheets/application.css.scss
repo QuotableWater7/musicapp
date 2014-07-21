@@ -1,28 +1,9 @@
-@import 'variables/colors';
+@import 'colors';
+@import 'layout';
+@import 'header';
+@import 'footer';
+@import 'tabs';
 @import 'bootstrap.min';
-
-
-// layout
-$margin-default: 20px;
-
-$site-bg: $almost-white;
-$site-width: 1000px;
-
-$content-bg: $white;
-$content-border-radius: 8px;
-$content-padding: 10px;
-
-$header-bg: $blue;
-$header-bg-lighter: $blue-lighter;
-$header-text-color: $white;
-$header-text-active-color: $blue-lightest;
-
-$footer-height: 60px;
-$footer-bg: darken($site-bg, 30%);
-
-$border-default: 2px solid black;
-
-$tab-unsaved-bg: #ffddbb;
 
 html, body {
   height: 100%;
@@ -46,43 +27,4 @@ html, body {
   background: $content-bg;
   padding: $content-padding;
   margin-bottom: $margin-default;
-}
-
-.header {
-  .header-logo img {
-    width: 40px;
-    margin-top: -10px;
-    margin-right: -10px;
-  }
-
-  &.navbar-default {
-    background: $header-bg;
-
-    ul {
-      li a {
-        color: $header-text-color;
-        font-weight: bold;
-
-        &.active {
-          color: $header-text-active-color;
-          background: $header-bg-lighter;
-        }
-      }
-    }
-  }
-}
-
-.tab-unsaved {
-  background: $tab-unsaved-bg;
-}
-
-.url-button {
-  cursor: pointer;
-}
-
-.footer {
-  background: $footer-bg;
-  height: $footer-height;
-  border-top: $border-default;
-  color: $white;
 }

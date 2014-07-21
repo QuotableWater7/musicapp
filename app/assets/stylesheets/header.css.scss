@@ -1,0 +1,23 @@
+.header {
+  .header-logo img {
+    width: 40px;
+    margin-top: -10px;
+    margin-right: -10px;
+  }
+
+  &.navbar-default {
+    background: $header-bg;
+
+    ul {
+      li a {
+        color: $header-text-color;
+        font-weight: bold;
+
+        &.active {
+          color: $header-text-active-color;
+          background: $header-bg-lighter;
+        }
+      }
+    }
+  }
+}
