@@ -15,7 +15,8 @@
     template: _.template($('#visualization-view').html()),
 
     events: {
-      '.submit': 'render'
+      '.submit': 'render',
+      'click .activity-switch': 'changeActivity'
     },
 
     initialize: function () {
@@ -25,11 +26,29 @@
     },
 
     render: function () {
+      switch (current_activity) {
+        case 'notes':
+          this.notesExercise();
+          break;
+        case 'frets':
+          this.fretsExercise();
+          break;
+      }
+      return this;
+    },
+
+    changeActivity: function () {
+
+    },
+
+    notesExercise: function () {
       var random_string = Strings[Math.floor(Math.random()*Strings.length)];
       var random_fret = Frets[Math.floor(Math.random()*Frets.length)];
       this.$el.find('.display').text(random_string + random_fret);
+    },
 
-      return this;
+    fretsExercise: function () {
+
     }
   });
 
