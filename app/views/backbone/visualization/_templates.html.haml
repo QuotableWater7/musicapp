@@ -1,7 +1,6 @@
 %script#visualization-view{ type: 'text/template' }
-  .visualization-container
-    Visualize the note location in your head and then click next.
-  .activity
-  .display
-    %h3
-  .submit
+  .visualization-app
+    .activity
+      Visualize the note location in your head, and adjust the speed as needed.
+    .display
+    %input.slider-track{ data: { slider_min: 0, slider_max: 10, slider_step: 1, slider_orientation: 'vertical' }, type: 'text' }

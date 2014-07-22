@@ -9,7 +9,6 @@
   var FlatNotes = [
     'A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'
   ];
-
   var current_activity = 'note';
 
   var VisualizationView = Backbone.View.extend({
@@ -22,12 +21,13 @@
     initialize: function () {
       _.bindAll(this, 'render');
       this.$el.html(this.template());
+      this.$el.find('.slider-track').slider({ reversed: true });
     },
 
     render: function () {
       var random_string = Strings[Math.floor(Math.random()*Strings.length)];
       var random_fret = Frets[Math.floor(Math.random()*Frets.length)];
-      this.$el.find('.display h3').text(random_string + random_fret);
+      this.$el.find('.display').text(random_string + random_fret);
 
       return this;
     }
