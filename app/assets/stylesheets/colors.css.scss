@@ -5,6 +5,7 @@ $blue: #5577cc;
 $blue-lighter: lighten($blue, 10%);
 $blue-lightest: lighten($blue-lighter, 30%);
 $secondary-color: rgba(230, 230, 100, 1);
+$yellow: #cccc66;
 
 // site stuff
 $header-bg: $blue;
@@ -18,3 +19,6 @@ $content-bg: $white;
 $footer-bg: darken($site-bg, 30%);
 
 $tab-unsaved-bg: #ffddbb;
+
+$visualization-display-bg: $blue-lighter;
+$visualization-display-color: $yellow;

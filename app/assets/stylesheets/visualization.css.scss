@@ -1,4 +1,4 @@
-$visualization-width: 300px;
+$visualization-width: 500px;
 $visualization-height: 300px;
 
 .visualization-app {
@@ -6,10 +6,11 @@ $visualization-height: 300px;
     width: $visualization-width;
     height: $visualization-height;
     text-align: center;
-    background: navy;
+    background: $visualization-display-bg;
     color: yellow;
     font-size: 170px;
     display: inline-block;
+    border-radius: $content-border-radius / 2;
   }
 
   .slider-track {

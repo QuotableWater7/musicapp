@@ -9,14 +9,14 @@
   var FlatNotes = [
     'A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab'
   ];
-  var current_activity = 'note';
+  var current_activity = 'notes';
 
   var VisualizationView = Backbone.View.extend({
     template: _.template($('#visualization-view').html()),
 
     events: {
       '.submit': 'render',
-      'click .activity-switch': 'changeActivity'
+      'click .btn-group .btn': 'changeActivity'
     },
 
     initialize: function () {
@@ -34,21 +34,35 @@
           this.fretsExercise();
           break;
       }
+
       return this;
     },
 
-    changeActivity: function () {
+    changeActivity: function (e) {
+      var $target = $(e.target);
 
+      current_activity = $target.data('activity');
+      this.render();
+
+      return this;
     },
 
     notesExercise: function () {
-      var random_string = Strings[Math.floor(Math.random()*Strings.length)];
-      var random_fret = Frets[Math.floor(Math.random()*Frets.length)];
+      var random_string = this.randomElement(Strings);
+      var random_fret = this.randomElement(Frets);
+
       this.$el.find('.display').text(random_string + random_fret);
     },
 
     fretsExercise: function () {
+      var random_string = this.randomElement(Strings);
+      var random_note = this.randomElement(SharpNotes);
 
+      this.$el.find('.display').text(random_string + ': ' + random_note);
+    },
+
+    randomElement: function (arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
     }
   });
 
