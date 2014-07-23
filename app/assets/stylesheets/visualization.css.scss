@@ -1,7 +1,15 @@
+$description-width: 150px;
+
 $visualization-width: 500px;
 $visualization-height: 300px;
 
 .visualization-app {
+  .activity {
+    width: $description-width;
+    margin-left: -$description-width;
+    display: inline-block;
+  }
+
   .display {
     width: $visualization-width;
     height: $visualization-height;
