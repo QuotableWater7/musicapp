@@ -25,6 +25,9 @@
         case 'scheduler':
           schedulerApp();
           break;
+        case 'metronome':
+          metronomeApp();
+          break;
       }
     });
 
@@ -55,5 +58,13 @@
       description: 'Pick your areas of focus and start the timer.'
     }).render();
     $('.view').empty().html('Scheduler app is in progress...');
+  }
+
+  function metronomeApp() {
+    new App.Views.HeaderView({
+      title: 'Metronome',
+      description: 'Pick a speed and practice!'
+    }).render();
+    $('.view').empty().html('Metronome App is in progress');
   }
 })();
