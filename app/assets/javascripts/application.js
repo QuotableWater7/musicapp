@@ -22,3 +22,10 @@ _.templateSettings = {
   interpolate: /\{\{=(.+?)\}\}/g,
   escape:      /\{\{-(.+?)\}\}/g
 };
+
+window.App = {
+  Models: {},
+  Collections: {},
+  Routers: {},
+  Views: {}
+}

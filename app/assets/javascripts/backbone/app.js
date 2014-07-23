@@ -1,18 +1,15 @@
-//= require_self
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
 //= require_tree ./routers
 
-window.App = {
-  Models: {},
-  Collections: {},
-  Routers: {},
-  Views: {},
+//= require_self
 
-  run: function () {
-    var self = this;
+(function () {
+  run();
+
+  function run() {
     var $app_buttons = $('.app-list').find('.btn');
 
     $app_buttons.click(function (e) {
@@ -20,43 +17,43 @@ window.App = {
 
       switch ($target.data('app')) {
         case 'tabs':
-          self.musicApp();
+          tabApp();
           break;
         case 'visualization':
-          self.visualizationApp();
+          visualizationApp();
           break;
         case 'scheduler':
-          self.schedulerApp();
+          schedulerApp();
           break;
       }
     });
-  },
 
-  musicApp: function () {
-    new this.Views.HeaderView({
+    tabApp();     // default is to run this app
+  }
+
+  function tabApp() {
+    new App.Views.HeaderView({
       title: 'My Tabs',
       description: 'Double click a cell to edit.'
     }).render();
-    var tabs_collection = new this.Collections.Tabs();
-    var view = new this.Views.TabsView({ collection: tabs_collection });
-  },
+    var tabs_collection = new App.Collections.Tabs();
+    var view = new App.Views.TabsView({ collection: tabs_collection });
+  }
 
-  visualizationApp: function () {
-    new this.Views.HeaderView({
+  function visualizationApp() {
+    new App.Views.HeaderView({
       title: 'Visualization',
       description: 'Improve your knowledge of the fretboard.'
     }).render();
-    var visualization_view = new this.Views.VisualizationView();
+    var visualization_view = new App.Views.VisualizationView();
     $('.view').empty().html(visualization_view.render().$el);
-  },
+  }
 
-  schedulerApp: function () {
-    new this.Views.HeaderView({
+  function schedulerApp() {
+    new App.Views.HeaderView({
       title: 'Practice Scheduler',
       description: 'Pick your areas of focus and start the timer.'
     }).render();
     $('.view').empty().html('Scheduler app is in progress...');
   }
-};
-
-window.App.run();
+})();
