@@ -3,31 +3,56 @@
 
   var Strings = ['e', 'B', 'G', 'D', 'A', 'E'];
   var Frets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  var timer = 2000;
 
   var VisualizationView = Backbone.View.extend({
     template: _.template($('#visualization-view').html()),
 
     events: {
-      '.submit': 'render'
+      '.submit': 'render',
+      'click .next-btn': 'render'
     },
 
     initialize: function () {
+      var self = this;
+
       _.bindAll(this, 'render');
       this.$el.html(this.template());
-      // this.$el.find('.slider-track').slider({ reversed: true });
     },
 
     render: function () {
-      var random_string = this.randomElement(Strings);
-      var random_fret = this.randomElement(Frets);
+      var self = this;
 
-      this.$el.find('.display').text(random_string + random_fret);
+      var $display = this.$el.find('.display');
+      var string = this.randomElement(Strings);
+      var tabbed_fret = this.tabTemplate(this.randomElement(Frets));
+
+      $display.find('.string').each(function () {
+        $(this).text(self.tabTemplate('-'));
+      });
+      $display.find('.string[data-str="' + string + '"]').text(tabbed_fret);
+
+      setTimeout(function () {
+        self.render();
+      }, timer);
 
       return this;
     },
 
     randomElement: function (arr) {
       return arr[Math.floor(Math.random() * arr.length)];
+    },
+
+    tabTemplate: function (char) {
+      char = char.toString();
+      char = char.length === 1 ? '-' + char : char;  // normalize length
+      return '|----' + char + '-----|';
+    },
+
+    updateTimer: function (val) {
+      if (_.isNumber(val)) {
+        timer = val * 1000;
+      }
     }
   });
 

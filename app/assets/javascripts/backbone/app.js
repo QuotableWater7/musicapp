@@ -31,7 +31,7 @@
       }
     });
 
-    tabApp();     // default is to run this app
+    visualizationApp();     // default is to run this app
   }
 
   function tabApp() {
@@ -49,6 +49,7 @@
       description: 'Improve your knowledge of the fretboard.'
     }).render();
     var visualization_view = new App.Views.VisualizationView();
+
     $('.view').empty().html(visualization_view.render().$el);
   }
 

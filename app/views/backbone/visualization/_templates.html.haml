@@ -1,12 +1,7 @@
 %script#visualization-view{ type: 'text/template' }
   .visualization-app.text-center
-    .btn-group
-      .btn.btn-sm.btn-default{ data: { activity: 'notes' } } Notes
-      .btn.btn-sm.btn-default{ data: { activity: 'frets' } } Frets
-    %br
-    %br
     .activity
-      Visualize the note location in your head - and click next to cycle to the next note.
+      Visualize the note in your head and say it's name.
     .display
       .string{ data: { str: 'e' } }
       .string{ data: { str: 'B' } }
@@ -14,4 +9,3 @@
       .string{ data: { str: 'D' } }
       .string{ data: { str: 'A' } }
       .string{ data: { str: 'E' } }
-    / %input.slider-track{ data: { slider_min: 0, slider_max: 10, slider_step: 1, slider_orientation: 'vertical' }, type: 'text' }
