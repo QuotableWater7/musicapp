@@ -7,10 +7,12 @@ $slider-width: 150px;
 
 .visualization-app {
   .activity {
-    // height: $visualization-height;
+    height: $visualization-height;
     width: $description-width;
     margin-left: -$description-width;
     display: inline-block;
+    vertical-align: top;
+    padding-top: $visualization-height / 2 - 34px;
   }
 
   .display {
