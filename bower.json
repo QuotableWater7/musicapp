@@ -1,0 +1,21 @@
+{
+  "name": "musicapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/QuotableWater7/musicapp",
+  "authors": [
+    "JT Bowler <jbowler2400@gmail.com>"
+  ],
+  "description": "Apps for guitarists",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "howler": "~1.1.24"
+  }
+}
