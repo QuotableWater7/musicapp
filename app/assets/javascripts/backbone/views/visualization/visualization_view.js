@@ -18,11 +18,10 @@
     },
 
     render: function () {
-      var $display = this.$el.find('.display');
-      var string = this.randomElement(Strings);
-      var tabbed_fret = '--' + this.randomElement(Frets) + '--';
+      var random_string = this.randomElement(Strings);
+      var random_fret = this.randomElement(Frets);
 
-      $display.find('.string[data-str="' + string + '"]').text(tabbed_fret);
+      this.$el.find('.display').text(random_string + random_fret);
 
       return this;
     },
