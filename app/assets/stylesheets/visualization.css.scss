@@ -5,6 +5,8 @@ $visualization-height: 200px;
 
 $slider-width: 150px;
 
+$timer-width: 60px;
+
 .visualization-app {
   .activity {
     height: $visualization-height;
@@ -26,5 +28,17 @@ $slider-width: 150px;
     font-family: courier;
     display: inline-block;
     border-radius: $content-border-radius / 2;
+  }
+
+  .timer {
+    height: $visualization-height;
+    vertical-align: top;
+    padding-top: $visualization-height / 2 - 34px;
+    display: inline-block;
+    margin-right: -$timer-width;
+
+    .delay {
+      width: 30px;
+    }
   }
 }

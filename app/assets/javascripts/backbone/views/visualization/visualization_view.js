@@ -10,7 +10,8 @@
 
     events: {
       '.submit': 'render',
-      'click .next-btn': 'render'
+      'click .next-btn': 'render',
+      'keyup .timer input': 'updateTimer'
     },
 
     initialize: function () {
@@ -32,6 +33,8 @@
       });
       $display.find('.string[data-str="' + string + '"]').text(tabbed_fret);
 
+      console.log(timer);
+
       setTimeout(function () {
         self.render();
       }, timer);
@@ -49,8 +52,11 @@
       return '|----' + char + '-----|';
     },
 
-    updateTimer: function (val) {
-      if (_.isNumber(val)) {
+    updateTimer: function (evt) {
+      var $target = $(evt.target);
+      var val = parseInt($target.val().trim());
+
+      if (_.isNumber(val) && !_.isNaN(val)) {
         timer = val * 1000;
       }
     }
