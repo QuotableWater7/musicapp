@@ -34,6 +34,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'jasmine', '~> 2.0.2'
+  gem 'jasmine-rails', '~> 0.9.1'
 end
 
 # To use Jbuilder templates for JSON
