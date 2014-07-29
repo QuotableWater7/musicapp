@@ -33,8 +33,6 @@
       });
       $display.find('.string[data-str="' + string + '"]').text(tabbed_fret);
 
-      console.log(timer);
-
       setTimeout(function () {
         self.render();
       }, timer);

@@ -2,7 +2,6 @@
   'use strict';
 
   var TabsView = Backbone.View.extend({
-    el: '.view',
     template: _.template($('#tabs-view').html()),
 
     events: {
@@ -18,12 +17,14 @@
 
     render: function () {
       var self = this;
-      this.$el.empty().append(this.template());
+      this.$el.html(this.template());
       this.$tbody = self.$el.find('.tabs-table tbody tr:last-child');
 
       this.collection.each(function (tab) {
         self.addTabView(tab);
       });
+
+      return this;
     },
 
     // helpers

@@ -8,6 +8,8 @@
 
     render: function () {
 
+
+      return this;
     }
   });
 

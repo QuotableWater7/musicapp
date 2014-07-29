@@ -9,6 +9,8 @@
 (function () {
   run();
 
+  var $view;
+
   function run() {
     var $app_buttons = $('.app-list').find('.btn');
 
@@ -34,6 +36,12 @@
     visualizationApp();     // default is to run this app
   }
 
+  function loadView(view) {
+    $view = $view || $('.view');
+    $view.empty().html(view.render().$el);
+  }
+
+  // apps below
   function tabApp() {
     new App.Views.HeaderView({
       title: 'My Tabs',
@@ -41,6 +49,8 @@
     }).render();
     var tabs_collection = new App.Collections.Tabs();
     var view = new App.Views.TabsView({ collection: tabs_collection });
+
+    loadView(view);
   }
 
   function visualizationApp() {
@@ -50,7 +60,7 @@
     }).render();
     var visualization_view = new App.Views.VisualizationView();
 
-    $('.view').empty().html(visualization_view.render().$el);
+    loadView(visualization_view);
   }
 
   function schedulerApp() {
@@ -58,7 +68,9 @@
       title: 'Practice Scheduler',
       description: 'Pick your areas of focus and start the timer.'
     }).render();
-    $('.view').empty().html('Scheduler app is in progress...');
+
+    var progress_msg = 'Scheduler app is in progress...';
+    loadView({ render: function () { return { $el: progress_msg }; } });
   }
 
   function metronomeApp() {
@@ -66,6 +78,8 @@
       title: 'Metronome',
       description: 'Pick a speed and practice!'
     }).render();
-    $('.view').empty().html('Metronome App is in progress');
+
+    var progress_msg = 'Metronome App is in progress...';
+    loadView({ render: function () { return { $el: progress_msg }; } });
   }
 })();
