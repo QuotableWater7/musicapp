@@ -15,6 +15,7 @@
 //= require bootstrap.min
 //= require bootstrap-slider
 //= require underscore
+//= require howler
 //= require backbone/manifest
 
 _.templateSettings = {

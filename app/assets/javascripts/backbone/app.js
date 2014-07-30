@@ -33,7 +33,7 @@
       }
     });
 
-    visualizationApp();     // default is to run this app
+    metronomeApp();     // default is to run this app
   }
 
   function loadView(view) {
@@ -79,7 +79,7 @@
       description: 'Pick a speed and practice!'
     }).render();
 
-    var progress_msg = 'Metronome App is in progress...';
-    loadView({ render: function () { return { $el: progress_msg }; } });
+    var view = new App.Views.MetronomeView();
+    loadView(view);
   }
 })();

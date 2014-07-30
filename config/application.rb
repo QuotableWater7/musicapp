@@ -37,5 +37,6 @@ module Musicapp
     config.assets.version = '1.0'
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
+    config.assets.paths << Rails.root.join('app', 'assets', 'audios')
   end
 end
