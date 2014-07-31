@@ -16,11 +16,10 @@
     initialize: function () {
       _.bindAll(this, 'render');
       this.model.on('change', this.render, this);
+      this.$el.html(this.template(this.model.toJSON()));
     },
 
     render: function () {
-      this.$el.html(this.template(this.model.toJSON()));
-
       if (this.model.default_values) {
         this.$el.find('.editable').addClass('defaults');
       }
@@ -58,6 +57,9 @@
       var $editable = $(e.target);
 
       this.$el.addClass('tab-unsaved');
+      this.$el.find('.save-tab')
+        .removeClass('btn-secondary')
+        .addClass('btn-primary');
 
       if (keycode === 13) {
         e.preventDefault();
@@ -86,6 +88,9 @@
     save: function () {
       this.model.save();
       this.$el.removeClass('tab-unsaved');
+      this.$el.find('.save-tab')
+        .removeClass('btn-primary')
+        .addClass('btn-secondary');
     }
   });
 
