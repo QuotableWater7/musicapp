@@ -1,3 +1,9 @@
+.metronome-title {
+  @extend h3;
+  display: inline-block;
+  margin: 0 $margin-default 0 0;
+}
+
 input.metronome-bpm {
   width: 50px;
   display: inline-block;

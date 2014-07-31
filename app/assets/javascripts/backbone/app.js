@@ -7,9 +7,9 @@
 //= require_self
 
 (function () {
-  run();
-
   var $view;
+
+  $(document).ready(function () { run(); });
 
   function run() {
     var $app_buttons = $('.app-list').find('.btn');
@@ -27,12 +27,13 @@
         case 'scheduler':
           schedulerApp();
           break;
-        case 'metronome':
-          metronomeApp();
-          break;
+        // case 'metronome':
+        //   metronomeApp();
+        //   break;
       }
     });
 
+    tabApp();
     metronomeApp();     // default is to run this app
   }
 
@@ -74,12 +75,7 @@
   }
 
   function metronomeApp() {
-    new App.Views.HeaderView({
-      title: 'Metronome',
-      description: 'Pick a speed and practice!'
-    }).render();
-
     var view = new App.Views.MetronomeView();
-    loadView(view);
+    $('.footer-metronome').html(view.render().$el);
   }
 })();
