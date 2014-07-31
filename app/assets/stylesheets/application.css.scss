@@ -1,12 +1,12 @@
+@import 'bootstrap.min';
 @import 'colors';
+@import 'buttons';
 @import 'layout';
 @import 'header';
 @import 'footer';
 @import 'tabs';
 @import 'metronome';
 @import 'visualization';
-@import 'bootstrap.min';
-@import 'bootstrap-slider';
 
 html, body {
   height: 100%;
@@ -15,6 +15,7 @@ html, body {
 
 .app-wrapper {
   background-color: $site-bg;
+  color: $site-text-color;
   min-height: 100%;
   overflow: auto;
   margin-bottom: -$footer-height;

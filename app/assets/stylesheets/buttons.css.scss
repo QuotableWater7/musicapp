@@ -1,0 +1,25 @@
+$min-button-width: 80px;
+
+.btn-primary {
+  @extend .btn;
+
+  background: $blue;
+  color: $white;
+  min-width: $min-button-width;
+}
+
+.btn-secondary {
+  @extend .btn;
+
+  background: $blue-lightest;
+  color: $white;
+  min-width: $min-button-width;
+}
+
+.btn-tertiary {
+  @extend .btn;
+
+  background: red;
+  color: black;
+  min-width: $min-button-width;
+}

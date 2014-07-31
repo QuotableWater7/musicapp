@@ -48,8 +48,8 @@
       }, 60*1000/bpm);
 
       this.$el.find('.metronome-toggle')
-        .removeClass('btn-success')
-        .addClass('btn-danger')
+        .removeClass('btn-primary')
+        .addClass('btn-secondary')
         .text('Pause');
     },
 
@@ -58,8 +58,8 @@
       clearInterval(interval_id);
 
       this.$el.find('.metronome-toggle')
-        .removeClass('btn-danger')
-        .addClass('btn-success')
+        .removeClass('btn-secondary')
+        .addClass('btn-primary')
         .text('Play');
     },
 
