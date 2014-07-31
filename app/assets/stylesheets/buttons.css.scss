@@ -1,11 +1,14 @@
 $min-button-width: 80px;
 
+.btn-wider {
+  min-width: $min-button-width;
+}
+
 .btn-primary {
   @extend .btn;
 
   background: $blue-lighter;
   color: $white;
-  min-width: $min-button-width;
 }
 
 .btn-secondary {
@@ -13,7 +16,6 @@ $min-button-width: 80px;
 
   background: $blue-lightest;
   color: $white;
-  min-width: $min-button-width;
 }
 
 .btn-tertiary {
@@ -21,7 +23,6 @@ $min-button-width: 80px;
 
   background: red;
   color: black;
-  min-width: $min-button-width;
 }
 
 .btn-quaternary {
@@ -29,5 +30,11 @@ $min-button-width: 80px;
 
   background: black;
   color: white;
-  min-width: $min-button-width;
+}
+
+.btn-delete {
+  @extend .btn;
+
+  background: $purple-dark;
+  color: $white;
 }

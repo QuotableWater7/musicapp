@@ -9,6 +9,10 @@ $gray-darker: darken($gray, 50%);
 $gray-lighter: lighten($gray, 50%);
 $secondary-color: rgba(230, 230, 100, 1);
 $yellow: #eeee66;
+$red: #ff1111;
+$red-dull: darken($red, 10%);
+$purple: #ff22ff;
+$purple-dark: darken($purple, 20%);
 
 // site stuff
 $header-bg: $blue;

@@ -13,7 +13,7 @@
     %tbody
       %tr
         %td.text-center{ colspan: 8 }
-          .btn.btn-small.btn-success.add-tab Add Tab
+          .btn-small.btn-primary.add-tab Add Tab
 
 %script#tab-view{ type: 'text/template' }
   %td
@@ -30,6 +30,6 @@
   %td
     .editable.text-center{ data: { attr: 'total_minutes' } } {{= total_minutes }}
   %td
-    .btn.btn-sm.btn-success.save-tab Save
+    .btn-sm.btn-secondary.save-tab Save
   %td
-    .btn.btn-sm.btn-danger.remove-tab{ data: { url: '{{= url}}' } } Del
+    .btn-sm.btn-delete.remove-tab{ data: { url: '{{= url}}' } } Del
