@@ -30,8 +30,23 @@
       }
     });
 
-    tabApp();
-    metronomeApp();     // default is to run this app
+    var last_app = App.Cookies.get('last-app');
+
+    if (last_app) {
+      switch(last_app) {
+        case 'tabs':
+          tabApp();
+          break;
+        case 'visualization':
+          visualizationApp();
+          break;
+        case 'scheduler':
+          schedulerApp();
+          break;
+      }
+    } else { tabApp(); }// default
+
+    metronomeApp();
   }
 
   function loadView(view) {
@@ -49,6 +64,7 @@
     var view = new App.Views.TabsView({ collection: tabs_collection });
 
     loadView(view);
+    App.Cookies.set('last-app', 'tabs');
   }
 
   function visualizationApp() {
@@ -59,6 +75,7 @@
     var visualization_view = new App.Views.VisualizationView();
 
     loadView(visualization_view);
+    App.Cookies.set('last-app', 'visualization');
   }
 
   function schedulerApp() {
@@ -69,6 +86,7 @@
 
     var progress_msg = 'Scheduler app is in progress...';
     loadView({ render: function () { return { $el: progress_msg }; } });
+    App.Cookies.set('last-app', 'scheduler');
   }
 
   function metronomeApp() {
