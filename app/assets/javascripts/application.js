@@ -16,6 +16,7 @@
 //= require bootstrap-slider
 //= require underscore
 //= require howler
+//= require cookies
 //= require backbone/manifest
 
 _.templateSettings = {
@@ -24,9 +25,9 @@ _.templateSettings = {
   escape:      /\{\{-(.+?)\}\}/g
 };
 
-window.App = {
-  Models: {},
-  Collections: {},
-  Routers: {},
-  Views: {}
-}
+window.App = window.App || {};
+
+window.App.Models = {};
+window.App.Collections = {};
+window.App.Routers = {};
+window.App.Views = {};

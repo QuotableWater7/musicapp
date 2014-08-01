@@ -27,9 +27,6 @@
         case 'scheduler':
           schedulerApp();
           break;
-        // case 'metronome':
-        //   metronomeApp();
-        //   break;
       }
     });
 
