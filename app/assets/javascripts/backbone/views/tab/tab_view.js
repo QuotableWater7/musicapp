@@ -67,8 +67,9 @@
       }
     },
 
-    linkClick: function (e) {
-      window.open($(e.target).data('url'));
+    linkClick: function () {
+      var address = this.$el.find('.editable[data-attr="url"]').text().trim();
+      window.open(address);
       var sessions = parseInt(this.model.get('sessions_completed')) + 1;
       this.model.set('sessions_completed', sessions);
       this.$el.find('.editable[data-attr="sessions_completed"]').text(sessions);
