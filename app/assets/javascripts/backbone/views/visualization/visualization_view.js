@@ -3,7 +3,7 @@
 
   var Strings = ['e', 'B', 'G', 'D', 'A', 'E'];
   var Frets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  var timer = 2000;
+  var timer;
 
   var VisualizationView = Backbone.View.extend({
     template: _.template($('#visualization-view').html()),
@@ -19,6 +19,7 @@
 
       _.bindAll(this, 'render');
       this.$el.html(this.template());
+      timer = parseInt(this.$el.find('.timer input').val()) * 1000;
     },
 
     render: function () {
