@@ -6,12 +6,18 @@
 
 //= require_self
 
-(function () {
+$(document).ready(function () {
+  'use strict';
+
   var $view;
 
-  $(document).ready(function () { run(); });
+  // kickoff the app
+  (function () {
+    setButtonCallbacks();
+    loadApp();
+  })();
 
-  function run() {
+  function setButtonCallbacks() {
     var $app_buttons = $('.app-list').find('.btn');
 
     $app_buttons.click(function (e) {
@@ -29,7 +35,9 @@
           break;
       }
     });
+  }
 
+  function loadApp() {
     var last_app = App.Cookies.get('last-app');
 
     if (last_app) {
@@ -44,7 +52,7 @@
           schedulerApp();
           break;
       }
-    } else { tabApp(); }// default
+    } else { tabApp(); }  // default
 
     metronomeApp();
   }
