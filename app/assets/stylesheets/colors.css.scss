@@ -9,10 +9,12 @@ $gray-darker: darken($gray, 50%);
 $gray-lighter: lighten($gray, 50%);
 $secondary-color: rgba(230, 230, 100, 1);
 $yellow: #ffff66;
+$dark-yellow: darken($yellow, 50%);
 $light-yellow: lighten($yellow, 20%);
 $red: #ff1111;
 $red-dull: darken($red, 10%);
 $lavendar: #E6E6FA;
+$lavendar-darker: darken($lavendar, 20%);
 
 // site stuff
 $header-bg: $blue;
@@ -28,5 +30,5 @@ $footer-bg: $gray;
 
 $tab-unsaved-bg: $light-yellow;
 
-$visualization-display-bg: $blue-lighter;
-$visualization-display-color: $yellow;
+$visualization-display-bg: $blue-lightest;
+$visualization-display-color: $dark-yellow;
