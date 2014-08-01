@@ -1,7 +1,23 @@
+$song-width: 100px;
+$artist-width: 100px;
+$tab-url-width: 200px;
+
 .tab-unsaved {
   background: $tab-unsaved-bg;
 }
 
 .url-button {
   cursor: pointer;
+}
+
+.song-column {
+  width: $song-width;
+}
+
+.artist-column {
+  width: $artist-width;
+}
+
+.tab-url-width {
+  width: $tab-url-width;
 }
