@@ -21,8 +21,12 @@ $min-button-width: 80px;
 .btn-tertiary {
   @extend .btn;
 
-  background: red;
+  background: $yellow-lighter;
   color: black;
+
+  &:hover {
+    background: $yellow;
+  }
 }
 
 .btn-quaternary {

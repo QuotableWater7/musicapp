@@ -1,4 +1,18 @@
 %script#metronome-view{ type: 'text/template' }
-  .metronome-title Metronome
-  %input.form-control.metronome-bpm{ value: 60 }
-  .metronome-toggle.btn-primary.btn-wider Play
+  .row
+    .col-md-2.col-md-offset-2.text-center
+      %h3 Metronome
+      %input.form-control.metronome-bpm{ value: 60 }
+      .metronome-toggle.btn-primary.btn-wider Play
+    .col-md-6
+      %h3.text-center Presets (bpm)
+      .btn-tertiary 40
+      .btn-tertiary 48
+      .btn-tertiary 56
+      .btn-tertiary 64
+      .btn-tertiary 72
+      .btn-tertiary 80
+      .btn-tertiary 86
+      .btn-tertiary 92
+      .btn-tertiary 98
+      .btn-tertiary 104

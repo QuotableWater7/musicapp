@@ -99,6 +99,6 @@ $(document).ready(function () {
 
   function metronomeApp() {
     var view = new App.Views.MetronomeView();
-    $('.footer-metronome').html(view.render().$el);
+    $('.metronome-container').append(view.render().$el);
   }
 })();

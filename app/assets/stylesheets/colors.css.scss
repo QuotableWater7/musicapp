@@ -9,8 +9,8 @@ $gray-darker: darken($gray, 50%);
 $gray-lighter: lighten($gray, 50%);
 $secondary-color: rgba(230, 230, 100, 1);
 $yellow: #ffff66;
-$dark-yellow: darken($yellow, 50%);
-$light-yellow: lighten($yellow, 20%);
+$yellow-darker: darken($yellow, 50%);
+$yellow-lighter: lighten($yellow, 15%);
 $red: #ff1111;
 $red-dull: darken($red, 10%);
 $lavendar: #E6E6FA;
@@ -28,7 +28,7 @@ $content-bg: $white;
 
 $footer-bg: $gray;
 
-$tab-unsaved-bg: $light-yellow;
+$tab-unsaved-bg: $yellow-lighter;
 
 $visualization-display-bg: $blue-lightest;
-$visualization-display-color: $dark-yellow;
+$visualization-display-color: $yellow-darker;
