@@ -42,3 +42,8 @@ $min-button-width: 80px;
   background: $lavendar-darker;
   color: $white;
 }
+
+// app specific buttons
+.btn-preset-bpm {
+  @extend .btn-tertiary;
+}

@@ -101,4 +101,4 @@ $(document).ready(function () {
     var view = new App.Views.MetronomeView();
     $('.metronome-container').append(view.render().$el);
   }
-})();
+});

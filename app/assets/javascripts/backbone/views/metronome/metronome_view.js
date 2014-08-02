@@ -16,7 +16,8 @@
 
     events: {
       'click .metronome-toggle': 'toggle',
-      'keyup .metronome-bpm': 'updateBpm'
+      'keyup .metronome-bpm': 'updateBpm',
+      'click .btn-preset-bpm': 'updateBpm'
     },
 
     initialize: function () {
@@ -63,8 +64,16 @@
         .text('Play');
     },
 
-    updateBpm: function () {
+    updateBpm: function (evt) {
+      var $target = $(evt.target);
       var current_time = new Date().getTime();
+
+      window.t = $target;
+      // if user clicks preset
+      if ($target.hasClass('btn-preset-bpm')) {
+        this.$el.find('.metronome-bpm').val($target.text());
+      }
+
       var new_bpm = parseInt(this.$el.find('.metronome-bpm').val());
       var enough_time_passed = current_time - last_keystroke > time_to_wait;
 
