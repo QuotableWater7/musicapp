@@ -68,22 +68,24 @@
       var $target = $(evt.target);
       var current_time = new Date().getTime();
 
-      window.t = $target;
       // if user clicks preset
       if ($target.hasClass('btn-preset-bpm')) {
         this.$el.find('.metronome-bpm').val($target.text());
       }
 
       var new_bpm = parseInt(this.$el.find('.metronome-bpm').val());
-      var enough_time_passed = current_time - last_keystroke > time_to_wait;
 
-      last_keystroke = current_time;
+      this.turnOff();
+      this.turnOn();
+      // var enough_time_passed = current_time - last_keystroke > time_to_wait;
 
-      if (enough_time_passed && new_bpm && new_bpm <= 240) {
-        bpm = new_bpm;
-        this.turnOff();
-        this.turnOn();
-      }
+      // last_keystroke = current_time;
+
+      // if (enough_time_passed && new_bpm && new_bpm <= 240) {
+      //   bpm = new_bpm;
+      //   this.turnOff();
+      //   this.turnOn();
+      // }
     }
   });
 
