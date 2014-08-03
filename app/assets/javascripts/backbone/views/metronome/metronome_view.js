@@ -8,15 +8,14 @@
     urls: ['/assets/snare-01.wav']
   });
   var bpm;
-  var time_to_wait = 500;   // in milliseconds
-  var last_keystroke = new Date().getTime() - time_to_wait;
+  var time_to_wait = 500;   // after typing in bpm input
 
   var MetronomeView = Backbone.View.extend({
     template: _.template($('#metronome-view').html()),
 
     events: {
       'click .metronome-toggle': 'toggle',
-      'keyup .metronome-bpm': 'updateBpm',
+      'keyup .metronome-bpm': 'startCountdown',
       'click .btn-preset-bpm': 'updateBpm'
     },
 
@@ -64,28 +63,31 @@
         .text('Play');
     },
 
+    startCountdown: function (evt) {
+      var self = this;
+
+      if (timeout_id) { clearTimeout(timeout_id); }
+      timeout_id = setTimeout(
+        function () {
+          bpm = self.$el.find('.metronome-bpm').val();
+          self.updateBpm(evt);
+        },
+        time_to_wait
+      );
+    },
+
     updateBpm: function (evt) {
       var $target = $(evt.target);
       var current_time = new Date().getTime();
 
       // if user clicks preset
       if ($target.hasClass('btn-preset-bpm')) {
-        this.$el.find('.metronome-bpm').val($target.text());
+        bpm = $target.text();
+        this.$el.find('.metronome-bpm').val(bpm);
       }
-
-      var new_bpm = parseInt(this.$el.find('.metronome-bpm').val());
 
       this.turnOff();
       this.turnOn();
-      // var enough_time_passed = current_time - last_keystroke > time_to_wait;
-
-      // last_keystroke = current_time;
-
-      // if (enough_time_passed && new_bpm && new_bpm <= 240) {
-      //   bpm = new_bpm;
-      //   this.turnOff();
-      //   this.turnOn();
-      // }
     }
   });
 
