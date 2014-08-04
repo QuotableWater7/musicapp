@@ -5,3 +5,11 @@ $footer-height: 80px;
   height: $footer-height;
   color: $white;
 }
+
+.site-links {
+  margin-top: 6px;
+
+  a:hover {
+    text-decoration: underline;
+  }
+}

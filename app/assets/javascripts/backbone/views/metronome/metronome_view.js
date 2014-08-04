@@ -63,6 +63,7 @@
         .text('Play');
     },
 
+    // don't change beat until 500ms after user's last keystroke
     startCountdown: function (evt) {
       var self = this;
 
@@ -76,6 +77,7 @@
       );
     },
 
+    // this handles updating the bpm from either button click or the countdown
     updateBpm: function (evt) {
       var $target = $(evt.target);
       var current_time = new Date().getTime();
