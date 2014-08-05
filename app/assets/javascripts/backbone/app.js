@@ -91,9 +91,9 @@ $(document).ready(function () {
       title: 'Practice Scheduler',
       description: 'Pick your areas of focus and start the timer.'
     }).render();
+    var schedule_view = new App.Views.ScheduleView();
 
-    var progress_msg = 'Scheduler app is in progress...';
-    loadView({ render: function () { return { $el: progress_msg }; } });
+    loadView(schedule_view);
     App.Cookies.set('last-app', 'scheduler');
   }
 

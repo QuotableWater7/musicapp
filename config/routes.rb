@@ -13,4 +13,6 @@ Musicapp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :tabs
+
+  resources :schedules, only: :index
 end
