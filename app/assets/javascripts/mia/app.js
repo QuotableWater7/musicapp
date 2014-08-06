@@ -16,7 +16,7 @@
     '1. You are <u><b>really</b></u> pretty',
     'OK, going to make you work to get to the next reason',
     '(I just don\'t want to make this too easy)',
-    'OK, here is #2.  You are <i>really</i> smart (which makes you prettier, and a touch intimidating)',
+    'OK, here is #2.  You are <i>really</i> smart (which makes you even prettier)',
     '3. You cook amazing food.  I think every meal you\'ve made has been top notch',
     '4. You are very athletic.  I can\'t believe I have a girlfriend that I ran a half marathon with...',
     '5. You are competitive, which means I have someone who will push me to constantly improve',
