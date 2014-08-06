@@ -1,6 +1,6 @@
 class CreateAcitivities < ActiveRecord::Migration
   def change
-    create_table :acitivities do |t|
+    create_table :activities do |t|
       t.string :name
       t.string :description
 
