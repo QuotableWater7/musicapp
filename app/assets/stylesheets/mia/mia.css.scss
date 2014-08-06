@@ -1,0 +1,35 @@
+$background: black;
+$background-hover: lighten(black, 20%);
+$font-color: #ffbc40;
+$font-color-hover: darken($font-color, 20%);
+$border: 2px solid #fff;
+
+body {
+  background: black;
+  color: #abcdef;
+}
+
+h1 {
+  text-align: center;
+}
+
+.message {
+  user-select: none;
+  position: absolute;
+  padding: 6px 14px;
+  font-size: 24px;
+  display: none;
+  cursor: pointer;
+
+  background: $background;
+  color: $font-color;
+  border: $border;
+  border-radius: 3px;
+
+  max-width: 300px;
+
+  &:hover {
+    background: $background-hover;
+    color: $font-color-hover;
+  }
+}

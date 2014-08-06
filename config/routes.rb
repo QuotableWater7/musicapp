@@ -8,6 +8,8 @@ Musicapp::Application.routes.draw do
   get '/signin', to: 'sessions#new'
   get '/signout', to: 'sessions#destroy'
 
+  get '/mia', to: 'mia#index'
+
   resources :users, only: [:new, :create, :update, :edit]
 
   resources :sessions, only: [:new, :create, :destroy]
