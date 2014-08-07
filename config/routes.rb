@@ -1,4 +1,5 @@
 Musicapp::Application.routes.draw do
+
   root to: 'pages#index'
 
   get '/about', to: 'pages#about'
@@ -17,4 +18,7 @@ Musicapp::Application.routes.draw do
   resources :tabs
 
   resources :schedules, only: :index
+
+  resources :activities, only: :activity
+
 end
