@@ -1,4 +1,4 @@
-class SchedulesController < AppliationController
+class SchedulesController < ApplicationController
 
   def index
     respond_to do |format|

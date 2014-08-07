@@ -68,8 +68,8 @@ $(document).ready(function () {
       title: 'My Tabs',
       description: 'Double click a cell to edit.'
     }).render();
-    var tabs_collection = new App.Collections.Tabs();
-    var view = new App.Views.TabsView({ collection: tabs_collection });
+    var collection = new App.Collections.Tabs();
+    var view = new App.Views.TabsView({ collection: collection });
 
     loadView(view);
     App.Cookies.set('last-app', 'tabs');
@@ -80,9 +80,9 @@ $(document).ready(function () {
       title: 'Visualization',
       description: 'Improve your knowledge of the fretboard.'
     }).render();
-    var visualization_view = new App.Views.VisualizationView();
+    var view = new App.Views.VisualizationView();
 
-    loadView(visualization_view);
+    loadView(view);
     App.Cookies.set('last-app', 'visualization');
   }
 
@@ -91,9 +91,11 @@ $(document).ready(function () {
       title: 'Practice Scheduler',
       description: 'Pick your areas of focus and start the timer.'
     }).render();
-    var schedule_view = new App.Views.ScheduleView();
 
-    loadView(schedule_view);
+    var collection = new App.Collections.Schedules();
+    var view = new App.Views.SchedulesView({ collection: collection });
+
+    loadView(view);
     App.Cookies.set('last-app', 'scheduler');
   }
 

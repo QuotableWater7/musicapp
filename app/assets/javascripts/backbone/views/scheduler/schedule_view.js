@@ -2,7 +2,7 @@
   'use strict';
 
   var ScheduleView = Backbone.View.extend({
-    template: _.template($('#scheduler-view').html()),
+    template: _.template($('#schedule-view').html()),
 
     events: {
 
@@ -10,10 +10,12 @@
 
     initialize: function () {
       _.bindAll(this, 'render');
-      this.$el.html(this.template);
+      this.model.fetch({ success: this.render });
     },
 
     render: function () {
+      console.log(this.model.toJSON());
+      this.$el.html(this.template(this.model.toJSON()));
       return this;
     }
   });

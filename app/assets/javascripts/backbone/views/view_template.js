@@ -19,4 +19,4 @@
   });
 
   App.Views.TemplateView = TemplateView;
-})();
+});
