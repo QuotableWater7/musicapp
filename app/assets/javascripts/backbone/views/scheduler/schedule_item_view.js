@@ -1,7 +1,8 @@
 (function () {
   'use strict';
 
-  var ActivityView = Backbone.View.extend({
+  var ScheduleItemView = Backbone.View.extend({
+    tagName: 'tr',
     template: _.template($('#schedule-item-view').html()),
 
     events: {
@@ -10,13 +11,15 @@
 
     initialize: function () {
       _.bindAll(this, 'render');
-      this.$el.html(this.template);
     },
 
     render: function () {
+      var json = this.model.toJSON();
+
+      this.$el.html(this.template(json));
       return this;
     }
   });
 
-  App.Views.ActivityView = ActivityView;
+  App.Views.ScheduleItemView = ScheduleItemView;
 })();

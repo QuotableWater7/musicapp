@@ -11,6 +11,7 @@ class SchedulesController < ApplicationController
   def show
     json = {
       name: 'My First Schedule',
+      total_time: 60,
       schedule_items: [
         {
           name: 'item 1',
