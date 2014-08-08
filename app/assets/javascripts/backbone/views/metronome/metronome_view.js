@@ -16,7 +16,8 @@
     events: {
       'click .metronome-toggle': 'toggle',
       'keyup .metronome-bpm': 'startCountdown',
-      'click .btn-preset-bpm': 'updateBpm'
+      'click .btn-preset-bpm': 'updateBpm',
+      'click .btn-speedup': 'autoSpeed'
     },
 
     initialize: function () {
@@ -90,6 +91,10 @@
 
       this.turnOff();
       this.turnOn();
+    },
+
+    autoSpeed: function (evt) {
+      alert('Not yet implemented');
     }
   });
 

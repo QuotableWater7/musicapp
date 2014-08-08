@@ -34,6 +34,10 @@ $min-button-width: 80px;
 
   background: black;
   color: white;
+
+  &:hover {
+    color: $gray-lighter;
+  }
 }
 
 .btn-delete {
@@ -46,4 +50,8 @@ $min-button-width: 80px;
 // app specific buttons
 .btn-preset-bpm {
   @extend .btn-tertiary;
+}
+
+.btn-speedup {
+  @extend .btn-quaternary;
 }
