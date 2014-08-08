@@ -1,9 +1,19 @@
 %script#schedules-view{ type: 'text/template' }
   .schedules
-    %h1 Your Schedules
+    %h3 Your Schedules
 
-%script#schedule-view
+%script#schedules-view{ type: 'text/template' }
+  %h1 My Schedules
 
-%script#activity-view{ type: 'text/template' }
-  %h3 {{= name }}
-  %p {{= importance }}
+%script#schedule-view{ type: 'text/template' }
+  %h4 Schedule: {{= name }}
+  %table.table
+    %tr
+      %th Activity
+      %th Importance
+
+
+%script#schedule-item-view{ type: 'text/template' }
+  %tr
+    %td {{= name }}
+    %td {{= importance }}

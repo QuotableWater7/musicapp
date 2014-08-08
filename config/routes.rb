@@ -17,7 +17,7 @@ Musicapp::Application.routes.draw do
 
   resources :tabs
 
-  resources :schedules, only: :index
+  resources :schedules, only: [:index, :show]
 
   resources :activities, only: :activity
 

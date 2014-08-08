@@ -2,7 +2,7 @@
   'use strict';
 
   var ActivityView = Backbone.View.extend({
-    template: _.template($('#activity-view').html()),
+    template: _.template($('#schedule-item-view').html()),
 
     events: {
 

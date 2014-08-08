@@ -2,9 +2,18 @@
   'use strict';
 
   var Schedule = Backbone.Model.extend({
+    // TODO: pull this out once you've got multi schedules going
+    // urlRoot: function () {
+    //   if (this.isNew()) {
+    //     return '/schedules';
+    //   } else {
+    //     return '/schedules/' + this.id;
+    //   }
+    // },
     urlRoot: '/schedules',
+
     defaults: {
-      name: 'Schedule Default Title'
+      name: 'My First Schedule'
     },
 
     getActivities: function () {
@@ -13,22 +22,4 @@
   });
 
   App.Models.Schedule = Schedule;
-})();
-
-
-(function () {
-  'use strict';
-
-  var Tab = Backbone.Model.extend({
-    urlRoot: '/tabs',
-    defaults: {
-      song: 'Song Name',
-      artist: 'Artist Name',
-      url: 'http://',
-      sessions_completed: 0,
-      total_minutes: 0
-    }
-  });
-
-  App.Models.Tab = Tab;
 })();

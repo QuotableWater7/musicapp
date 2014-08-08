@@ -14,7 +14,8 @@
 
     render: function () {
       var self = this;
-      // this.$el.html(this.template());
+
+      this.$el.html(this.template());
       // this.$tbody = self.$el.find('.tabs-table tbody tr:last-child');
 
       // this.collection.each(function (tab) {

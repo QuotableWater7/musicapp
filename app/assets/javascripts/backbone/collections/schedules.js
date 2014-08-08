@@ -2,7 +2,7 @@
   'use strict';
 
   var Schedules = Backbone.Collection.extend({
-    model: App.Models.Schedules,
+    model: App.Models.Schedule,
     url: '/schedules'
   });
 
