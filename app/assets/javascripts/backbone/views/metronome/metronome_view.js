@@ -104,7 +104,7 @@
     autoSpeed: function (evt) {
       var bpm_int = parseInt(bpm);
 
-      if (bpm_int < 100) {
+      if (bpm_int < 240) {
         bpm = bpm_int + 4;
         this.refreshBpm();
         setTimeout(this.autoSpeed, autoSpeedTimeout * 1000);
