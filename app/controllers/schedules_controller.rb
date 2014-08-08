@@ -14,12 +14,28 @@ class SchedulesController < ApplicationController
       total_time: 60,
       schedule_items: [
         {
-          name: 'item 1',
+          name: 'Warm Ups',
           importance: 5,
         },
         {
-          name: 'item 2',
+          name: 'Intervals',
           importance: 10,
+        },
+        {
+          name: 'Scales',
+          importance: 8,
+        },
+        {
+          name: 'Chords',
+          importance: 7,
+        },
+        {
+          name: 'Legato',
+          importance: 5,
+        },
+        {
+          name: 'Pentatonics',
+          importance: 8,
         },
       ],
     }
