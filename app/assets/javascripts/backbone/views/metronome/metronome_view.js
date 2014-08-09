@@ -8,9 +8,7 @@
 
   var auto_speed_beats = 8;   // beats between speeding up metronome
   var toggle_state = 'off';
-  var sound = new Howl({
-    urls: ['/assets/snare-01.wav']
-  });
+  var sound = new Howl({ urls: ['/assets/snare-01.wav'] });
   var bpm;
   var time_to_wait = 500;   // after typing in bpm input
 
