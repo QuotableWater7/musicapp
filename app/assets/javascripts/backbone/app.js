@@ -18,7 +18,7 @@ $(document).ready(function () {
   })();
 
   function setButtonCallbacks() {
-    var $app_buttons = $('.app-list').find('.btn');
+    var $app_buttons = $('.app-list').find('.btn-app');
 
     $app_buttons.click(function (e) {
       var $target = $(e.target);

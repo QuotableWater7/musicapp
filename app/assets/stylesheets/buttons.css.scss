@@ -9,6 +9,10 @@ $min-button-width: 80px;
 
   background: $blue-lighter;
   color: $white;
+
+  &:hover {
+    background: $blue-lightest;
+  }
 }
 
 .btn-secondary {
@@ -32,26 +36,33 @@ $min-button-width: 80px;
 .btn-quaternary {
   @extend .btn;
 
-  background: black;
+  background: $lavendar-darker;
   color: white;
+  border: 1px solid black;
 
   &:hover {
-    color: $gray-lighter;
+    background: $lavendar;
   }
 }
 
+// app specific buttons
 .btn-delete {
   @extend .btn;
 
-  background: $lavendar-darker;
+  background: $red-dull;
   color: $white;
 }
 
-// app specific buttons
+.btn-app {
+  @extend .btn-primary;
+}
+
 .btn-preset-bpm {
   @extend .btn-tertiary;
+
+  border: none;
 }
 
 .btn-speedup {
-  @extend .btn-quaternary;
+  @extend .btn-delete;
 }
