@@ -1,11 +1,13 @@
 (function () {
   'use strict';
 
-  var autoSpeedTimeout = 5;   // seconds between speeding up metronome
-  var toggle_state = 'off';
+
   var interval_id;
   var timeout_id;
-  var speedup_timeout_id;
+  var speedup_id;
+
+  var auto_speed_beats = 8;   // beats between speeding up metronome
+  var toggle_state = 'off';
   var sound = new Howl({
     urls: ['/assets/snare-01.wav']
   });
@@ -36,8 +38,18 @@
     // helpers
     toggle: function () {
       if (toggle_state === 'off') {
+        this.$el.find('.metronome-toggle')
+          .removeClass('btn-primary')
+          .addClass('btn-secondary')
+          .text('Pause');
+
         this.turnOn();
       } else {
+        this.$el.find('.metronome-toggle')
+          .removeClass('btn-secondary')
+          .addClass('btn-primary')
+          .text('Play');
+
         this.turnOff();
       }
     },
@@ -48,22 +60,13 @@
       sound.play();   // play first beat immediately
       interval_id = setInterval(function () {
         sound.play();
-      }, 60*1000/bpm);
-
-      this.$el.find('.metronome-toggle')
-        .removeClass('btn-primary')
-        .addClass('btn-secondary')
-        .text('Pause');
+      }, 60000/bpm);
     },
 
     turnOff: function () {
       toggle_state = 'off';
       clearInterval(interval_id);
-
-      this.$el.find('.metronome-toggle')
-        .removeClass('btn-secondary')
-        .addClass('btn-primary')
-        .text('Play');
+      clearTimeout(speedup_id);
     },
 
     // don't change beat until 500ms after user's last keystroke
@@ -74,7 +77,7 @@
       timeout_id = setTimeout(
         function () {
           bpm = self.$el.find('.metronome-bpm').val();
-          self.refreshBpm(evt);
+          self.refreshBpm();
         },
         time_to_wait
       );
@@ -82,32 +85,28 @@
 
     presetBpm: function (evt) {
       var $target = $(evt.target);
-      var current_time = new Date().getTime();
 
-      // if user clicks preset
-      if ($target.hasClass('btn-preset-bpm')) {
-        bpm = $target.text();
-        this.$el.find('.metronome-bpm').val(bpm);
-      }
-
+      bpm = $target.text();
       this.refreshBpm();
     },
 
-    // this handles updating the bpm from either button click or the countdown
-    refreshBpm: function (evt) {
+    // this handles updating the bpm
+    refreshBpm: function () {
       this.$el.find('.metronome-bpm').val(bpm);
 
       this.turnOff();
-      this.turnOn();
+      this.toggle();
     },
 
     autoSpeed: function (evt) {
       var bpm_int = parseInt(bpm);
 
       if (bpm_int < 240) {
-        bpm = bpm_int + 4;
+        bpm = bpm_int + 6;
+        var next_speedup = 60000 * auto_speed_beats / bpm;
+
         this.refreshBpm();
-        setTimeout(this.autoSpeed, autoSpeedTimeout * 1000);
+        speedup_id = setTimeout(this.autoSpeed, next_speedup);
       }
     }
   });
