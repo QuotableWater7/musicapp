@@ -26,7 +26,14 @@
         // console.log(item_view.$el.html());
       });
 
+      this.loadTimer();
+
       return this;
+    },
+
+    loadTimer: function () {
+      var view = new App.Views.TimerView();
+      this.$el.find('.schedule-timer').html(view.render().$el);
     }
   });
 

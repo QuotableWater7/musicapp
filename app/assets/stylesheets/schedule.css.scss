@@ -3,8 +3,15 @@
     padding: 6px;
     color: $blue;
   }
-}
 
-.schedule-table {
+  .timer {
+    margin: 0 auto;
+    width: 260px;
+    height: 100px;
+    border-radius: 3px;
+    font-family: courier;
 
+    background: black;
+    color: $yellow-lighter;
+  }
 }

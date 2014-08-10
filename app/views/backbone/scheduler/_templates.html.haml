@@ -2,9 +2,9 @@
   .schedules
 
 %script#schedule-view{ type: 'text/template' }
-  .row
-    .col-md-6
-      .schedule
+  .schedule
+    .row
+      .col-md-6
         %h3 {{= name }}
         %table.table.schedule-table
           %thead
@@ -12,8 +12,13 @@
               %th Activity
               %th Duration
           %tbody
-
+      .col-md-6
+        .schedule-timer
 
 %script#schedule-item-view{ type: 'text/template' }
   %td {{= name }}
   %td {{= importance }}
+
+%script#schedule-timer{ type: 'text/template' }
+  %h3.text-center Timer
+  .timer
