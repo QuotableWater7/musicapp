@@ -17,6 +17,7 @@
 //= require underscore
 //= require howler
 //= require cookies
+//= require countdown
 //= require backbone/manifest
 
 _.templateSettings = {

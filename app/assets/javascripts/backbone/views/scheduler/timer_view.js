@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var countdown = new Countdown({
+  var countdown = new App.Countdown({
     seconds: 30,
     minutes: 10,
     hours: 0
@@ -20,12 +20,12 @@
 
     render: function () {
       this.$el.html(this.template());
-
+      this.startCountdown();
       return this;
     },
 
     startCountdown: function () {
-      countdown.start();
+      countdown.start(this.$el.find('.timer'));
     }
   });
 

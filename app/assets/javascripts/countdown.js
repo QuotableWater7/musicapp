@@ -1,4 +1,4 @@
-(function () {
+App.Countdown = function () {
   'use strict';
 
   var self = this;
@@ -6,7 +6,6 @@
   // public
   self.init = init;
   self.start = start;
-  self.toString = toString;
 
   // private
   var seconds;
@@ -18,14 +17,16 @@
     if (opts.hours) { seconds += 3600 * parseInt(opts.hours); };
   }
 
-  function start() {
-    setTimeout(function () {
+  function start($el) {
+    setInterval(function () {
       tickDown();
+      $el.html(toString());
+      //console.log('blah');
     }, 1000);
   }
 
   function tickDown() {
-    seconds -= 1;
+    if (seconds > 0) { seconds -= 1; }
   }
 
   function toString() {
@@ -45,7 +46,7 @@
   }
 
   function pad(val, digits, pad_char) {
-    var padding;
+    var padding = '';
 
     while (padding.length < digits - val.length) {
       padding += pad_char;
@@ -53,4 +54,4 @@
 
     return padding;
   }
-})();
+};
