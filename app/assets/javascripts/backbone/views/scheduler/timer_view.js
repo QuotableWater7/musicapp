@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var countdown = new App.Countdown({
+  var countdown = new App.Countdown().init({
     seconds: 30,
     minutes: 10,
     hours: 0
