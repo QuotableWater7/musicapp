@@ -27,6 +27,8 @@ App.Countdown = function () {
     interval_id = setInterval(function () {
       tickDown();
       $el.html(toString());
+
+      if (seconds === 0) { $el.trigger('nextActivity'); }
     }, 1000);
   }
 

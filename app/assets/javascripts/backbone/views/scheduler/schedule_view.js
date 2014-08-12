@@ -1,23 +1,25 @@
 (function () {
   'use strict';
 
-  var schedule_index = 1;
+  var schedule_index = 0;
   var schedule_items;
   var total_importance = 0;
   var total_time = 30 * 60;
 
   var timeScale = function () { return total_time / total_importance; };
+  var timer;
 
   var ScheduleView = Backbone.View.extend({
     template: _.template($('#schedule-view').html()),
 
     events: {
-
+      'nextActivity': 'loadTimer'
     },
 
     initialize: function () {
       _.bindAll(this, 'render');
       this.model.fetch({ success: this.render });
+      timer = new App.Views.TimerView();
     },
 
     render: function () {
@@ -26,6 +28,8 @@
 
       schedule_items = json.schedule_items;
       this.$el.html(this.template(json));
+      this.$el.find('.schedule-timer').html(timer.render().$el);
+
       total_importance = 0;
 
       _.each(schedule_items, function (item) {
@@ -43,11 +47,11 @@
 
     loadTimer: function () {
       if (schedule_items) {
-        var view = new App.Views.TimerView();
-        this.$el.find('.schedule-timer').html(view.render().$el);
+        var activity = schedule_items[schedule_index];
+        var seconds = parseInt(activity.importance) * timeScale();
 
-        var importance = parseInt(schedule_items[schedule_index].importance);
-        view.startCountdown({ seconds: importance * timeScale() });
+        timer.startCountdown(activity.name, { seconds: seconds });
+        schedule_index++;
       }
     }
   });
