@@ -9,7 +9,7 @@
 $(document).ready(function () {
   'use strict';
 
-  var $view;
+  var $view = $('.view');
 
   // kickoff the app
   (function () {
@@ -58,7 +58,6 @@ $(document).ready(function () {
   }
 
   function loadView(view) {
-    $view = $view || $('.view');
     $view.empty().html(view.render().$el);
   }
 
@@ -99,7 +98,7 @@ $(document).ready(function () {
     var model = new App.Models.Schedule({ id: 1 });
     var view = new App.Views.ScheduleView({ model: model });
 
-    loadView(view);
+    $view.empty().html(view.$el);
     App.Cookies.set('last-app', 'scheduler');
   }
 
