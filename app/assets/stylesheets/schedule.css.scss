@@ -6,10 +6,11 @@
 
   .timer {
     margin: 0 auto;
-    width: 260px;
-    height: 100px;
+    padding: 10px;
     border-radius: 3px;
     font-family: courier;
+    font-size: 44px;
+    display: inline-block;
 
     background: black;
     color: $yellow-lighter;
