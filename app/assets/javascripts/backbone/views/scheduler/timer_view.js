@@ -20,12 +20,12 @@
 
     render: function () {
       this.$el.html(this.template());
-      this.startCountdown();
+
       return this;
     },
 
-    startCountdown: function () {
-      countdown.start(this.$el.find('.timer'));
+    startCountdown: function (opts) {
+      countdown.start(this.$el.find('.timer'), opts);
     }
   });
 

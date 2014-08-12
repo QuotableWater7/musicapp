@@ -6,10 +6,6 @@ App.Countdown = function () {
   // public
   self.init = init;
   self.start = start;
-  self.getSeconds = getSeconds;
-  self.getMinutes = getMinutes;
-  self.getHours = getHours;
-  self.pad = pad;
 
   // private
   var seconds;
@@ -24,7 +20,8 @@ App.Countdown = function () {
     return this;
   }
 
-  function start($el) {
+  function start($el, opts) {
+    if (opts) { init(opts); }
     if (interval_id) { clearInterval(interval_id); }
 
     interval_id = setInterval(function () {
@@ -50,14 +47,14 @@ App.Countdown = function () {
   }
 
   function getHours() {
-    console.log(pad(Math.floor(seconds / 3600), 2, '0'));
     return pad(Math.floor(seconds / 3600), 2, '0');
   }
 
   function pad(val, digits, pad_char) {
     var padding = '';
+    var val_length = val.toString().length;
 
-    while (padding.length < digits - val.toString().length) {
+    while (padding.length < digits - val_length) {
       padding = padding + pad_char;
     }
 
