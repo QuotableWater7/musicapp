@@ -61,12 +61,27 @@
       return this;
     },
 
+    enableDisableButtons: function () {
+      if (hasNextActivity()) {
+        this.$el.find('.next-activity').removeClass('disabled');
+      } else {
+        this.$el.find('.next-activity').addClass('disabled');
+      }
+
+      if (hasPrevActivity()) {
+        this.$el.find('.prev-activity').removeClass('disabled');
+      } else {
+        this.$el.find('.prev-activity').addClass('disabled');
+      }
+    },
+
     prevActivity: function () {
       if (schedule_items && hasPrevActivity()) {
         var activity = getPrevActivity();
         var seconds = parseInt(activity.importance) * timeScale();
 
         loadActivity(activity.name, { seconds: seconds });
+        this.enableDisableButtons();
       }
     },
 
@@ -76,6 +91,7 @@
         var seconds = parseInt(activity.importance) * timeScale();
 
         loadActivity(activity.name, { seconds: seconds });
+        this.enableDisableButtons();
       }
     }
   });
