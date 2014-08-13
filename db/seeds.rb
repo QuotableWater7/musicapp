@@ -39,3 +39,16 @@ activities = [
 ]
 
 activities.each { |activity| Activity.create!(activity) }
+
+schedule = Schedule.create!(
+  name: 'Usual Practice',
+  duration: '60'
+)
+
+(1..7).each do |index|
+  params = {
+    importance: index * 5 % 7 + 1,
+    activity: Activity.find(index)
+  }
+  ScheduleItem.create!(params)
+end

@@ -2,6 +2,9 @@ class ScheduleItem < ActiveRecord::Base
 
   belongs_to :schedule
   belongs_to :activity
-  belongs_to :user, through: :schedule
+
+  delegate :user, to: :schedule, null: true
+
+  attr_accessible :activity, :importance
 
 end
