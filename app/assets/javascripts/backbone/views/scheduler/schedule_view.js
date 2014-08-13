@@ -25,8 +25,7 @@
     events: {
       'nextActivity': 'nextActivity',
       'click .prev-activity': 'prevActivity',
-      'click .next-activity': 'nextActivity',
-      'click .toggle': 'toggleTimer'
+      'click .next-activity': 'nextActivity'
     },
 
     initialize: function () {
@@ -78,16 +77,6 @@
 
         loadActivity(activity.name, { seconds: seconds });
       }
-    },
-
-    toggleTimer: function () {
-      if (active) {
-        timer.pause();
-      } else {
-        timer.start();
-      }
-
-      active = !active;
     }
   });
 
