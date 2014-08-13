@@ -8,6 +8,7 @@
 
   function timeScale() { return total_time / total_importance; }
   function hasNextActivity() { return schedule_index < schedule_items.length; }
+  function getActivity() { return schedule_items[schedule_index]; }
   var timer;
 
   var ScheduleView = Backbone.View.extend({
@@ -21,6 +22,7 @@
       _.bindAll(this, 'render');
       this.model.fetch({ success: this.render });
       timer = new App.Views.TimerView();
+      schedule_index = 0;
     },
 
     render: function () {
@@ -48,7 +50,7 @@
 
     nextActivity: function () {
       if (schedule_items && hasNextActivity()) {
-        var activity = schedule_items[schedule_index];
+        var activity = getActivity();
         var seconds = parseInt(activity.importance) * timeScale();
 
         timer.startCountdown(activity.name, { seconds: seconds });

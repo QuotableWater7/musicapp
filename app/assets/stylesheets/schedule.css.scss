@@ -7,12 +7,12 @@
   .timer {
     margin: 0 auto;
     padding: 10px;
-    border-radius: 3px;
+    border-radius: 4px;
     font-family: courier;
     font-size: 44px;
     display: inline-block;
 
-    background: black;
+    background: $blue-darker;
     color: $yellow-lighter;
   }
 }
