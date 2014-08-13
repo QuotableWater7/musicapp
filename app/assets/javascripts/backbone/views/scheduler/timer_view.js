@@ -27,6 +27,10 @@
     startCountdown: function (name, opts) {
       this.$el.find('.activity-name').text(name);
       countdown.start(this.$el.find('.timer'), opts);
+    },
+
+    pause: function () {
+
     }
   });
 

@@ -6,6 +6,7 @@ App.Countdown = function () {
   // public
   self.init = init;
   self.start = start;
+  self.pause = pause;
 
   // private
   var seconds;
@@ -30,6 +31,10 @@ App.Countdown = function () {
 
       if (seconds === 0) { $el.trigger('nextActivity'); }
     }, 1000);
+  }
+
+  function pause() {
+
   }
 
   function tickDown() {

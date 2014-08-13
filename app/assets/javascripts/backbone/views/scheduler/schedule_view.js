@@ -5,6 +5,7 @@
   var schedule_items;
   var total_importance = 0;
   var total_time = 30 * 60;
+  var active = true;
 
   function timeScale() { return total_time / total_importance; }
   function hasNextActivity() { return schedule_index < schedule_items.length; }
@@ -15,7 +16,9 @@
     template: _.template($('#schedule-view').html()),
 
     events: {
-      'nextActivity': 'nextActivity'
+      'nextActivity': 'nextActivity',
+      'click .next-activity': 'nextActivity',
+      'click .toggle': 'toggleTimer'
     },
 
     initialize: function () {
@@ -56,6 +59,16 @@
         timer.startCountdown(activity.name, { seconds: seconds });
         schedule_index++;
       }
+    },
+
+    toggleTimer: function () {
+      if (active) {
+        timer.pause();
+      } else {
+        timer.start();
+      }
+
+      active = !active;
     }
   });
 
