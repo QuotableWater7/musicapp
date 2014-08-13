@@ -5,6 +5,6 @@ class ScheduleItem < ActiveRecord::Base
 
   delegate :user, to: :schedule, null: true
 
-  attr_accessible :activity, :importance
+  attr_accessible :activity, :importance, :schedule
 
 end

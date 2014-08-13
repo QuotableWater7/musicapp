@@ -9,36 +9,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    json = {
-      name: 'Usual Practice',
-      total_time: '60',
-      schedule_items: [
-        {
-          name: 'Warm Ups',
-          importance: 5,
-        },
-        {
-          name: 'Intervals',
-          importance: 10,
-        },
-        {
-          name: 'Scales',
-          importance: 8,
-        },
-        {
-          name: 'Chords',
-          importance: 7,
-        },
-        {
-          name: 'Legato',
-          importance: 5,
-        },
-        {
-          name: 'Pentatonics',
-          importance: 8,
-        },
-      ],
-    }
+    json = Schedule.first.as_json
 
     respond_to do |format|
       format.json do

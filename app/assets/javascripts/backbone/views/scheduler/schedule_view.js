@@ -39,6 +39,7 @@
       var self = this;
 
       if (this.model) {
+        console.log(this.model);
         var json = this.model.toJSON();
 
         schedule_items = json.schedule_items;

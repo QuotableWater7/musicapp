@@ -48,7 +48,8 @@ schedule = Schedule.create!(
 (1..7).each do |index|
   params = {
     importance: index * 5 % 7 + 1,
-    activity: Activity.find(index)
+    activity: Activity.find(index),
+    schedule: schedule
   }
-  ScheduleItem.create!(params)
+  schedule_item = ScheduleItem.create!(params)
 end
