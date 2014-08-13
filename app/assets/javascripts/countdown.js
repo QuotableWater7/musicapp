@@ -25,6 +25,8 @@ App.Countdown = function () {
     if (opts) { init(opts); }
     if (interval_id) { clearInterval(interval_id); }
 
+    $el.html(toString());
+
     interval_id = setInterval(function () {
       tickDown();
       $el.html(toString());

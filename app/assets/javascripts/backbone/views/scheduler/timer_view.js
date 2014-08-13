@@ -29,7 +29,7 @@
       countdown.start(this.$el.find('.timer'), opts);
     },
 
-    pause: function () {
+    previous: function () {
 
     }
   });
