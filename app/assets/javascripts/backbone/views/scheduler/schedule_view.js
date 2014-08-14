@@ -19,8 +19,8 @@
   function getNextActivity() { return schedule_items[++schedule_index]; }
   function getCurrActivity() { return schedule_items[schedule_index]; }
   function loadActivity(activity) {
-    var name = activity.name;
-    var opts = { seconds: parseInt(activity.importance) * timeScale() };
+    var name = activity.get('name');
+    var opts = { seconds: parseInt(activity.get('importance')) * timeScale() };
 
     timer.startCountdown(name, opts);
   }
@@ -33,40 +33,52 @@
       'click .prev-activity': 'prevActivity',
       'click .next-activity': 'nextActivity',
       'keydown .duration,.name': 'disableEnter',
-      'blur .duration,.name': 'totalTimeUpdate'
+      'blur .duration,.name': 'totalTimeUpdate',
+      'scheduleItemChange': 'setTotalImportance'
     },
 
     initialize: function () {
       _.bindAll(this, 'render');
-      this.model.fetch({ success: this.render });
       timer = new App.Views.TimerView();
-      schedule_index = -1;  // when nextActivity called, shifts to 0
+      schedule_items = [];
+      schedule_index = 0;  // when nextActivity called, shifts to 0
+
+      this.model.fetch({ success: this.render });
     },
 
     render: function () {
       var json = this.model.toJSON();
+      var schedule_items_json = json.schedule_items;
 
       duration = json.duration * 60;
-      schedule_items = json.schedule_items;
 
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.render().$el);
-      this.loadScheduleItems();
-      this.nextActivity();
+      this.loadScheduleItems(schedule_items_json);
+      this.setTotalImportance();
 
       return this;
     },
 
-    loadScheduleItems: function () {
-      var self = this;
+    setTotalImportance: function () {
       total_importance = 0;
 
       _.each(schedule_items, function (item) {
+        total_importance += parseInt(item.get('importance'));
+      });
+
+      loadActivity(getCurrActivity());
+    },
+
+    loadScheduleItems: function (schedule_items_json) {
+      var self = this;
+
+      _.each(schedule_items_json, function (item) {
         var model = new App.Models.ScheduleItem(item);
         var item_view = new App.Views.ScheduleItemView({ model: model });
+        schedule_items.push(model);
 
         self.$el.find('.schedule-table tbody').append(item_view.render().$el);
-        total_importance += parseInt(item.importance);
       });
     },
 

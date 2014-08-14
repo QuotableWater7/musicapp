@@ -11,7 +11,7 @@
     },
 
     initialize: function () {
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', 'triggerChange');
     },
 
     render: function () {
@@ -32,9 +32,11 @@
 
     save: function () {
       var importance = this.$el.find('.schedule-item-importance').text();
-      this.model.set({ importance: importance });
-      this.model.save();
-    }
+      this.model.save({ importance: importance });
+      this.model.save(null, { success: this.triggerChange });
+    },
+
+    triggerChange: function () {  this.$el.trigger('scheduleItemChange'); }
   });
 
   App.Views.ScheduleItemView = ScheduleItemView;
