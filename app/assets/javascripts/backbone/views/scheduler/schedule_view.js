@@ -18,7 +18,10 @@
   function getPrevActivity() { return schedule_items[--schedule_index]; }
   function getNextActivity() { return schedule_items[++schedule_index]; }
   function getCurrActivity() { return schedule_items[schedule_index]; }
-  function loadActivity(name, opts) {
+  function loadActivity(activity) {
+    var name = activity.name;
+    var opts = { seconds: parseInt(activity.importance) * timeScale() };
+
     timer.startCountdown(name, opts);
   }
 
@@ -83,20 +86,14 @@
 
     prevActivity: function () {
       if (schedule_items && hasPrevActivity()) {
-        var activity = getPrevActivity();
-        var seconds = parseInt(activity.importance) * timeScale();
-
-        loadActivity(activity.name, { seconds: seconds });
+        loadActivity(getPrevActivity());
         this.enableDisableButtons();
       }
     },
 
     nextActivity: function () {
       if (schedule_items && hasNextActivity()) {
-        var activity = getNextActivity();
-        var seconds = parseInt(activity.importance) * timeScale();
-
-        loadActivity(activity.name, { seconds: seconds });
+        loadActivity(getNextActivity());
         this.enableDisableButtons();
       }
     },
@@ -127,9 +124,8 @@
       this.model.set({ duration: minutes });
       this.model.save();
 
-      var activity = getCurrActivity();
-      var seconds = parseInt(activity.importance) * timeScale();
-      loadActivity(activity.name, { seconds: seconds });
+      // refresh current activity in case params changed
+      loadActivity(getCurrActivity());
     }
   });
 
