@@ -6,7 +6,8 @@
     template: _.template($('#schedule-item-view').html()),
 
     events: {
-
+      'keypress': 'disableEnter',
+      'blur .schedule-item-importance': 'save'
     },
 
     initialize: function () {
@@ -18,6 +19,21 @@
 
       this.$el.html(this.template(json));
       return this;
+    },
+
+    disableEnter: function (e) {
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+
+      if (keycode === 13) {
+        e.preventDefault();
+        $(e.target).blur();
+      }
+    },
+
+    save: function () {
+      var importance = this.$el.find('.schedule-item-importance').text();
+      this.model.set({ importance: importance });
+      this.model.save();
     }
   });
 

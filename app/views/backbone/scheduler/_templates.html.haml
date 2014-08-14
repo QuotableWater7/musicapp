@@ -22,8 +22,9 @@
         .schedule-timer
 
 %script#schedule-item-view{ type: 'text/template' }
-  %td {{= name }}
-  %td {{= importance }}
+  %td.schedule-item-name {{= name }}
+  %td
+    .schedule-item-importance{ contenteditable: true } {{= importance }}
 
 %script#schedule-timer{ type: 'text/template' }
   %h3.activity-name.text-center

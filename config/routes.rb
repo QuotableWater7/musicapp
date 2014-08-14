@@ -12,13 +12,10 @@ Musicapp::Application.routes.draw do
   get '/mia', to: 'mia#index'
 
   resources :users, only: [:new, :create, :update, :edit]
-
   resources :sessions, only: [:new, :create, :destroy]
-
   resources :tabs
-
   resources :schedules, only: [:index, :show, :update]
-
+  resources :schedule_items, only: :update
   resources :activities, only: :activity
 
 end

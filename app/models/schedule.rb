@@ -8,7 +8,7 @@ class Schedule < ActiveRecord::Base
   attr_accessible :name, :duration
 
   def as_json
-    columns = 'schedule_items.importance, activities.name'
+    columns = 'schedule_items.id, schedule_items.importance, activities.name'
     schedule_items = ScheduleItem.select(columns)
       .where('schedule_id = ?', self.id)
       .joins(:activity)
