@@ -20,7 +20,10 @@ class SchedulesController < ApplicationController
 
   def update
     schedule = Schedule.find(params[:id])
-    schedule.update_attributes(duration: params[:duration])
+    schedule.update_attributes(
+      name: params[:name],
+      duration: params[:duration]
+    )
 
     respond_to do |format|
       format.json { render json: { message: 'Success' } }

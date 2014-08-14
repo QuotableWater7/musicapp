@@ -6,7 +6,8 @@
     .row
       .col-md-5.col-md-offset-1
         %h3.text-center
-          {{= name }} -
+          %span.name{ contenteditable: true } {{= name }}
+          %span -
           %span.duration{ contenteditable: true } {{= duration }}
           min
         .small-text.text-center (click numbers to edit)
@@ -16,8 +17,6 @@
               %th Activity
               %th Importance
           %tbody
-      / .col-md-4
-      /   %h3.text-center
       .col-md-3.col-md-offset-1.text-center
         .schedule-timer
 

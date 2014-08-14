@@ -32,8 +32,8 @@
       'nextActivity': 'nextActivity',
       'click .prev-activity': 'prevActivity',
       'click .next-activity': 'nextActivity',
-      'keydown .duration': 'disableEnter',
-      'blur .duration': 'totalTimeUpdate'
+      'keydown .duration,.name': 'disableEnter',
+      'blur .duration,.name': 'totalTimeUpdate'
     },
 
     initialize: function () {
@@ -117,14 +117,13 @@
     // TODO: better way to change between min/sec (or more consistent)
     save: function () {
       // get various parameters
+      var name = this.$el.find('.name').text();
       var minutes = parseInt(this.$el.find('.duration').text());
       duration = minutes * 60;
 
-      // update the model
-      this.model.set({ duration: minutes });
+      this.model.set({ duration: minutes, name: name });
       this.model.save();
 
-      // refresh current activity in case params changed
       loadActivity(getCurrActivity());
     }
   });
