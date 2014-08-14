@@ -15,7 +15,7 @@ html, body {
 }
 
 .app-wrapper {
-  background-color: $site-bg;
+  background-color: $almost-white;
   color: $site-text-color;
   min-height: 100%;
   overflow: auto;
@@ -28,10 +28,10 @@ html, body {
 }
 
 .app-content {
-  border-radius: $content-border-radius;
-  background: $content-bg;
+  background: $white;
   padding: $content-padding;
   margin-bottom: $margin-default;
+  min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {

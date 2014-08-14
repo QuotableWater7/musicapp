@@ -1,11 +1,11 @@
 // color definitions
 $white: white;
-$almost-white: #efefef;
+$almost-white: #f5f5f5;
 $blue: #336699;
 $blue-darker: darken($blue, 10%);
 $blue-darkest: darken($blue, 20%);
-$blue-lighter: lighten($blue, 10%);
-$blue-lightest: lighten($blue-lighter, 20%);
+$blue-lighter: lighten($blue, 20%);
+$blue-lightest: lighten($blue-lighter, 40%);
 $gray: #666666;
 $gray-darker: darken($gray, 50%);
 $gray-lighter: lighten($gray, 50%);
@@ -25,7 +25,7 @@ $header-bg-lighter: $blue-lighter;
 $header-text-color: $white;
 $header-text-active-color: $yellow-lighter;
 
-$site-bg: $gray-lighter;
+$site-bg: $almost-white;
 $site-text-color: $gray-darker;
 $content-bg: $white;
 

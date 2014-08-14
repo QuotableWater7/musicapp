@@ -7,11 +7,12 @@ $min-button-width: 80px;
 .btn-primary {
   @extend .btn;
 
-  background: $blue-lighter;
+  background: $blue;
   color: $white;
+  border: 1px solid $blue-darker;
 
   &:hover {
-    background: $blue-lightest;
+    background: $blue-lighter;
   }
 }
 
@@ -38,7 +39,6 @@ $min-button-width: 80px;
 
   background: $lavendar-darker;
   color: white;
-  border: 1px solid black;
 
   &:hover {
     background: $lavendar;
