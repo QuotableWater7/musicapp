@@ -87,7 +87,7 @@ $(document).ready(function () {
 
   function schedulerApp() {
     new App.Views.HeaderView({
-      title: 'Practice Scheduler',
+      title: 'Practice Helper',
       description: 'Pick your areas of focus and start the timer.'
     }).render();
 

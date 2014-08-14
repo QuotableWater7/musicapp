@@ -4,17 +4,20 @@
   var schedule_index;
   var schedule_items;
   var total_importance = 0;
-  var total_time = 30 * 60;
+  var duration;
   var active = true;
   var timer;
 
-  function timeScale() { return total_time / total_importance; }
+  var save_timeout;
+
+  function timeScale() { return duration / total_importance; }
   function hasPrevActivity() { return schedule_index > 0; }
   function hasNextActivity() {
     return schedule_index < schedule_items.length - 1;
   }
   function getPrevActivity() { return schedule_items[--schedule_index]; }
   function getNextActivity() { return schedule_items[++schedule_index]; }
+  function getCurrActivity() { return schedule_items[schedule_index]; }
   function loadActivity(name, opts) {
     timer.startCountdown(name, opts);
   }
@@ -25,7 +28,9 @@
     events: {
       'nextActivity': 'nextActivity',
       'click .prev-activity': 'prevActivity',
-      'click .next-activity': 'nextActivity'
+      'click .next-activity': 'nextActivity',
+      'keydown .duration': 'disableEnter',
+      'blur .duration': 'totalTimeUpdate'
     },
 
     initialize: function () {
@@ -39,9 +44,9 @@
       var self = this;
 
       if (this.model) {
-        console.log(this.model);
         var json = this.model.toJSON();
 
+        duration = json.duration * 60;
         schedule_items = json.schedule_items;
         this.$el.html(this.template(json));
         this.$el.find('.schedule-timer').html(timer.render().$el);
@@ -94,6 +99,37 @@
         loadActivity(activity.name, { seconds: seconds });
         this.enableDisableButtons();
       }
+    },
+
+    disableEnter: function (e) {
+      var keycode = (event.keyCode ? event.keyCode : event.which);
+
+      if (keycode === 13) {
+        e.preventDefault();
+        $(e.target).blur();
+      }
+    },
+
+    totalTimeUpdate: function (e) {
+      var self = this;
+
+      clearTimeout(save_timeout);
+      save_timeout = setTimeout(function () { self.save(); }, 500);
+    },
+
+    // TODO: better way to change between min/sec (or more consistent)
+    save: function () {
+      // get various parameters
+      var minutes = parseInt(this.$el.find('.duration').text());
+      duration = minutes * 60;
+
+      // update the model
+      this.model.set({ duration: minutes });
+      this.model.save();
+
+      var activity = getCurrActivity();
+      var seconds = parseInt(activity.importance) * timeScale();
+      loadActivity(activity.name, { seconds: seconds });
     }
   });
 

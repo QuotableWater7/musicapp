@@ -4,6 +4,19 @@
     color: $blue;
   }
 
+  .duration {
+    min-width: 36px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    padding: 4px;
+    border-radius: 3px;
+  }
+
+  .small-text {
+    font-size: 10px;
+    margin: -5px 0 5px;
+  }
+
   .timer {
     margin: 0 auto;
     padding: 10px;

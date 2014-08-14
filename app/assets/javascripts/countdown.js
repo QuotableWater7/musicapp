@@ -52,7 +52,7 @@ App.Countdown = function () {
   }
 
   function getMinutes() {
-    return pad(Math.floor(seconds / 60), 2, '0');
+    return pad(Math.floor(seconds / 60) % 60, 2, '0');
   }
 
   function getHours() {

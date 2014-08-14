@@ -15,7 +15,7 @@ class Schedule < ActiveRecord::Base
 
     {
       name: name,
-      total_time: duration,
+      duration: duration,
       schedule_items: schedule_items,
     }
   end

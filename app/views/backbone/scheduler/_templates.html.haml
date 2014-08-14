@@ -4,15 +4,21 @@
 %script#schedule-view{ type: 'text/template' }
   .schedule
     .row
-      .col-md-6
-        %h3 {{= name }} ({{= total_time }} min)
+      .col-md-5.col-md-offset-1
+        %h3.text-center
+          {{= name }} -
+          %span.duration{ contenteditable: true } {{= duration }}
+          min
+        .small-text.text-center (click numbers to edit)
         %table.table.schedule-table
           %thead
             %tr
               %th Activity
               %th Importance
           %tbody
-      .col-md-6.text-center
+      / .col-md-4
+      /   %h3.text-center
+      .col-md-3.col-md-offset-1.text-center
         .schedule-timer
 
 %script#schedule-item-view{ type: 'text/template' }
