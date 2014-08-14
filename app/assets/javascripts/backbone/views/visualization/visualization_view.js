@@ -20,6 +20,8 @@
       _.bindAll(this, 'render');
       this.$el.html(this.template());
       timer = parseInt(this.$el.find('.timer input').val()) * 1000;
+
+      this.render();
     },
 
     render: function () {

@@ -58,7 +58,7 @@ $(document).ready(function () {
   }
 
   function loadView(view) {
-    $view.empty().html(view.render().$el);
+    $view.empty().html(view.$el);
   }
 
   // apps below
@@ -91,9 +91,8 @@ $(document).ready(function () {
       description: 'Pick your areas of focus and start the timer.'
     }).render();
 
-    // when I implement multiple schedules
+    // when implementing multiple schedules
     // var collection = new App.Collections.Schedules();
-    // window.c = collection;
     // var view = new App.Views.SchedulesView({ collection: collection });
     var model = new App.Models.Schedule({ id: 1 });
     var view = new App.Views.ScheduleView({ model: model });
