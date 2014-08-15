@@ -60,7 +60,6 @@
 
     setDuration: function () {
       var val = this.model.get('duration');
-      console.log(val); 
       this.$el.find('.duration option[value="' + val + '"]').attr('selected', 'true');
     },
 
