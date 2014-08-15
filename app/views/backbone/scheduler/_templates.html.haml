@@ -8,7 +8,7 @@
         %h3.text-center
           %span.name{ contenteditable: true } {{= name }}
           %span -
-          %span.duration{ contenteditable: true } {{= duration }}
+          %span.duration{ contenteditable: true } {{= duration/60 }}
           min
         .small-text.text-center (click numbers to edit)
         %table.table.schedule-table

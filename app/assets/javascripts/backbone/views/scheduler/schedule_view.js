@@ -133,7 +133,7 @@
       var minutes = parseInt(this.$el.find('.duration').text());
       duration = minutes * 60;
 
-      this.model.set({ duration: minutes, name: name });
+      this.model.set({ duration: duration, name: name });
       this.model.save();
 
       loadActivity(getCurrActivity());

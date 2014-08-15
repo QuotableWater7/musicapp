@@ -42,7 +42,7 @@ activities.each { |activity| Activity.create!(activity) }
 
 schedule = Schedule.create!(
   name: 'Usual Practice',
-  duration: '60'
+  duration: 60*60
 )
 
 (1..7).each do |index|
