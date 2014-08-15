@@ -22,7 +22,8 @@ class SchedulesController < ApplicationController
     schedule = Schedule.find(params[:id])
     schedule.update_attributes(
       name: params[:name],
-      duration: params[:duration]
+      duration: params[:duration],
+      break_time: params[:break_time],
     )
 
     respond_to do |format|

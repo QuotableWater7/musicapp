@@ -8,8 +8,6 @@
   var active = true;
   var timer;
 
-  var save_timeout;
-
   function timeScale() { return duration / total_importance; }
   function hasPrevActivity() { return schedule_index > 0; }
   function hasNextActivity() {
@@ -32,8 +30,7 @@
       'nextActivity': 'nextActivity',
       'click .prev-activity': 'prevActivity',
       'click .next-activity': 'nextActivity',
-      'keydown .duration,.name': 'disableEnter',
-      'blur .duration,.name': 'totalTimeUpdate',
+      'change .duration': 'save',
       'scheduleItemChange': 'setTotalImportance'
     },
 
@@ -56,8 +53,15 @@
       this.$el.find('.schedule-timer').html(timer.render().$el);
       this.loadScheduleItems(schedule_items_json);
       this.setTotalImportance();
+      this.setDuration();
 
       return this;
+    },
+
+    setDuration: function () {
+      var val = this.model.get('duration');
+      console.log(val); 
+      this.$el.find('.duration option[value="' + val + '"]').attr('selected', 'true');
     },
 
     setTotalImportance: function () {
@@ -119,21 +123,14 @@
       }
     },
 
-    totalTimeUpdate: function (e) {
-      var self = this;
-
-      clearTimeout(save_timeout);
-      save_timeout = setTimeout(function () { self.save(); }, 500);
-    },
-
     // TODO: better way to change between min/sec (or more consistent)
     save: function () {
       // get various parameters
       var name = this.$el.find('.name').text();
-      var minutes = parseInt(this.$el.find('.duration').text());
+      var minutes = parseInt(this.$el.find('.duration option:selected').val());
       duration = minutes * 60;
 
-      this.model.set({ duration: duration, name: name });
+      this.model.set({ duration: minutes, name: name });
       this.model.save();
 
       loadActivity(getCurrActivity());
