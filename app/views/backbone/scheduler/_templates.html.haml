@@ -3,33 +3,46 @@
 
 %script#schedule-view{ type: 'text/template' }
   .schedule
-    .row
-      .col-md-1
-      .col-md-3
-        %h3.name{ contenteditable: true } {{= name }}
-      .col-md-3
-        %span Total Time: 
-        %select.duration
-          %option{ value: 15 } 15
-          %option{ value: 30 } 30
-          %option{ value: 45 } 45
-          %option{ value: 60 } 60
-          %option{ value: 90 } 90
-          %option{ value: 120 } 2hr
-          %option{ value: 180 } 3hr
-          %option{ value: 360 } 6hr
-    .row
-      .col-md-5.col-md-offset-1
-        %table.table.schedule-table
-          %thead
-            %tr
-              %th Activity
-              %th Importance
-          %tbody
-      .col-md-3.col-md-offset-1.text-center
-        .schedule-timer
 
-%script#schedule-item-view{ type: 'text/template' }
+%script#schedule-options-view{ type: 'text/template' }
+  .schedule-options
+    .row
+      .col-md-10.col-md-offset-1
+        %h3 Schedule Config
+    .row
+      .col-md-5.offset-1
+
+%script#schedule-timing-config{ type: 'text/template' }
+  %table.table
+    %tbody
+      %tr
+        %td Duration
+        %td
+          %select.duration
+            %option{ value: 15 } 15
+            %option{ value: 30 } 30
+            %option{ value: 45 } 45
+            %option{ value: 60 } 60
+            %option{ value: 90 } 90
+            %option{ value: 120 } 2hr
+            %option{ value: 180 } 3hr
+            %option{ value: 360 } 6hr
+        %td Break Time
+          %select.break-time
+            %option{ value: 1 } 1
+            %option{ value: 3 } 3
+            %option{ value: 5 } 5
+            %option{ value: 10 } 10
+
+%script#schedule-activities-config{ type: 'text/template' }
+  %table.table.schedule-table
+    %thead
+      %tr
+        %th Activity
+        %th Importance
+    %tbody
+
+%script#schedule-activity-slider{ type: 'text/template' }
   %td.schedule-item-name {{= name }}
   %td
     .schedule-item-importance{ contenteditable: true } {{= importance }}
