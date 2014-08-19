@@ -36,23 +36,27 @@
 
     initialize: function () {
       _.bindAll(this, 'render');
+
+      var schedule_items_collection = new App.Collections.ScheduleItems({
+        schedule_id: this.model.get('id')
+      });
+
       timer = new App.Views.TimerView();
-      schedule_items = [];
-      schedule_index = 0;  // when nextActivity called, shifts to 0
+      schedule_items = new App.Views.ScheduleItemsView({
+        collection: schedule_items_collection
+      });
 
       this.model.fetch({ success: this.render });
     },
 
     render: function () {
       var json = this.model.toJSON();
-      var schedule_items_json = json.schedule_items;
 
       duration = json.duration * 60;
+      total_importance = json.total_importance;
 
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.render().$el);
-      this.loadScheduleItems(schedule_items_json);
-      this.setTotalImportance();
       this.setDuration();
 
       return this;
@@ -73,17 +77,17 @@
       loadActivity(getCurrActivity());
     },
 
-    loadScheduleItems: function (schedule_items_json) {
-      var self = this;
+    // loadScheduleItems: function (schedule_items_json) {
+    //   var self = this;
 
-      _.each(schedule_items_json, function (item) {
-        var model = new App.Models.ScheduleItem(item);
-        var item_view = new App.Views.ScheduleItemView({ model: model });
-        schedule_items.push(model);
+    //   _.each(schedule_items_json, function (item) {
+    //     var model = new App.Models.ScheduleItem(item);
+    //     var item_view = new App.Views.ScheduleItemView({ model: model });
+    //     schedule_items.push(model);
 
-        self.$el.find('.schedule-table tbody').append(item_view.render().$el);
-      });
-    },
+    //     self.$el.find('.schedule-table tbody').append(item_view.render().$el);
+    //   });
+    // },
 
     enableDisableButtons: function () {
       if (hasNextActivity()) {

@@ -8,7 +8,7 @@
       .col-md-3
         %h3.name{ contenteditable: true } {{= name }}
       .col-md-3
-        %span Total Time: 
+        %span Total Time:
         %select.duration
           %option{ value: 15 } 15
           %option{ value: 30 } 30
@@ -20,14 +20,17 @@
           %option{ value: 360 } 6hr
     .row
       .col-md-5.col-md-offset-1
-        %table.table.schedule-table
-          %thead
-            %tr
-              %th Activity
-              %th Importance
-          %tbody
+        .schedule-items
       .col-md-3.col-md-offset-1.text-center
         .schedule-timer
+
+%script#schedule-items-view{ type: 'text/template' }
+  %table.table.schedule-table
+    %thead
+      %tr
+        %th Activity
+        %th Importance
+    %tbody
 
 %script#schedule-item-view{ type: 'text/template' }
   %td.schedule-item-name {{= name }}
