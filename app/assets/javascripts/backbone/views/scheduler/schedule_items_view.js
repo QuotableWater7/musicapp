@@ -2,13 +2,12 @@
   'use strict';
 
   var schedule_items = [];
+  var total_importance = 0;
 
   App.Views.ScheduleItemsView = Backbone.View.extend({
     template: _.template($('#schedule-items-view').html()),
 
-    events: {
-
-    },
+    events: {},
 
     initialize: function () {
       _.bindAll(this, 'render');
@@ -21,16 +20,18 @@
       var self = this;
 
       this.collection.each(function (schedule_item) {
-        console.log(schedule_item);
-        var current_view = new App.Views.ScheduleItemView({
-          model: schedule_item
-        });
-
-        schedule_items.push(current_view);
-        self.$el.find('tbody').append(current_view.render().$el);
+        self.loadScheduleItem(schedule_item);
       });
 
       return this;
+    },
+
+    loadScheduleItem: function (schedule_item) {
+      total_importance += parseInt(schedule_item.get('importance'));
+
+      var view = new App.Views.ScheduleItemView({ model: schedule_item });
+      this.$el.find('tbody').append(view.render().$el);
+      schedule_items.push(view);
     }
   });
 })();

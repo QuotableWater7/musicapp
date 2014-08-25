@@ -79,18 +79,6 @@
       loadActivity(getCurrActivity());
     },
 
-    // loadScheduleItems: function (schedule_items_json) {
-    //   var self = this;
-
-    //   _.each(schedule_items_json, function (item) {
-    //     var model = new App.Models.ScheduleItem(item);
-    //     var item_view = new App.Views.ScheduleItemView({ model: model });
-    //     schedule_items.push(model);
-
-    //     self.$el.find('.schedule-table tbody').append(item_view.render().$el);
-    //   });
-    // },
-
     enableDisableButtons: function () {
       if (hasNextActivity()) {
         this.$el.find('.next-activity').removeClass('disabled');
