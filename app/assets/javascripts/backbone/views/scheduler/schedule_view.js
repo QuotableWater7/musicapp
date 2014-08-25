@@ -37,13 +37,13 @@
     initialize: function () {
       _.bindAll(this, 'render');
 
-      var schedule_items_collection = new App.Collections.ScheduleItems({
+      schedule_items = new App.Models.ScheduleItems({
         schedule_id: this.model.get('id')
       });
 
       timer = new App.Views.TimerView();
       schedule_items = new App.Views.ScheduleItemsView({
-        collection: schedule_items_collection,
+        collection: schedule_items.items_collection,
         $el: this.$el.find('.schedule-items')
       });
 
@@ -55,7 +55,6 @@
 
       duration = json.duration * 60;
       total_importance = json.total_importance;
-
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.render().$el);
       this.$el.find('.schedule-items').html(schedule_items.$el);

@@ -2,7 +2,7 @@
   'use strict';
 
   var schedule_items = [];
-  var total_importance = 0;
+  var total_importance;
 
   App.Views.ScheduleItemsView = Backbone.View.extend({
     template: _.template($('#schedule-items-view').html()),
