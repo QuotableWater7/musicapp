@@ -19,7 +19,7 @@
       var self = this;
       this.$el.html(this.template());
       this.$tbody = self.$el.find('.tabs-table tbody tr:last-child');
-
+      console.log(this.collection);
       this.collection.each(function (tab) {
         self.addTabView(tab);
       });

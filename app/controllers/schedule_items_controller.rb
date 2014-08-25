@@ -12,7 +12,7 @@ class ScheduleItemsController < ApplicationController
       .joins(:activity)
 
     respond_to do |format|
-      format.json { render json: { schedule_items: schedule_items } }
+      format.json { render json: schedule_items }
     end
   end
 

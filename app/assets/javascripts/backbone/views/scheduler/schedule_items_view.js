@@ -13,21 +13,21 @@
     initialize: function () {
       _.bindAll(this, 'render');
 
+      this.$el.html(this.template());
       this.collection.fetch({ success: this.render });
     },
 
     render: function () {
       var self = this;
 
-      // this.$el.html('this works');
-
       this.collection.each(function (schedule_item) {
+        console.log(schedule_item);
         var current_view = new App.Views.ScheduleItemView({
           model: schedule_item
         });
 
         schedule_items.push(current_view);
-        self.$el.find('tbody').append(current_view.$el);
+        self.$el.find('tbody').append(current_view.render().$el);
       });
 
       return this;

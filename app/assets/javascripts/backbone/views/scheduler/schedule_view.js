@@ -43,7 +43,8 @@
 
       timer = new App.Views.TimerView();
       schedule_items = new App.Views.ScheduleItemsView({
-        collection: schedule_items_collection
+        collection: schedule_items_collection,
+        $el: this.$el.find('.schedule-items')
       });
 
       this.model.fetch({ success: this.render });
