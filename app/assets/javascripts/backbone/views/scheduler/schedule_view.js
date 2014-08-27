@@ -73,7 +73,7 @@
       duration = json.duration * 60;
       total_importance = json.total_importance;
       this.$el.html(this.template(json));
-      this.$el.find('.schedule-timer').html(timer.render().$el);
+      this.$el.find('.schedule-timer').html(timer.$el);
       this.$el.find('.schedule-items').html(schedule_items.$el);
 
       return this;
