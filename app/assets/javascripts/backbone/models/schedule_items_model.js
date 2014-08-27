@@ -7,16 +7,16 @@
     },
 
     initialize: function (opts) {
-      _.bindAll(this, 'updateDuration');
+      _.bindAll(this, 'setImportance');
 
       this.items_collection = new App.Collections.ScheduleItems({
         schedule_id: opts.schedule_id
       });
 
-      this.items_collection.on('load', this.updateDuration);
+      this.items_collection.on('load', this.setImportance);
     },
 
-    updateDuration: function () {
+    setImportance: function () {
       this.importance = _.reduce(
         this.items_collection.models, 
         function (mem, schedule_item) {
@@ -24,6 +24,8 @@
         },
         0
       );
+
+      this.trigger('loadImportance');
     }
   });
 })();

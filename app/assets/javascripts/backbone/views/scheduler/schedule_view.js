@@ -2,6 +2,7 @@
   'use strict';
 
   var schedule_index;
+  var schedule_items_model;
   var schedule_items;
   var total_importance = 0;
   var duration;
@@ -41,7 +42,7 @@
       this.model.fetch({ success: this.render });
 
       // load schedule items data/view
-      var schedule_items_model = new App.Models.ScheduleItems({
+      schedule_items_model = new App.Models.ScheduleItems({
         schedule_id: this.model.get('id')
       });
 
