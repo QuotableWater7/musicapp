@@ -23,6 +23,8 @@
         self.loadScheduleItem(schedule_item);
       });
 
+      this.collection.trigger('load');
+
       return this;
     },
 

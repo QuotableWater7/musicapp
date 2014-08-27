@@ -3,18 +3,27 @@
 
   App.Models.ScheduleItems = Backbone.Model.extend({
     defaults: {
-      total_duration: 0
+      importance: 0
     },
 
     initialize: function (opts) {
+      _.bindAll(this, 'updateDuration');
+
       this.items_collection = new App.Collections.ScheduleItems({
         schedule_id: opts.schedule_id
       });
-      this.items_collection.on('update', this.updateDuration);
+
+      this.items_collection.on('load', this.updateDuration);
     },
 
-    updateDuration: function (event, duration) {
-      this.total_duration = duration;
+    updateDuration: function () {
+      this.importance = _.reduce(
+        this.items_collection.models, 
+        function (mem, schedule_item) {
+          return mem + parseInt(schedule_item.get('importance'));
+        },
+        0
+      );
     }
   });
 })();

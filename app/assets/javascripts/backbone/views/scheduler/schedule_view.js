@@ -37,17 +37,21 @@
     initialize: function () {
       _.bindAll(this, 'render');
 
-      schedule_items = new App.Models.ScheduleItems({
+      // load schedule data
+      this.model.fetch({ success: this.render });
+
+      // load schedule items data/view
+      var schedule_items_model = new App.Models.ScheduleItems({
         schedule_id: this.model.get('id')
       });
 
-      timer = new App.Views.TimerView();
       schedule_items = new App.Views.ScheduleItemsView({
-        collection: schedule_items.items_collection,
+        collection: schedule_items_model.items_collection,
         $el: this.$el.find('.schedule-items')
       });
 
-      this.model.fetch({ success: this.render });
+      // initialize the timer view
+      timer = new App.Views.TimerView();
     },
 
     render: function () {
