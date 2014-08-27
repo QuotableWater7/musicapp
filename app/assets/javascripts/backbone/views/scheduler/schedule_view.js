@@ -9,6 +9,17 @@
   var active = true;
   var timer;
 
+  var durations = {
+    '15': { value: 15, display: '15' },
+    '30': { value: 30, display: '30' },
+    '45': { value: 45, display: '45' },
+    '60': { value: 60, display: '60'},
+    '90': { value: 90, display: '90' },
+    '120': { value: 120, display: '2hr' },
+    '180': { value: 180, display: '3hr' },
+    '360': { value: 360, display: '6hr' }
+  };
+
   function timeScale() { return duration / total_importance; }
   function hasPrevActivity() { return schedule_index > 0; }
   function hasNextActivity() {
@@ -31,8 +42,7 @@
       'nextActivity': 'nextActivity',
       'click .prev-activity': 'prevActivity',
       'click .next-activity': 'nextActivity',
-      'change .duration': 'save',
-      'scheduleItemChange': 'setTotalImportance'
+      'change .duration': 'save'
     },
 
     initialize: function () {
@@ -57,30 +67,16 @@
 
     render: function () {
       var json = this.model.toJSON();
+      durations[json.duration].selected = 'selected';
+      _.extend(json, { durations: durations });
 
       duration = json.duration * 60;
       total_importance = json.total_importance;
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.render().$el);
       this.$el.find('.schedule-items').html(schedule_items.$el);
-      this.setDuration();
 
       return this;
-    },
-
-    setDuration: function () {
-      var val = this.model.get('duration');
-      this.$el.find('.duration option[value="' + val + '"]').attr('selected', 'true');
-    },
-
-    setTotalImportance: function () {
-      total_importance = 0;
-
-      _.each(schedule_items, function (item) {
-        total_importance += parseInt(item.get('importance'));
-      });
-
-      loadActivity(getCurrActivity());
     },
 
     enableDisableButtons: function () {
@@ -129,8 +125,6 @@
 
       this.model.set({ duration: minutes, name: name });
       this.model.save();
-
-      loadActivity(getCurrActivity());
     }
   });
 

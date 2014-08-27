@@ -10,14 +10,11 @@
       .col-md-3
         %span Total Time:
         %select.duration
-          %option{ value: 15 } 15
-          %option{ value: 30 } 30
-          %option{ value: 45 } 45
-          %option{ value: 60 } 60
-          %option{ value: 90 } 90
-          %option{ value: 120 } 2hr
-          %option{ value: 180 } 3hr
-          %option{ value: 360 } 6hr
+          :plain
+            {{ _.each(durations, function (duration) { }}
+            {{ var selected = duration.selected ? 'selected="selected"' : '' }}
+            <option value="{{= duration.value }}" {{= selected }}>{{= duration.display }}</option>
+            {{ }); }}
     .row
       .col-md-5.col-md-offset-1
         .schedule-items
