@@ -8,7 +8,6 @@
       .col-md-3
         %h3.name{ contenteditable: true } {{= name }}
       .col-md-3
-        %span Total Time:
         %select.duration
           :plain
             {{ _.each(durations, function (duration) { }}
@@ -16,7 +15,7 @@
             <option value="{{= duration.value }}" {{= selected }}>{{= duration.display }}</option>
             {{ }); }}
     .row
-      .col-md-5.col-md-offset-1
+      .col-md-4.col-md-offset-1
         .schedule-items
       .col-md-3.col-md-offset-1.text-center
         .schedule-timer
@@ -26,13 +25,13 @@
     %thead
       %tr
         %th Activity
-        %th Importance
+        %th.text-center Importance
     %tbody
 
 %script#schedule-item-view{ type: 'text/template' }
   %td.schedule-item-name {{= name }}
-  %td
-    .schedule-item-importance{ contenteditable: true } {{= importance }}
+  %td.text-center
+    .schedule-item-importance {{= importance }}
 
 %script#schedule-timer{ type: 'text/template' }
   %h3.activity-name.text-center

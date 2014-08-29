@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var schedule_index;
+  var schedule_index = 0;
   var schedule_items_model;
   var schedule_items;
   var total_importance = 0;
@@ -10,16 +10,18 @@
   var timer;
 
   var durations = {
-    '15': { value: 15, display: '15' },
-    '30': { value: 30, display: '30' },
-    '45': { value: 45, display: '45' },
-    '60': { value: 60, display: '60'},
-    '90': { value: 90, display: '90' },
-    '120': { value: 120, display: '2hr' },
-    '180': { value: 180, display: '3hr' },
-    '360': { value: 360, display: '6hr' }
+    '15': { value: 15, display: '15 min' },
+    '30': { value: 30, display: '30 min' },
+    '45': { value: 45, display: '45 min' },
+    '60': { value: 60, display: '1 hr'},
+    '120': { value: 120, display: '2 hrs' },
+    '180': { value: 180, display: '3 hrs' },
+    '360': { value: 360, display: '6 hrs' }
   };
 
+  function scheduleAt(index) {
+    return schedule_items_model.items_collection.at(index);
+  }
   function timeScale() { return duration / total_importance; }
   function hasPrevActivity() { return schedule_index > 0; }
   function hasNextActivity() {
@@ -75,6 +77,7 @@
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.$el);
       this.$el.find('.schedule-items').html(schedule_items.$el);
+      loadActivity()
 
       return this;
     },
