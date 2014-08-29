@@ -2,7 +2,7 @@
   'use strict';
 
   var countdown;
-  var break_duration = { minutes: 5 };
+  var break_duration = { minutes: 2 };
   var break_time = false;
 
   var TimerView = Backbone.View.extend({
