@@ -19,18 +19,18 @@
     '360': { value: 360, display: '6 hrs' }
   };
 
-  function scheduleAt(index) {
-    return schedule_items_model.items_collection.at(index);
-  }
+  function itemsCollection() { return schedule_items_model.items_collection; }
+  function scheduleAt(index) { return itemsCollection().at(index); }
   function timeScale() { return duration / total_importance; }
   function hasPrevActivity() { return schedule_index > 0; }
   function hasNextActivity() {
-    return schedule_index < schedule_items.length - 1;
+    return schedule_index < itemsCollection().size() - 1;
   }
-  function getPrevActivity() { return schedule_items[--schedule_index]; }
-  function getNextActivity() { return schedule_items[++schedule_index]; }
-  function getCurrActivity() { return schedule_items[schedule_index]; }
+  function getPrevActivity() { return scheduleAt(--schedule_index); }
+  function getNextActivity() { return scheduleAt(++schedule_index); }
+  function getCurrActivity() { return scheduleAt(schedule_index); }
   function loadActivity(activity) {
+    window.a = schedule_items_model;
     var name = activity.get('name');
     var opts = { seconds: parseInt(activity.get('importance')) * timeScale() };
 
@@ -44,11 +44,12 @@
       'nextActivity': 'nextActivity',
       'click .prev-activity': 'prevActivity',
       'click .next-activity': 'nextActivity',
-      'change .duration': 'save'
+      'change .duration': 'save',
+      'scheduleItemsLoaded': 'loadFirstActivity'
     },
 
     initialize: function () {
-      _.bindAll(this, 'render');
+      _.bindAll(this, 'render', 'loadFirstActivity');
 
       // load schedule data
       this.model.fetch({ success: this.render });
@@ -67,6 +68,10 @@
       timer = new App.Views.TimerView();
     },
 
+    loadFirstActivity: function () {
+      loadActivity(getCurrActivity());
+    },
+
     render: function () {
       var json = this.model.toJSON();
       durations[json.duration].selected = 'selected';
@@ -77,7 +82,6 @@
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.$el);
       this.$el.find('.schedule-items').html(schedule_items.$el);
-      loadActivity()
 
       return this;
     },
@@ -97,14 +101,14 @@
     },
 
     prevActivity: function () {
-      if (schedule_items && hasPrevActivity()) {
+      if (hasPrevActivity()) {
         loadActivity(getPrevActivity());
         this.enableDisableButtons();
       }
     },
 
     nextActivity: function () {
-      if (schedule_items && hasNextActivity()) {
+      if (hasNextActivity()) {
         loadActivity(getNextActivity());
         this.enableDisableButtons();
       }

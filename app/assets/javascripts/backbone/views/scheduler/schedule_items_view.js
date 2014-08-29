@@ -23,7 +23,7 @@
         self.loadScheduleItem(schedule_item);
       });
 
-      this.collection.trigger('load');
+      this.$el.trigger('scheduleItemsLoaded');
 
       return this;
     },
