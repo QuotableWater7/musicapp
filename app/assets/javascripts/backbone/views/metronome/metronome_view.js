@@ -11,6 +11,7 @@
   var sound = new Howl({ urls: ['/assets/snare-01.wav'] });
   var bpm;
   var time_to_wait = 500;   // after typing in bpm input
+  var max_bpm = 240;
 
   var MetronomeView = Backbone.View.extend({
     template: _.template($('#metronome-view').html()),
@@ -99,12 +100,14 @@
     autoSpeed: function (evt) {
       var bpm_int = parseInt(bpm);
 
-      if (bpm_int < 240) {
+      if (bpm_int < max_bpm) {
         bpm = bpm_int + 6;
         var next_speedup = 60000 * auto_speed_beats / bpm;
 
         this.refreshBpm();
         speedup_id = setTimeout(this.autoSpeed, next_speedup);
+      } else {
+        this.turnOff();
       }
     }
   });
