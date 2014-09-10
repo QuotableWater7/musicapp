@@ -110,6 +110,12 @@ $(document).ready(function () {
   }
 
   function configApp() {
-    alert('This has not yet been implemented');
+    new App.Views.HeaderView({
+      title: 'Configuration',
+      description: 'Set your practice exactly the way you want to.'
+    }).render();
+
+    var view = new App.Views.ConfigView();
+    loadView(view);
   }
 });
