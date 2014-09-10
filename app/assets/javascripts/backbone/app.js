@@ -33,6 +33,9 @@ $(document).ready(function () {
         case 'scheduler':
           schedulerApp();
           break;
+        case 'config':
+          configApp();
+          break;
       }
     });
   }
@@ -104,5 +107,9 @@ $(document).ready(function () {
   function metronomeApp() {
     var view = new App.Views.MetronomeView();
     $('.footer-view').empty().append(view.render().$el);
+  }
+
+  function configApp() {
+    alert('This has not yet been implemented');
   }
 });
