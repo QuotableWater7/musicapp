@@ -116,6 +116,6 @@ $(document).ready(function () {
     }).render();
 
     var view = new App.Views.ConfigView();
-    loadView(view);
+    loadView(view.render());
   }
 });
