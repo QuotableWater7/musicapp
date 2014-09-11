@@ -33,6 +33,9 @@ $(document).ready(function () {
         case 'scheduler':
           schedulerApp();
           break;
+        case 'config':
+          configApp();
+          break;
       }
     });
   }
@@ -104,5 +107,15 @@ $(document).ready(function () {
   function metronomeApp() {
     var view = new App.Views.MetronomeView();
     $('.footer-view').empty().append(view.render().$el);
+  }
+
+  function configApp() {
+    new App.Views.HeaderView({
+      title: 'Configuration',
+      description: 'Set your practice exactly the way you want to.'
+    }).render();
+
+    var view = new App.Views.ConfigView();
+    loadView(view);
   }
 });

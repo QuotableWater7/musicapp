@@ -100,11 +100,10 @@
     autoSpeed: function (evt) {
       var bpm_int = parseInt(bpm);
 
-      if (bpm_int < max_bpm) {
-        bpm = bpm_int + 6;
+      if (bpm_int <= max_bpm) {
         var next_speedup = 60000 * auto_speed_beats / bpm;
-
         this.refreshBpm();
+        bpm = bpm_int + 6;
         speedup_id = setTimeout(this.autoSpeed, next_speedup);
       } else {
         this.turnOff();
