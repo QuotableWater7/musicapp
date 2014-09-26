@@ -23,7 +23,7 @@
       this.collection.each(function (tab) {
         self.addTabView(tab);
       });
-
+window.e = this.$el;
       return this;
     },
 

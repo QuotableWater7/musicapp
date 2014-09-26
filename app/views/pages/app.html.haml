@@ -1,15 +1,8 @@
 - @app = 'active'
 
-.app
-  .row
-    .col-md-12
-      .app-list
-  %br
-  .row
-    .col-md-12
-      .view-header
-      .view
+.app-container
 
+= render 'templates/app'
 = render 'templates/config'
 = render 'templates/header'
 = render 'templates/metronome'

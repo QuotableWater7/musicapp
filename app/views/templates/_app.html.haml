@@ -1,0 +1,19 @@
+%script{ type: 'text/template', id: 'app-view' }
+  .app
+    .row
+      .col-md-12
+        .app-list
+          %ul.list-inline
+            %li
+              .btn-app{ data: { app: 'tabs'} } My Tabs
+            %li
+              .btn-app{ data: { app: 'visualization' } } Visualization
+            %li
+              .btn-app{ data: { app: 'scheduler' } } Practice Helper
+            %li
+              .btn-app{ data: { app: 'config' } } Config
+    %br
+    .row
+      .col-md-12
+        .view-header
+        .view
