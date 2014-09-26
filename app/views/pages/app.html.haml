@@ -1,29 +1,20 @@
 - @app = 'active'
 
-.row
-  .col-md-12
-    .app-list
+.app
+  .row
+    .col-md-12
+      .app-list
+  %br
+  .row
+    .col-md-12
+      .view-header
+      .view
 
-      %ul.list-inline
-        %li
-          .btn-app{ data: { app: 'tabs'} } My Tabs
-        %li
-          .btn-app{ data: { app: 'visualization' } } Visualization
-        %li
-          .btn-app{ data: { app: 'scheduler' } } Practice Helper
-        %li
-          .btn-app{ data: { app: 'config' } } Config
-%br
-.row
-  .col-md-12
-    .view-header
-    .view
-
-= render 'backbone/layout/header'
-= render 'backbone/tab/templates'
-= render 'backbone/visualization/templates'
-= render 'backbone/scheduler/templates'
-= render 'backbone/metronome/templates'
-= render 'backbone/config/templates'
+= render 'templates/config'
+= render 'templates/header'
+= render 'templates/metronome'
+= render 'templates/scheduler'
+= render 'templates/tab'
+= render 'templates/visualization'
 
 = javascript_include_tag 'backbone/app'
