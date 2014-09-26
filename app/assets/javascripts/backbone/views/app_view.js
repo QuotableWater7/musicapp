@@ -25,26 +25,24 @@
 
       switch ($target.data('app')) {
         case 'tabs':
-          this.loadTabs();
+          new App.Views.TabsView({
+            collection: new App.Collections.Tabs(),
+            el: '.view'
+          });
           break;
         case 'visualization':
-          alert();
+          new App.Views.VisualizationView({ el: '.view' });
           break;
         case 'scheduler':
-          alert();
+          new App.Views.ScheduleView({
+            model: new App.Models.Schedule({ id: 1 }),
+            el: '.view'
+          });
           break;
         case 'config':
-          alert();
+          new App.Views.ConfigView({ el: '.view' });
           break;
       }
-    },
-
-    loadTabs: function () {
-      var collection = new App.Collections.Tabs();
-      var view = new App.Views.TabsView({
-        collection: collection,
-        el: '.view'
-      });
     },
   });
 })();
