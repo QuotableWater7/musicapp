@@ -20,9 +20,9 @@ $lavendar: #E6E6FA;
 $lavendar-darker: darken($lavendar, 20%);
 
 // site stuff
-$header-bg: $blue;
+$header-bg: $gray-lighter;
 $header-bg-lighter: $blue-lighter;
-$header-text-color: $white;
+$header-text-color: $gray-darker;
 $header-text-active-color: $yellow-lighter;
 
 $site-bg: $almost-white;
