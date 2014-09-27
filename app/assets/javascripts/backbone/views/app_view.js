@@ -5,20 +5,15 @@
     template: _.template($('#app-view').html()),
 
     events: {
-
+      'click .btn-app': 'loadApp'
     },
 
     initialize: function () {
       _.bindAll(this, 'render', 'loadApp');
       this.$el.html(this.template);
-      this.$el.find('.btn-app').click(this.loadApp);
-
-      return this;
     },
 
-    render: function () {
-      return this;
-    },
+    render: function () { return this; },
 
     loadApp: function (e) {
       var $target = $(e.target);
