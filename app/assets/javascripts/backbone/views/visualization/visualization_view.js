@@ -4,6 +4,7 @@
   var Strings = ['e', 'B', 'G', 'D', 'A', 'E'];
   var Frets = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   var timer;
+  var timeout_id;
 
   var VisualizationView = Backbone.View.extend({
     template: _.template($('#visualization-view').html()),
@@ -36,9 +37,12 @@
       });
       $display.find('.string[data-str="' + string + '"]').text(tabbed_fret);
 
-      setTimeout(function () {
-        self.render();
-      }, timer);
+      if (!timeout_id) {
+        console.log(timeout_id);
+        timeout_id = setTimeout(function () {
+          self.render();
+        }, timer);
+      }
 
       return this;
     },
