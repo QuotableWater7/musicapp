@@ -11,6 +11,7 @@
     initialize: function () {
       _.bindAll(this, 'render', 'loadApp');
       this.$el.html(this.template);
+      $('.footer-view').html(new App.Views.MetronomeView().render().$el);
     },
 
     render: function () { return this; },
