@@ -18,7 +18,7 @@
 //= require howler
 //= require cookies
 //= require countdown
-//= require backbone/manifest
+//= require backbone
 
 _.templateSettings = {
   evaluate:    /\{\{(.+?)\}\}/g,
