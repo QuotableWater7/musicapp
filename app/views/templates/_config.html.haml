@@ -1,7 +1,8 @@
 %script{ type: 'text/template', id: 'config_template' }
-  %h3 Choose a schedule to edit, or
-  .btn.btn-primary.inline Add
-  a new one!
+  / TODO: Make it possible to work with multiple schedules
+  / %h3 Choose a schedule to edit, or
+  / .btn.btn-primary.inline Add
+  / a new one!
   .config
     .schedule-list
 
@@ -12,15 +13,20 @@
     .form-group
       %label.control-label.col-md-4 Name
       .col-md-4
-        %input.schedule-attribute.form-control{ value: '{{= json.name }}' }
+        %input.schedule-attribute.form-control{ data: { attribute: 'name' }, value: '{{= json.name }}' }
     .form-group
       %label.control-label.col-md-4 Duration
       .col-md-4
-        %input.form-control.schedule-attribute{ value: '{{= json.duration }}' }
+        %select.duration
+          :plain
+            {{ _.each(durations, function (duration) { }}
+            {{ var selected = duration.selected ? 'selected="selected"' : '' }}
+            <option value="{{= duration.value }}" {{= selected }}>{{= duration.display }}</option>
+            {{ }); }}
     .form-group
       %label.control-label.col-md-4 Break Time
       .col-md-4
-        %input.form-control.schedule-attribute{ value: '{{= json.name }}' }
+        %input.form-control.schedule-attribute{ data: { attribute: 'break_time' }, value: '{{= json.break_time }}' }
     .form-group
       .col-md-4.col-md-offset-4
         .btn.btn-primary Submit
