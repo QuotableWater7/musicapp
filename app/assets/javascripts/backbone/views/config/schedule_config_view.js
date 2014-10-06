@@ -29,6 +29,7 @@
       var json = this.model.toJSON();
       durations[json.duration].selected = 'selected';
       _.extend(json, { durations: durations });
+      console.log(json);
       this.$el.html(this.template({ json: json }));
 
       return this;
@@ -40,7 +41,6 @@
     },
 
     saveChanges: function () {
-      console.log(this.model);
       this.model.save({success: alert, error: alert});
     }
   });

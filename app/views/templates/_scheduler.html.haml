@@ -10,7 +10,7 @@
       .col-md-3
         %select.duration
           :plain
-            {{ _.each(json.durations, function (duration) { }}
+            {{ _.each(durations, function (duration) { }}
             {{ var selected = duration.selected ? 'selected="selected"' : '' }}
             <option value="{{= duration.value }}" {{= selected }}>{{= duration.display }}</option>
             {{ }); }}

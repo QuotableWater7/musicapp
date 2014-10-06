@@ -11,6 +11,8 @@
     initialize: function () {
       var self = this;
       _.bindAll(this, 'render');
+
+      this.collection = new App.Collections.Tabs();
       this.collection.fetch({ success: this.render });
       window.onbeforeunload = function () { return self.checkUnsavedChanges(); };
     },

@@ -52,6 +52,7 @@
       _.bindAll(this, 'render', 'loadFirstActivity');
 
       // load schedule data
+      this.model = new App.Models.Schedule({ id: 1 });
       this.model.fetch({ success: this.render });
 
       // load schedule items data/view

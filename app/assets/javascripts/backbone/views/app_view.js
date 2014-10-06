@@ -18,27 +18,10 @@
 
     loadApp: function (e) {
       var $target = $(e.target);
+      var app = $target.data('app');
+      var view_name = app + 'View';
 
-      switch ($target.data('app')) {
-        case 'tabs':
-          new App.Views.TabsView({
-            collection: new App.Collections.Tabs(),
-            el: '.view'
-          });
-          break;
-        case 'visualization':
-          new App.Views.VisualizationView({ el: '.view' });
-          break;
-        case 'scheduler':
-          new App.Views.ScheduleView({
-            model: new App.Models.Schedule({ id: 1 }),
-            el: '.view'
-          });
-          break;
-        case 'config':
-          new App.Views.ConfigView({ el: '.view' });
-          break;
-      }
+      new App.Views[view_name]({ el: '.view' });
     },
   });
 })();
