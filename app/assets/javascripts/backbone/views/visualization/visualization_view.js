@@ -37,12 +37,9 @@
       });
       $display.find('.string[data-str="' + string + '"]').text(tabbed_fret);
 
-      if (!timeout_id) {
-        console.log(timeout_id);
-        timeout_id = setTimeout(function () {
-          self.render();
-        }, timer);
-      }
+      timeout_id = setTimeout(function () {
+        self.render();
+      }, timer);
 
       return this;
     },
