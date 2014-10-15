@@ -15,7 +15,7 @@
     template: _.template($('#schedule_config_template').html()),
 
     events: {
-      'change input': 'updateModel',
+      'change input,select': 'updateModel',
       'click .btn': 'saveChanges'
     },
 
@@ -37,6 +37,7 @@
 
     updateModel: function (e) {
       var $target = $(e.target);
+      window.t = $target;
       this.model.set($target.data('attribute'), $target.val().trim());
     },
 

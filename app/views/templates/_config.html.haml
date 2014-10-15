@@ -17,7 +17,7 @@
     .form-group
       %label.control-label.col-md-4 Duration
       .col-md-4
-        %select.duration
+        %select.duration{ data: { attribute: 'duration' } }
           :plain
             {{ _.each(json.durations, function (duration) { }}
             {{ var selected = duration.selected ? 'selected="selected"' : '' }}
