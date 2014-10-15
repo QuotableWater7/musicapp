@@ -1,14 +1,12 @@
 %script{ type: 'text/template', id: 'config_template' }
-  / TODO: Make it possible to work with multiple schedules
-  / %h3 Choose a schedule to edit, or
-  / .btn.btn-primary.inline Add
-  / a new one!
-  .config
-    .schedule-list
+  .row
+    .col-md-10.col-md-offset-1
+      %h3 Configuration
+      .config
+        .schedule-list
 
 
 %script{ type: 'text/template', id: 'schedule_config_template' }
-  %legend Schedule Config
   .schedule.col-md-8.form-horizontal
     .form-group
       %label.control-label.col-md-4 Name

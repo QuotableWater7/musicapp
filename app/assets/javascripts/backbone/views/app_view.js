@@ -1,6 +1,8 @@
 (function () {
   'use strict';
 
+  var views = {};
+
   App.Views.AppView = Backbone.View.extend({
     template: _.template($('#app-view').html()),
 
@@ -27,7 +29,12 @@
 
     renderApp: function (view_name) {
       App.Cookies.set('last-app', view_name);
-      new App.Views[view_name]({ el: '.view' });
+
+      if (_.isUndefined(views[view_name])) {
+        views[view_name] = new App.Views[view_name]();
+      }
+
+      this.$el.find('.view').empty().append(views[view_name].$el);
     },
 
     renderLastOpenApp: function () {

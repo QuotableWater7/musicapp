@@ -21,7 +21,6 @@
 
     initialize: function () {
       _.bindAll(this, 'render', 'updateModel', 'saveChanges');
-
       this.model.fetch({ success: this.render });
     },
 
@@ -37,7 +36,6 @@
 
     updateModel: function (e) {
       var $target = $(e.target);
-      window.t = $target;
       this.model.set($target.data('attribute'), $target.val().trim());
     },
 

@@ -5,14 +5,15 @@
     template: _.template($('#config_template').html()),
 
     initialize: function () {
-      var $el = this.$el;
-      $el.html(this.template());
+      this.$el.html(this.template());
 
       var model = new App.Models.Schedule({ id: 1 });
-      var params = { el: '.schedule-list', model: model };
-      new App.Views.ScheduleConfigView(params);
+      var params = { el: this.$el.find('.schedule-list'), model: model };
+      var view = new App.Views.ScheduleConfigView(params);
     },
 
-    render: function () { return this; }
+    render: function () {
+      return this;
+    }
   });
 })();
