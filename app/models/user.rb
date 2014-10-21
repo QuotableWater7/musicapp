@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :tabs
+  has_many :schedules
 
   validates_uniqueness_of :email
 
