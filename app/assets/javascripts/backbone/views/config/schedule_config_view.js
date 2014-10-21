@@ -15,13 +15,12 @@
     template: _.template($('#schedule_config_template').html()),
 
     events: {
-      'change input': 'updateModel',
+      'change input,select': 'updateModel',
       'click .btn': 'saveChanges'
     },
 
     initialize: function () {
       _.bindAll(this, 'render', 'updateModel', 'saveChanges');
-
       this.model.fetch({ success: this.render });
     },
 

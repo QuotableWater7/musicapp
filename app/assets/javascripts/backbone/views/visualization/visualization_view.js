@@ -16,18 +16,15 @@
     },
 
     initialize: function () {
-      var self = this;
-
       _.bindAll(this, 'render');
       this.$el.html(this.template());
-      timer = parseInt(this.$el.find('.timer input').val()) * 1000;
-
       this.render();
     },
 
     render: function () {
       var self = this;
 
+      timer = parseInt(this.$el.find('.timer input').val()) * 1000;
       var $display = this.$el.find('.display');
       var string = this.randomElement(Strings);
       var tabbed_fret = this.tabTemplate(this.randomElement(Frets));
