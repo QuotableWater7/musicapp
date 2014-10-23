@@ -66,6 +66,7 @@
     render: function () {
       var json = this.model.toJSON();
       duration = json.duration * 60;
+      timer.setBreakDuration(json.break_time);
       total_importance = json.total_importance;
       this.$el.html(this.template(json));
       this.$el.find('.schedule-timer').html(timer.$el);

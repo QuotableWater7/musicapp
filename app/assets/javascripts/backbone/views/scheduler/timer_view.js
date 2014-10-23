@@ -36,6 +36,10 @@
       countdown.start(opts);
     },
 
+    setBreakDuration: function (duration) {
+      break_duration = { minutes: duration };
+    },
+
     breakTime: function () {
       if (break_time) {
         this.$el.trigger('nextActivity');
