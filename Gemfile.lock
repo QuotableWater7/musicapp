@@ -27,6 +27,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    ads-rails (0.2.0)
+      rails (>= 3.1.0, < 4.2.0)
     arel (5.0.1.20140414130214)
     bcrypt-ruby (3.1.2)
     bootstrap-slider-rails (1.9.0)
@@ -163,6 +165,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ads-rails
   bcrypt-ruby (= 3.1.2)
   bootstrap-slider-rails
   capybara

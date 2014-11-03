@@ -11,6 +11,7 @@ gem 'protected_attributes'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'rails-backbone'
 gem 'bootstrap-slider-rails'
+gem 'ads-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
