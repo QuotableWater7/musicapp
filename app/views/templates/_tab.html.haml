@@ -6,8 +6,6 @@
         %th.artist-column Artist
         %th.tab-url-column Tab URL
         %th
-        %th Sessions
-        %th Minutes
         %th
         %th
     %tbody
@@ -17,19 +15,13 @@
 
 %script#tab-view{ type: 'text/template' }
   %td
-    .editable{ data: { attr: 'song' } } {{= song }}
+    %input.form-control{ value: '{{= song }}', data: { attr: 'song' } }
   %td
-    .editable{ data: { attr: 'artist' } } {{= artist }}
+    %input.form-control{ value: '{{= artist }}', data: { attr: 'artist' } }
   %td
-    .editable{ data: { attr: 'url' } }
-      {{= url }}
+    %input.form-control{ value: '{{= url }}', data: { attr: 'url' } }
   %td
     %a.url-button.pull-right{ data: { url: '{{= url}}' } } Go!
   %td
-    .editable.text-center{ data: { attr: 'sessions_completed' } } {{= sessions_completed }}
-  %td
-    .editable.text-center{ data: { attr: 'total_minutes' } } {{= total_minutes }}
-  %td
     .btn-sm.btn-secondary.save-tab Save
-  %td
     .btn-sm.btn-delete.remove-tab{ data: { url: '{{= url}}' } } Del
