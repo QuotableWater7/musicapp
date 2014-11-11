@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
 
   has_many :tabs
   has_many :schedules
-  #test
 
   validates_uniqueness_of :email
 

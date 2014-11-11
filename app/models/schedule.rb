@@ -5,6 +5,8 @@ class Schedule < ActiveRecord::Base
   has_many :activities
   has_many :schedule_items
 
+  validates :name, :duration, :break_time, presence: true
+
   attr_accessible :id, :name, :duration, :break_time
 
   def as_json
