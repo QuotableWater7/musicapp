@@ -12,6 +12,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'rails-backbone'
 gem 'bootstrap-slider-rails'
 gem 'ads-rails'
+gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

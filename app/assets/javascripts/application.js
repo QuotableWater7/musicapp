@@ -2,12 +2,13 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require bootstrap-slider
-//= require underscore
 //= require howler
 //= require cookies
 //= require_tree ./util
 //= require countdown
+//= require underscore
 //= require backbone
+//= require react
 
 _.templateSettings = {
   evaluate:    /\{\{(.+?)\}\}/g,
