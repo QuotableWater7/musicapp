@@ -3,18 +3,27 @@
 
   App.ExercisesTable = React.createClass({
 
+    _renderExercises: function () {
+      var exercises = [];
+      _.times(3, function () {
+        exercises.push(<App.ExerciseRow />);
+      });
+
+      return exercises;
+    },
+
     render: function () {
       return (
-        <table>
+        <table className='table'>
           <thead>
             <tr>
-              <th>Blah</th>
+              <th>Activity</th>
+              <th>Importance</th>
+              <th>Length of Time</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>BLAH</td>
-            </tr>
+          {this._renderExercises()}
           </tbody>
         </table>
       );

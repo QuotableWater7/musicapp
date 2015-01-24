@@ -9,6 +9,7 @@
 //= require underscore
 //= require backbone
 //= require react
+//= require components
 
 _.templateSettings = {
   evaluate:    /\{\{(.+?)\}\}/g,
@@ -17,8 +18,8 @@ _.templateSettings = {
 };
 
 window.App = window.App || {};
-
 window.App.Models = {};
 window.App.Collections = {};
-window.App.Routers = {};
-window.App.Views = {};
+
+App.Component = function () { };
+App.Component.extend = Backbone.Model.extend;
