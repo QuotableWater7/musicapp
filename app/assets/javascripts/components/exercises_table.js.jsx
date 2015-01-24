@@ -3,13 +3,21 @@
 
   App.ExercisesTable = React.createClass({
 
-    _renderExercises: function () {
-      var exercises = [];
-      _.times(3, function () {
-        exercises.push(<App.ExerciseRow />);
-      });
+    _removeExercise: function (id) {
+      this.props.remove(id);
+    },
 
-      return exercises;
+    _renderExercise: function (exercise) {
+      return <App.ExerciseRow {...exercise}
+        remove={this._removeExercise.bind(this, exercise.cid)}/>
+    },
+
+    _renderExercises: function () {
+      return this.props.exercises.map(this._renderExercise);
+    },
+
+    _addModel: function () {
+      this.props.add(new App.Models.Exercise());
     },
 
     render: function () {
@@ -19,7 +27,14 @@
             <tr>
               <th>Activity</th>
               <th>Importance</th>
-              <th>Length of Time</th>
+              <th>Duration</th>
+              <th>
+                <button
+                  className='btn btn-tertiary'
+                  onClick={this._addModel}>
+                  +
+                </button>
+              </th>
             </tr>
           </thead>
           <tbody>

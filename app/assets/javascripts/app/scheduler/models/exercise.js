@@ -3,7 +3,15 @@
 
   App.Models.Exercise = Backbone.Model.extend({
 
-    model: App.Models.Exercise
+    defaults: {
+      activity: '',
+      importance: 1
+    },
+
+    toJSON: function () {
+      var json = Backbone.Model.prototype.toJSON.call(this);
+      return _.extend(json, { cid: this.cid });
+    }
 
   });
 

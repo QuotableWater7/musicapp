@@ -11,7 +11,8 @@
       this.collection = new App.Collections.Exercises();
       this._renderTable();
 
-      this.collection.on('add remove', this.renderTable);
+      window.c = this.collection;
+      this.collection.on('add remove', this._renderTable);
 
       return this;
     },
@@ -21,9 +22,8 @@
         <App.ExercisesTable
           exercises={this.collection.toJSON()}
           add={this.collection.add.bind(this.collection)}
-          remove={this.collection.remove.bind(this.collection)}
-        />,
-        $('.app-container')[0]
+          remove={this.collection.remove.bind(this.collection)}/>,
+        $('.exercises-table-container')[0]
       );
     }
 
