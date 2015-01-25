@@ -13,7 +13,7 @@
             {this.props.importance}
           </td>
           <td contentEditable='true'>
-            <button className='btn btn-primary'
+            <button className='btn btn-delete'
               onClick={this.props.remove}>
               -
             </button>
