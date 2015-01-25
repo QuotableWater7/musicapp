@@ -4,14 +4,14 @@
   App.ExerciseRow = React.createClass({
 
     _remove: function () {
-      this.props.model.trigger('remove');
+      this.props.model.destroy();
     },
 
     render: function () {
       return (
         <tr>
           <td contentEditable='true'>
-            {this.props.model.get('activity')}
+            {this.props.model.get('name')}
           </td>
           <td contentEditable='true'>
             {this.props.model.get('importance')}

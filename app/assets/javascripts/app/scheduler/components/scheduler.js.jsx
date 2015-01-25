@@ -4,9 +4,12 @@
   App.Scheduler = React.createClass({
 
     componentDidMount: function () {
-      this.props.collection.fetch({success: function () {
-        console.log(arguments);
-      }, error: function () { console.log(arguments); }});
+      var self = this;
+
+      this.props.collection.fetch({
+        success: function () { self.forceUpdate(); },
+        error: function () { }
+      });
     },
 
     _save: function () {

@@ -8,7 +8,6 @@ class ScheduleItemsController < ApplicationController
     ].join(',')
 
     schedule_items = ScheduleItem.select(columns)
-      .where('schedule_id = ?', params[:schedule_id])
       .joins(:activity)
 
     respond_to do |format|
