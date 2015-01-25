@@ -4,30 +4,32 @@
 (function () {
   'use strict';
 
-  App.Scheduler = App.Component.extend({
+  App.Runner = App.Component.extend({
 
     init: function () {
       _.bindAll(this, '_renderTable');
       this.collection = new App.Collections.Exercises();
       this._renderTable();
 
-      window.c = this.collection;
       this.collection.on('add remove', this._renderTable);
 
       return this;
     },
 
     _renderTable: function () {
+      var tableData = {
+        exercises: this.collection.toJSON(),
+        add: this.collection.add.bind(this.collection),
+        remove: this.collection.remove.bind(this.collection)
+      };
+
       React.render(
-        <App.ExercisesTable
-          exercises={this.collection.toJSON()}
-          add={this.collection.add.bind(this.collection)}
-          remove={this.collection.remove.bind(this.collection)}/>,
-        $('.exercises-table-container')[0]
+        <App.Scheduler tableData={tableData}/>,
+        $('.app-container')[0]
       );
     }
 
   });
 
-  var scheduler = new App.Scheduler().init();
+  var scheduler = new App.Runner().init();
 })();

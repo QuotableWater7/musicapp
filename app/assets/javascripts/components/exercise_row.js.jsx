@@ -6,10 +6,10 @@
     render: function () {
       return (
         <tr>
-          <td contenteditable='true'>{this.props.activity}</td>
-          <td contenteditable='true'>{this.props.importance}</td>
-          <td contenteditable='true'>5</td>
-          <td contenteditable='true'>
+          <td contentEditable='true'>{this.props.activity}</td>
+          <td contentEditable='true'>{this.props.importance}</td>
+          <td contentEditable='true'>5</td>
+          <td contentEditable='true'>
             <button className='btn btn-primary'
               onClick={this.props.remove}>
               -
