@@ -5,7 +5,7 @@
 
     model: App.Models.Exercise,
 
-    url: 'blah',
+    url: function () { return '/schedules/2'; },
 
     initialize: function () {
       var self = this;

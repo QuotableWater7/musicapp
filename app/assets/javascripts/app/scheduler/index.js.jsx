@@ -1,5 +1,5 @@
-//= require ./collections
 //= require ./models
+//= require ./collections
 //= require ./components
 
 (function () {

@@ -13,7 +13,7 @@ class SchedulesController < ApplicationController
   end
 
   def show
-    json = User.schedules.first.as_json
+    json = Schedule.first.as_json
 
     respond_to do |format|
       format.json do

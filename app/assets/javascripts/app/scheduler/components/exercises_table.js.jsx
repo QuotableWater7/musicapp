@@ -8,7 +8,8 @@
     },
 
     _renderExercise: function (exercise) {
-      return <App.ExerciseRow model={exercise} />
+      return <App.ExerciseRow
+        model={exercise} remove={this.props.collection.remove.bind(this.props.collection)} />
     },
 
     _renderExercises: function () {
