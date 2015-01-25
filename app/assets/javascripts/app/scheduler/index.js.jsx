@@ -32,5 +32,5 @@
 
   });
 
-  var scheduler = new App.Runner().init();
+  var scheduler = new App.Runner();
 })();
