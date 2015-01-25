@@ -8,8 +8,12 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def create
+    User.schedules.create!(params[:schedule])
+  end
+
   def show
-    json = Schedule.first.as_json
+    json = User.schedules.first.as_json
 
     respond_to do |format|
       format.json do
