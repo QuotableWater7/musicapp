@@ -25,9 +25,8 @@
         <table className='table'>
           <thead>
             <tr>
-              <th>Activity</th>
-              <th>Importance</th>
-              <th>Duration</th>
+              <th className='activity'>Activity</th>
+              <th className='importance'>Importance</th>
               <th>
                 <button
                   className='btn btn-tertiary'
