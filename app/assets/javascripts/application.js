@@ -9,7 +9,6 @@
 //= require underscore
 //= require backbone
 //= require react
-//= require components
 
 _.templateSettings = {
   evaluate:    /\{\{(.+?)\}\}/g,

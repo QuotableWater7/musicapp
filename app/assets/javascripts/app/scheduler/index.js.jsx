@@ -1,5 +1,6 @@
 //= require ./collections
 //= require ./models
+//= require ./components
 
 (function () {
   'use strict';
