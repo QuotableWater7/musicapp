@@ -12,20 +12,12 @@
       this.collection = new App.Collections.Exercises();
       this._renderTable();
 
-      this.collection.on('add remove', this._renderTable);
-
       return this;
     },
 
     _renderTable: function () {
-      var tableData = {
-        exercises: this.collection.toJSON(),
-        add: this.collection.add.bind(this.collection),
-        remove: this.collection.remove.bind(this.collection)
-      };
-
       React.render(
-        <App.Scheduler tableData={tableData}/>,
+        <App.Scheduler collection={this.collection}/>,
         $('.app-container')[0]
       );
     }

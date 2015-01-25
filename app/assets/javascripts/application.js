@@ -20,10 +20,5 @@ window.App = window.App || {};
 window.App.Models = {};
 window.App.Collections = {};
 
-App.Component = function () {
-
-  this.init();
-
-};
-
+App.Component = function () { this.init(); };
 App.Component.extend = Backbone.Model.extend;

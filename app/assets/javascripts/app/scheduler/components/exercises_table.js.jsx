@@ -3,21 +3,20 @@
 
   App.ExercisesTable = React.createClass({
 
-    _removeExercise: function (id) {
-      this.props.remove(id);
+    componentDidMount: function () {
+      this.props.collection.on('add remove', this.forceUpdate.bind(this, null));
     },
 
     _renderExercise: function (exercise) {
-      return <App.ExerciseRow {...exercise}
-        remove={this._removeExercise.bind(this, exercise.cid)}/>
+      return <App.ExerciseRow model={exercise} />
     },
 
     _renderExercises: function () {
-      return this.props.exercises.map(this._renderExercise);
+      return this.props.collection.map(this._renderExercise);
     },
 
     _addModel: function () {
-      this.props.add(new App.Models.Exercise());
+      this.props.collection.add(new App.Models.Exercise());
     },
 
     render: function () {
