@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 4.1.0'
 gem 'sqlite3'
 gem 'jquery-rails'
 
@@ -18,7 +18,6 @@ gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 # in production environments by default.
 group :assets do
   gem 'sass-rails'
-  gem 'coffee-rails'
   gem 'therubyracer'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
