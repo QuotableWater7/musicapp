@@ -6,7 +6,6 @@
     url: function () { return '/schedules/' + this.get('id'); },
 
     initialize: function (opts) {
-      window.o = opts;
       this.set(opts.schedule);
       this.set('exercises', this._loadExercises());
     },
