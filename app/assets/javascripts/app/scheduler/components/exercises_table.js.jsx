@@ -17,7 +17,7 @@
     },
 
     _addModel: function () {
-      this.props.collection.add(new App.Models.Exercise());
+      this.props.collection.create();
     },
 
     render: function () {

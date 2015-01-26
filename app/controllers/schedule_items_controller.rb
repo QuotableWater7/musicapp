@@ -4,7 +4,6 @@ class ScheduleItemsController < ApplicationController
     columns = [
       'schedule_items.id',
       'schedule_items.importance',
-      'activities.name',
     ].join(',')
 
     schedule_items = ScheduleItem.select(columns)
@@ -13,6 +12,11 @@ class ScheduleItemsController < ApplicationController
     respond_to do |format|
       format.json { render json: schedule_items }
     end
+  end
+
+  def create
+    ScheduleItem.create!(create_params)
+    render nothing: true
   end
 
   def update
@@ -28,5 +32,11 @@ class ScheduleItemsController < ApplicationController
     ScheduleItem.find(params[:id]).destroy!
     render nothing: true
   end
+
+  private
+
+    def create_params
+      params.permit(:activity, :importance)
+    end
 
 end
