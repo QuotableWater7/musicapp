@@ -4,10 +4,10 @@ class ScheduleItemsController < ApplicationController
     columns = [
       'schedule_items.id',
       'schedule_items.importance',
+      'schedule_items.name',
     ].join(',')
 
     schedule_items = ScheduleItem.select(columns)
-      .joins(:activity)
 
     respond_to do |format|
       format.json { render json: schedule_items }
@@ -20,8 +20,8 @@ class ScheduleItemsController < ApplicationController
   end
 
   def update
-    schedule_item = ScheduleItem.find(params[:id])
-    schedule_item.update_attributes(importance: params[:importance])
+    schedule_item = ScheduleItem.find(update_params[:id])
+    schedule_item.update_attributes(update_params)
 
     respond_to do |format|
       format.json { render json: { message: 'Successful' } }
@@ -36,7 +36,11 @@ class ScheduleItemsController < ApplicationController
   private
 
     def create_params
-      params.permit(:activity, :importance)
+      @create_params ||= params.permit(:name, :importance)
+    end
+
+    def update_params
+      @update_params ||= params.permit(:id, :name, :importance)
     end
 
 end
