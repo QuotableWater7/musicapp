@@ -24,4 +24,9 @@ class ScheduleItemsController < ApplicationController
     end
   end
 
+  def destroy
+    ScheduleItem.find(params[:id]).destroy!
+    render nothing: true
+  end
+
 end
