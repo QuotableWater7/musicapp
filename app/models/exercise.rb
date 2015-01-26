@@ -1,4 +1,4 @@
-class ScheduleItem < ActiveRecord::Base
+class Exercise < ActiveRecord::Base
 
   belongs_to :schedule
 

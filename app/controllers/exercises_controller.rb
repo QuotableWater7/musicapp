@@ -1,13 +1,7 @@
-class ScheduleItemsController < ApplicationController
+class ExercisesController < ApplicationController
 
   def index
-    columns = [
-      'schedule_items.id',
-      'schedule_items.importance',
-      'schedule_items.name',
-    ].join(',')
-
-    schedule_items = ScheduleItem.select(columns)
+    schedule_items = Exercise.all
 
     respond_to do |format|
       format.json { render json: schedule_items }
@@ -15,12 +9,12 @@ class ScheduleItemsController < ApplicationController
   end
 
   def create
-    ScheduleItem.create!(create_params)
+    Exercise.create!(create_params)
     render nothing: true
   end
 
   def update
-    schedule_item = ScheduleItem.find(update_params[:id])
+    schedule_item = Exercise.find(update_params[:id])
     schedule_item.update_attributes(update_params)
 
     respond_to do |format|
@@ -29,7 +23,7 @@ class ScheduleItemsController < ApplicationController
   end
 
   def destroy
-    ScheduleItem.find(params[:id]).destroy!
+    Exercise.find(params[:id]).destroy!
     render nothing: true
   end
 

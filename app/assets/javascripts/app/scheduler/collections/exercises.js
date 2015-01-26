@@ -5,7 +5,7 @@
 
     model: App.Models.Exercise,
 
-    url: function () { return '/schedule_items'; }
+    url: function () { return '/exercises'; }
 
   });
 

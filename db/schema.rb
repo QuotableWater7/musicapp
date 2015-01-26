@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126165017) do
+ActiveRecord::Schema.define(version: 20150126165258) do
 
-  create_table "schedule_items", force: true do |t|
+  create_table "exercises", force: true do |t|
     t.integer  "importance"
     t.integer  "schedule_id"
     t.integer  "activity_id"
