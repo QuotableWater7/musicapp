@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   before_filter :require_login, only: [:app]
 
   def app
-    @schedule = schedule
+    @schedule = schedule.to_json
   end
 
   private

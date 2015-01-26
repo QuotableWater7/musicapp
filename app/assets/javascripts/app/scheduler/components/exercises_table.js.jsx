@@ -21,6 +21,7 @@
     },
 
     render: function () {
+      console.log('collection', this.props.collection);
       return (
         <table className='table'>
           <thead>

@@ -10,7 +10,8 @@
     init: function () {
       this.$el = $('.app-container');
       _.bindAll(this, '_renderTable');
-      this.collection = new App.Collections.Exercises(this.$el.data());
+
+      this.schedule = new App.Models.Schedule(this.$el.data());
       this._renderTable();
 
       return this;
@@ -18,7 +19,7 @@
 
     _renderTable: function () {
       React.render(
-        <App.Scheduler collection={this.collection}/>,
+        <App.Scheduler schedule={this.schedule}/>,
         this.$el[0]
       );
     }

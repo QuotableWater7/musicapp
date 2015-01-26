@@ -8,7 +8,7 @@ class Schedule < ActiveRecord::Base
 
   attr_accessible :id, :name, :duration, :break_time
 
-  def as_json
+  def as_json(*)
     {
       id: id,
       name: name,

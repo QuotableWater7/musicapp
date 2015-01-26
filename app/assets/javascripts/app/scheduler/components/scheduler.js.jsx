@@ -6,10 +6,18 @@
     componentDidMount: function () {
       var self = this;
 
-      this.props.collection.fetch({
+      this._exercises().fetch({
         success: function () { self.forceUpdate(); },
         error: function () { }
       });
+    },
+
+    _schedule: function () {
+      return this.props.schedule;
+    },
+
+    _exercises: function () {
+      return this._schedule().get('exercises');
     },
 
     _save: function () {
@@ -19,8 +27,8 @@
     render: function () {
       return (
         <div className='scheduler-app'>
-          <h1>Scheduler App</h1>
-          <App.ExercisesTable collection={this.props.collection}/>
+          <App.ScheduleDetails model={this._schedule()} />
+          <App.ExercisesTable collection={this._exercises()} />
           <div className='text-center'>
             <button className='btn btn-primary' onClick={this._save}>
               Save

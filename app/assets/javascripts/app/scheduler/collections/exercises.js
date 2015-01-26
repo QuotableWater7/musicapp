@@ -10,7 +10,7 @@
     },
 
     initialize: function (opts) {
-      this.schedule_id = opts.scheduleId;
+      this.schedule_id = opts.schedule_id;
     }
 
   });
