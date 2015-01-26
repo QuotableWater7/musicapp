@@ -8,8 +8,9 @@
   App.Runner = App.Component.extend({
 
     init: function () {
+      this.$el = $('.app-container');
       _.bindAll(this, '_renderTable');
-      this.collection = new App.Collections.Exercises();
+      this.collection = new App.Collections.Exercises(this.$el.data());
       this._renderTable();
 
       return this;
@@ -18,7 +19,7 @@
     _renderTable: function () {
       React.render(
         <App.Scheduler collection={this.collection}/>,
-        $('.app-container')[0]
+        this.$el[0]
       );
     }
 

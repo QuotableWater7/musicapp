@@ -1,6 +1,6 @@
 - @app = 'active'
 
 .row
-  .app-container.col-md-10.col-md-offset-1
+  .app-container.col-md-10.col-md-offset-1{ data: { schedule_id: @schedule.id } }
 
 = javascript_include_tag 'app/scheduler'

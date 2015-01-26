@@ -5,7 +5,13 @@
 
     model: App.Models.Exercise,
 
-    url: function () { return '/exercises'; }
+    url: function () {
+      return '/schedules/' + this.schedule_id + '/exercises';
+    },
+
+    initialize: function (opts) {
+      this.schedule_id = opts.scheduleId;
+    }
 
   });
 

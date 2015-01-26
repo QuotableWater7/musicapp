@@ -1,7 +1,7 @@
 class ExercisesController < ApplicationController
 
   def index
-    schedule_items = Exercise.all
+    schedule_items = Exercise.where(index_params)
 
     respond_to do |format|
       format.json { render json: schedule_items }
@@ -9,7 +9,8 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    Exercise.create!(create_params)
+    schedule = Schedule.find(create_params[:schedule_id])
+    schedule.exercises.create!(create_params.slice(:name, :importance))
     render nothing: true
   end
 
@@ -29,8 +30,12 @@ class ExercisesController < ApplicationController
 
   private
 
+    def index_params
+      @index_params ||= params.permit(:schedule_id)
+    end
+
     def create_params
-      @create_params ||= params.permit(:name, :importance)
+      @create_params ||= params.permit(:schedule_id, :name, :importance)
     end
 
     def update_params
