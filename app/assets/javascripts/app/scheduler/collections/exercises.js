@@ -10,13 +10,15 @@
     },
 
     initialize: function (opts) {
+      _.bindAll(this, '_destroyExercise');
+
       this.schedule_id = opts.schedule_id;
-      App.events.subscribe('exercise.destroy', this.remove.bind(this));
+      App.events.subscribe('exercise.destroy', this._destroyExercise);
       App.events.subscribe('exercise.create', this.create.bind(this));
     },
 
     _destroyExercise: function (cid) {
-      this.get(cid)
+      this.get(cid).destroy();
     }
 
   });

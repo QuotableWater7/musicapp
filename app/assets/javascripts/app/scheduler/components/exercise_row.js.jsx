@@ -4,7 +4,6 @@
   App.ExerciseRow = React.createClass({
 
     _remove: function () {
-      console.log(this.props.cid);
       App.events.publish('exercise.destroy', this.props.cid);
     },
 
