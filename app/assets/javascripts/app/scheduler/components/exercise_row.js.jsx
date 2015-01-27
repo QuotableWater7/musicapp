@@ -4,17 +4,18 @@
   App.ExerciseRow = React.createClass({
 
     _remove: function () {
-      this.props.model.destroy();
+      console.log(this.props.cid);
+      App.events.publish('exercise.destroy', this.props.cid);
     },
 
     render: function () {
       return (
         <tr>
           <td contentEditable='true'>
-            {this.props.model.get('name')}
+            {this.props.name}
           </td>
           <td contentEditable='true'>
-            {this.props.model.get('importance')}
+            {this.props.importance}
           </td>
           <td>
             <button className='btn btn-delete'
