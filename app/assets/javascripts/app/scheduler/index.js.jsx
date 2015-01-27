@@ -13,7 +13,7 @@
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.exercises = new App.Collections.Exercises([], { schedule_id: this.schedule.get('id') });
-      this.exercises.on('add remove', this._renderTable.bind(this));
+      this.exercises.on('add remove reset', this._renderTable.bind(this));
       this.exercises.fetch();
       this._renderTable();
 

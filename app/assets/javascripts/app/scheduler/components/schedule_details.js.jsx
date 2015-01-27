@@ -7,8 +7,9 @@
       return { duration: this.props.duration };
     },
 
-    _update: function (event) {
+    _bubbleChange: function () {
       this.setState({ duration: event.target.value });
+      App.events.publish('schedule.update', this.state);
     },
 
     render: function () {
@@ -18,9 +19,10 @@
           <label>
             Total Time:
             <input
+              className='form-control'
               type='text'
               value={this.state.duration}
-              onChange={this._update}
+              onChange={this._bubbleChange}
             />
           </label>
           <br />
