@@ -13,11 +13,16 @@
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.exercises = new App.Collections.Exercises([], { schedule_id: this.schedule.get('id') });
+      App.events.subscribe('scheduler.save', this._save.bind(this));
       this.exercises.on('add remove reset', this._renderTable.bind(this));
       this.exercises.fetch();
       this._renderTable();
 
       return this;
+    },
+
+    _save: function () {
+      this.schedule.save();
     },
 
     _renderTable: function () {

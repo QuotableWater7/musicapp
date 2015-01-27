@@ -7,9 +7,12 @@
       return { duration: this.props.duration };
     },
 
-    _bubbleChange: function () {
-      this.setState({ duration: event.target.value });
+    _publishUpdate: function () {
       App.events.publish('schedule.update', this.state);
+    },
+
+    _changeState: function () {
+      this.setState({ duration: event.target.value }, this._publishUpdate);
     },
 
     render: function () {
@@ -17,12 +20,12 @@
         <div className='time-setter text-center'>
           <h1>{this.props.name}</h1>
           <label>
-            Total Time:
+            Practice Time (min)
             <input
               className='form-control'
               type='text'
               value={this.state.duration}
-              onChange={this._bubbleChange}
+              onChange={this._changeState}
             />
           </label>
           <br />

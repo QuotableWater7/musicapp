@@ -4,7 +4,11 @@
   App.Scheduler = React.createClass({
 
     _save: function () {
-      // this.props.collection.;
+      App.events.publish('scheduler.save');
+    },
+
+    _continue: function () {
+      this._save();
     },
 
     render: function () {
@@ -13,8 +17,8 @@
           <App.ScheduleDetails {...this.props.schedule} />
           <App.ExercisesTable exercises={this.props.exercises} />
           <div className='text-center'>
-            <button className='btn btn-primary' onClick={this._save}>
-              Save
+            <button className='btn btn-primary' onClick={this._continue}>
+              Continue!
             </button>
           </div>
         </div>
