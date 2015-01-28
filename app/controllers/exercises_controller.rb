@@ -10,8 +10,12 @@ class ExercisesController < ApplicationController
 
   def create
     schedule = Schedule.find(create_params[:schedule_id])
-    schedule.exercises.create!(create_params.slice(:name, :importance))
-    render nothing: true
+    exercise_params = create_params.slice(:name, :importance)
+    exercise = schedule.exercises.create!(exercise_params)
+
+    respond_to do |format|
+      format.json { render json: exercise }
+    end
   end
 
   def update
