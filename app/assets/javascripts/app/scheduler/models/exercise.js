@@ -8,6 +8,21 @@
       importance: 5
     },
 
+    methodToURL: {
+      'read': this.exercisesPath(),
+      'create': this.exercisesPath(),
+      'update': this.schedulePath() + '/' + this.get('id'),
+      'delete': this.exercisesPath()
+    },
+
+    sync: function(method, model, options) {
+      console.log('bdlsbfgsd');
+      options = options || {};
+      options.url = model.methodToURL[method.toLowerCase()];
+
+      return Backbone.sync.apply(this, arguments);
+    },
+
     url: function () {
       var schedule_path = '/schedules/' + this.get('schedule_id');
       return schedule_path + '/exercises/' + this.get('id');
