@@ -8,28 +8,31 @@
       importance: 5
     },
 
-    methodToURL: {
-      'read': this.exercisesPath(),
-      'create': this.exercisesPath(),
-      'update': this.schedulePath() + '/' + this.get('id'),
-      'delete': this.exercisesPath()
+    initialize: function () {
+      App.events.subscribe('exercise.' + this.cid + '.set', this.set.bind(this));
+    },
+
+    defaultPath: function () {
+      return '/schedules/' + this.get('schedule_id') + '/exercises';
+    },
+
+    updatePath: function () {
+      return this.defaultPath() + '/' + this.get('id');
+    },
+
+    url: function (method) {
+      if (method.toLowerCase() === 'update') {
+        return this.updatePath();
+      } else {
+        return this.defaultPath();
+      }
     },
 
     sync: function(method, model, options) {
-      console.log('bdlsbfgsd');
       options = options || {};
-      options.url = model.methodToURL[method.toLowerCase()];
+      options.url = model.url.call(this, method);
 
       return Backbone.sync.apply(this, arguments);
-    },
-
-    url: function () {
-      var schedule_path = '/schedules/' + this.get('schedule_id');
-      return schedule_path + '/exercises/' + this.get('id');
-    },
-
-    initialize: function () {
-      App.events.subscribe('exercise.set', this.set.bind(this));
     },
 
     toJSON: function () {

@@ -19,7 +19,7 @@
 
     _notifyOfChange: function (event) {
       var changes = _.pick(this.state, 'name', 'importance');
-      App.events.publish('exercise.set', changes);
+      App.events.publish('exercise.' + this.props.cid + '.set', changes);
     },
 
     render: function () {

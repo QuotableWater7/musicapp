@@ -23,9 +23,7 @@
 
     _destroyExercise: function (cid) {
       this.get(cid).destroy();
-    },
-
-
+    }
 
   });
 
