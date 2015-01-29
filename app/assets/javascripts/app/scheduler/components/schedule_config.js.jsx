@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  App.Scheduler = React.createClass({
+  App.ScheduleConfig = React.createClass({
 
     _save: function () {
-      App.events.publish('scheduler.save');
+      App.events.publish('scheduler.continue');
     },
 
     _continue: function () {
