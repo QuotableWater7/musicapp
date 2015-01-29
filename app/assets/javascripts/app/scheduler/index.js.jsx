@@ -10,27 +10,22 @@
 
     init: function () {
       this.$el = $('.app-container');
-      _.bindAll(this, '_renderConfig');
+      _.bindAll(this, '_renderConfig', '_renderPractice');
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.exercises = new App.Collections.Exercises([], { schedule_id: this.schedule.get('id') });
-      this.router = new Backbone.Router();
-      Backbone.history.start();
 
       App.events.subscribe('scheduler.save', this._save.bind(this));
       this.exercises.on('add remove reset', this._renderConfig.bind(this));
       this.exercises.fetch();
       this._renderConfig();
 
+      this.router = new App.Router();
       this.router.on({
-        'route:config': function () {
-          console.log('bleh');
-        },
-
-        'route:practice': function () {
-          console.log('bleeeee');
-        }
+        'route:config': this._renderConfig,
+        'route:practice': this._renderPractice
       });
+      Backbone.history.start();
 
       return this;
     },
@@ -53,6 +48,7 @@
     },
 
     _renderPractice: function () {
+      console.log('blah');
       React.render(<div>Blah</div>, this.$el[0]);
     }
 
