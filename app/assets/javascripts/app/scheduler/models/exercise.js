@@ -12,19 +12,20 @@
       App.events.subscribe('exercise.' + this.cid + '.set', this.set.bind(this));
     },
 
-    defaultPath: function () {
+    exercisesPath: function () {
       return '/schedules/' + this.get('schedule_id') + '/exercises';
     },
 
-    updatePath: function () {
-      return this.defaultPath() + '/' + this.get('id');
+    exercisePath: function () {
+      return this.exercisesPath() + '/' + this.get('id');
     },
 
     url: function (method) {
-      if (method.toLowerCase() === 'update') {
-        return this.updatePath();
+      method = method.toLowerCase();
+      if (method === 'update' || method === 'delete') {
+        return this.exercisePath();
       } else {
-        return this.defaultPath();
+        return this.exercisesPath();
       }
     },
 
