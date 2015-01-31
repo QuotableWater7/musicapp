@@ -4,7 +4,8 @@
   App.Router = Backbone.Router.extend({
     routes : {
       'practice': 'practice',
-      'config': 'config'
+      'config': 'config',
+      '*actions': 'config'
     }
   });
 
