@@ -28,7 +28,7 @@
           <td>
             <input
               name='name'
-              className='form-control'
+              className='form-control exercise-input'
               type='text'
               value={this.state.name}
               onChange={this._changeState}
@@ -37,7 +37,7 @@
           <td>
             <input
               name='importance'
-              className='form-control'
+              className='form-control exercise-input'
               type='text'
               value={this.state.importance}
               onChange={this._changeState}
