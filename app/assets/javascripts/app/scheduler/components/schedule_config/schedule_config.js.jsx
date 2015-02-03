@@ -3,12 +3,8 @@
 
   App.ScheduleConfig = React.createClass({
 
-    _save: function () {
-      App.events.publish('scheduler.continue');
-    },
-
     _continue: function () {
-      this._save();
+      App.events.publish('scheduler.continue');
     },
 
     render: function () {
