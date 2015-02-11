@@ -7,9 +7,11 @@
       return (
         <div className='practiceScreen'>
           <button className='btn btn-primary' onClick={this.props.back}>
-            Back
+            Config
           </button>
-          This is the next screen to show!
+          <div className='activity-name'><h3>Activity Name</h3></div>
+          <br/>
+          <App.Timer/>
         </div>
       );
     }

@@ -3,6 +3,10 @@
 
   App.Models.Schedule = Backbone.Model.extend({
 
+    defaults: {
+      current_view: 'Config'
+    },
+
     url: function () { return '/schedules/' + this.get('id'); },
 
     initialize: function () {

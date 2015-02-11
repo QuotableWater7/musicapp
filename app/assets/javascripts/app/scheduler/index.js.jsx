@@ -40,7 +40,6 @@
       this.schedule.save();
       this.exercises.each(function (model) { model.save(); });
       this._renderPractice();
-      // this.router.navigate('practice', { trigger: true });
     },
 
     _back: function () {
