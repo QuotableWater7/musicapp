@@ -13,22 +13,21 @@
     init: function () {
       this.$el = $('.app-container');
       _.bindAll(this, '_renderConfig', '_renderPractice', '_renderCurrent',
-        '_save');
+        '_continue', '_back');
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.exercises = new App.Collections.Exercises([], { schedule_id: this.schedule.get('id') });
 
-      App.events.subscribe('scheduler.continue', this._save);
       this.exercises.on('add remove reset', this._renderCurrent);
       this.exercises.fetch();
       this._renderConfig();
 
-      this.router = new App.Router();
-      this.router.on({
-        'route:config': this._renderConfig,
-        'route:practice': this._renderPractice,
-      });
-      Backbone.history.start();
+      // this.router = new App.Router();
+      // this.router.on({
+      //   'route:config': this._renderConfig,
+      //   'route:practice': this._renderPractice,
+      // });
+      // Backbone.history.start();
 
       return this;
     },
@@ -37,17 +36,24 @@
       this['_render' + this._current_view]();
     },
 
-    _save: function () {
+    _continue: function () {
       this.schedule.save();
       this.exercises.each(function (model) { model.save(); });
-      this.router.navigate('#/practice', { trigger: true });
+      this._renderPractice();
+      // this.router.navigate('practice', { trigger: true });
+    },
+
+    _back: function () {
+      this._renderConfig();
     },
 
     _renderConfig: function () {
       React.render(
         <App.ScheduleConfig
           schedule={this.schedule.toJSON()}
-          exercises={this.exercises.toJSON()} />,
+          exercises={this.exercises.toJSON()}
+          continue={this._continue}
+        />,
         this.$el[0]
       );
 
@@ -55,7 +61,7 @@
     },
 
     _renderPractice: function () {
-      React.render(<div>Blah</div>, this.$el[0]);
+      React.render(<App.PracticeScreen back={this._back}/>, this.$el[0]);
 
       this._current_view = 'Practice';
     }
