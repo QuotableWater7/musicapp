@@ -14,6 +14,7 @@ gem 'rails-assets-underscore'
 gem 'bootstrap-slider-rails'
 gem 'ads-rails'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
+gem 'react-router-rails', '~> 0.11.6.1'
 
 # Gems used only for assets and not required
 # in production environments by default.
