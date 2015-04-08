@@ -8,7 +8,6 @@ gem 'jquery-rails'
 # Gems added by me
 gem 'haml'
 gem 'execjs'
-gem 'protected_attributes'
 gem 'bcrypt-ruby', '3.1.2'
 gem 'rails-assets-backbone'
 gem 'rails-assets-underscore'

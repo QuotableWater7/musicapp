@@ -24,15 +24,22 @@ class SchedulesController < ApplicationController
 
   def update
     schedule = Schedule.find(params[:id])
-    schedule.update_attributes(
-      name: params[:name],
-      duration: params[:duration],
-      break_time: params[:break_time],
-    )
+    schedule.update_attributes!(schedule_attributes)
 
     respond_to do |format|
       format.json { render json: { message: 'Success' } }
     end
+  end
+
+  private
+
+  def schedule_attributes
+    @schedule_attributes ||= params.permit(
+      :current_view,
+      :name,
+      :duration,
+      :break_time,
+    )
   end
 
 end

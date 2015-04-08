@@ -85,8 +85,6 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     phantomjs (1.9.8.0)
-    protected_attributes (1.0.8)
-      activemodel (>= 4.0.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -175,7 +173,6 @@ DEPENDENCIES
   jasmine (~> 2.0.2)
   jasmine-rails (~> 0.9.1)
   jquery-rails
-  protected_attributes
   rails (~> 4.1.0)
   rails-assets-backbone
   rails-assets-underscore

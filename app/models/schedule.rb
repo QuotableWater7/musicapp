@@ -6,14 +6,13 @@ class Schedule < ActiveRecord::Base
 
   validates :name, :duration, :break_time, presence: true
 
-  attr_accessible :id, :name, :duration, :break_time
-
   def as_json(*)
     {
       id: id,
       name: name,
       duration: duration,
       break_time: break_time,
+      current_view: current_view
     }
   end
 

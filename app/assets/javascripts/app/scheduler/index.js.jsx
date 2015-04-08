@@ -9,16 +9,14 @@
 
     init: function () {
       this.$el = $('.app-container');
-      _.bindAll(this, '_renderConfig', '_renderPractice', '_renderCurrent',
-        '_continue', '_back');
+      _.bindAll(this, '_renderCurrent', '_continue', '_back');
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.schedule.on('change:current_view', this._renderCurrent);
 
       this.exercises = new App.Collections.Exercises([], { schedule_id: this.schedule.get('id') });
       this.exercises.on('add remove reset', this._renderCurrent);
-      this.exercises.fetch();
-      this._renderConfig();
+      this.exercises.fetch({ reset: true });
 
       return this;
     },
@@ -28,9 +26,9 @@
     },
 
     _continue: function () {
+      this.schedule.set('current_view', 'Practice');
       this.schedule.save();
       this.exercises.each(function (model) { model.save(); });
-      this.schedule.set('current_view', 'Practice');
     },
 
     _back: function () {
