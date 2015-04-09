@@ -9,7 +9,7 @@
 
     init: function () {
       this.$el = $('.app-container');
-      _.bindAll(this, '_renderCurrent');
+      _.bindAll(this, '_renderCurrent', '_saveScheduleAndExercises');
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.schedule.on('change:current_view', this._renderCurrent);
@@ -18,7 +18,7 @@
       this.exercises.on('add remove reset', this._renderCurrent);
       this.exercises.fetch({ reset: true });
 
-      window.beforeonunload = this._saveScheduleAndExercises;
+      window.onbeforeunload = this._saveScheduleAndExercises;
 
       return this;
     },
