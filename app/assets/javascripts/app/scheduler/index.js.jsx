@@ -9,7 +9,7 @@
 
     init: function () {
       this.$el = $('.app-container');
-      _.bindAll(this, '_renderCurrent', '_continue', '_back');
+      _.bindAll(this, '_renderCurrent');
 
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.schedule.on('change:current_view', this._renderCurrent);
@@ -18,36 +18,44 @@
       this.exercises.on('add remove reset', this._renderCurrent);
       this.exercises.fetch({ reset: true });
 
+      window.beforeonunload = this._saveScheduleAndExercises;
+
       return this;
     },
 
     _renderCurrent: function () {
-      this['_render' + this.schedule.get('current_view')]();
-    },
-
-    _continue: function () {
-      this.schedule.set('current_view', 'Practice');
-      this.schedule.save();
-      this.exercises.each(function (model) { model.save(); });
-    },
-
-    _back: function () {
-      this.schedule.set('current_view', 'Config');
+      React.render(
+        <div>
+          <App.Nav/>
+          {this._renderConfig()}
+          {this._renderPractice()}
+        </div>,
+        this.$el[0]
+      )
     },
 
     _renderConfig: function () {
-      React.render(
+      if (!this._currentViewIs('config')) { return false; }
+      return (
         <App.ScheduleConfig
           schedule={this.schedule.toJSON()}
           exercises={this.exercises.toJSON()}
-          continue={this._continue}
-        />,
-        this.$el[0]
+        />
       );
     },
 
     _renderPractice: function () {
-      React.render(<App.PracticeScreen back={this._back}/>, this.$el[0]);
+      if (!this._currentViewIs('practice')) { return false; }
+      return <App.PracticeScreen/>;
+    },
+
+    _currentViewIs: function (view) {
+      return view === this.schedule.get('current_view');
+    },
+
+    _saveScheduleAndExercises: function () {
+      this.schedule.save();
+      this.exercises.each(function (exercise) { exercise.save(); });
     }
 
   });
