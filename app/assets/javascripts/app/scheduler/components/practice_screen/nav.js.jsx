@@ -31,7 +31,7 @@
           <span {...this._configProps()} onClick={this._navigateTo('config')}>Config</span>
           {this._separator()}
           <span {...this._practiceProps()} onClick={this._navigateTo('practice')}>Practice</span>
-          <br/>
+          <br/><br/>
         </div>
       )
     }
