@@ -8,7 +8,6 @@
   App.Runner = App.Component.extend({
 
     init: function () {
-      this.$el = $('.app-container');
       _.bindAll(this, 'renderCurrent', 'saveScheduleAndExercises');
 
       this.initSchedule();
@@ -68,5 +67,5 @@
 
   });
 
-  var scheduler = new App.Runner();
+  var scheduler = new App.Runner({ $el: $('.app-container') });
 })();

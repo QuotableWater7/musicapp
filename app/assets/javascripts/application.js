@@ -20,5 +20,9 @@ window.App = window.App || {};
 window.App.Models = {};
 window.App.Collections = {};
 
-App.Component = function () { this.init(); };
+var component_opts = ['$el'];
+App.Component = function (opts) {
+  _.extend(this, _.pick(opts, component_opts));
+  this.init.apply(this, opts);
+};
 App.Component.extend = Backbone.Model.extend;
