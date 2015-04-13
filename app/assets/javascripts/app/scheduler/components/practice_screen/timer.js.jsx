@@ -5,7 +5,7 @@
 
     propTypes: {
       title: React.PropTypes.string.isRequired,
-      initial_time: React.PropTypes.number.isRequired
+      duration: React.PropTypes.number.isRequired
     },
 
     getInitialState: function () {
@@ -30,7 +30,9 @@
       return (
         <div>
           <h1>Current Activity: {this.props.title}</h1>
-          <h3 className='activity-timer'>{elapsed_str}</h3>
+          <h3 className='activity-timer'>
+            {elapsed_str} of {this.props.duration}
+          </h3>
         </div>
       );
     }
