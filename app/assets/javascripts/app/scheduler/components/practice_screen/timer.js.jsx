@@ -12,7 +12,7 @@
       return (
         <div>
           <h1>Current Activity: {this.props.title}</h1>
-          <p>{this.props.time_left}</p>
+          <h3 className='activity-timer'>{this.props.time_left}</h3>
         </div>
       );
     }

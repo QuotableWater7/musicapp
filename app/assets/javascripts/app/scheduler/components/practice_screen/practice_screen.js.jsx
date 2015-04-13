@@ -16,7 +16,7 @@
             <span className='btn btn-secondary'>&gt;&gt;</span>
           </div>
           <br/>
-          <App.Timer/>
+          <App.Timer title='Scales' time_left='40'/>
         </div>
       );
     }
