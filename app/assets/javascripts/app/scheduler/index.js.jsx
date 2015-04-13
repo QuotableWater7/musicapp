@@ -53,7 +53,12 @@
 
     renderPractice: function () {
       if (!this.currentViewIs('practice')) { return false; }
-      return <App.PracticeScreen schedule={this.schedule.toJSON()}/>;
+      return (
+        <App.PracticeScreen
+          schedule={this.schedule.toJSON()}
+          exercises={this.exercises.toJSON()}
+        />
+      );
     },
 
     currentViewIs: function (view) {

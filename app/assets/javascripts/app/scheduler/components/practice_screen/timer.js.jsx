@@ -5,7 +5,7 @@
 
     propTypes: {
       title: React.PropTypes.string.isRequired,
-      duration: React.PropTypes.number.isRequired
+      time: React.PropTypes.number.isRequired
     },
 
     getInitialState: function () {
@@ -13,15 +13,33 @@
     },
 
     componentDidMount: function () {
-      this.timer = setInterval(this.tick, 50);
+      this.startTimer();
     },
 
     componentWillUnmount: function () {
+      this.endTimer();
+    },
+
+    componentWillReceiveProps: function () {
+      this.setState(this.getInitialState());
+    },
+
+    startTimer: function () {
+      this.timer = setInterval(this.tick, 50);
+    },
+
+    endTimer: function () {
       clearInterval(this.timer);
     },
 
     tick: function () {
-      this.setState({ elapsed: new Date() - this.state.start_time })
+      var total_time = new Date() - this.state.start_time;
+      this.setState({ elapsed: total_time });
+
+      if (total_time > this.props.time * 1000) {
+        console.log('time is up!');
+        this.endTimer();
+      }
     },
 
     render: function () {
@@ -31,7 +49,7 @@
         <div>
           <h1>Current Activity: {this.props.title}</h1>
           <h3 className='activity-timer'>
-            {elapsed_str} of {this.props.duration}
+            {elapsed_str} of {this.props.time}
           </h3>
         </div>
       );
