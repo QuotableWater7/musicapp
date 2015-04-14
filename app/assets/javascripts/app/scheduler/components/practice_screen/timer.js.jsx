@@ -10,15 +10,7 @@
     },
 
     getInitialState: function () {
-      return { elapsed: 0, start_time: Date.now() };
-    },
-
-    componentDidMount: function () {
-      this.startTimer();
-    },
-
-    componentWillUnmount: function () {
-      this.endTimer();
+      return { elapsed: 0 };
     },
 
     componentWillReceiveProps: function () {
@@ -26,6 +18,8 @@
     },
 
     startTimer: function () {
+      var start_time = Date.now();
+      this.setState({ start_time: start_time });
       this.timer = setInterval(this.tick, 50);
     },
 
@@ -47,10 +41,12 @@
       var elapsed_str = (this.state.elapsed / 1000).toFixed(0);
 
       return (
-        <div>
-          <h1>Current Activity: {this.props.title}</h1>
+        <div className='text-center'>
+          <h1>{this.props.title}</h1>
+          <div className='btn btn-tertiary' onClick={this.startTimer}>Play</div>
+          <br/><br/>
           <h3 className='activity-timer'>
-            {elapsed_str} of {this.props.time}
+            {elapsed_str}
           </h3>
         </div>
       );

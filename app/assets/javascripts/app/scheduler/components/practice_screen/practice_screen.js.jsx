@@ -20,7 +20,7 @@
     },
 
     setNextActivity: function () {
-      console.log('done');
+      App.events.publish('schedule.update', { exercise_idx: this.schedule().exercise_idx + 1 });
     },
 
     render: function () {
@@ -33,9 +33,9 @@
             {this._separator()}
             <span className='btn btn-secondary'>&gt;&gt;</span>
           </div>
-          <br/>
+          <br/><br/><br/>
           <App.Timer
-            title={current_activity.get('name') || 'Not provided'}
+            title={current_activity.get('name')}
             time={3}
             onFinish={this.setNextActivity}
           />

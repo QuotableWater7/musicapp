@@ -7,7 +7,7 @@
       return (
         <div className='scheduler-app'>
           <App.ScheduleDetails {...this.props.schedule} />
-          <App.ExercisesTable exercises={this.props.exercises} />
+          <App.ExercisesTable exercises={this.props.schedule.exercises.toJSON()} />
         </div>
       );
     }
