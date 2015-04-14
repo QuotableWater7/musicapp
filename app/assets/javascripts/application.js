@@ -4,11 +4,11 @@
 //= require bootstrap-slider
 //= require howler
 //= require cookies
-//= require_tree ./util
 //= require countdown
 //= require underscore
 //= require backbone
 //= require react
+//= require_tree ./util
 
 _.templateSettings = {
   evaluate:    /\{\{(.+?)\}\}/g,
