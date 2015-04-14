@@ -3,16 +3,20 @@
 
   App.PracticeScreen = React.createClass({
 
-    // propTypes: {
-    //   schedule: React.PropTypes.
-    // },
+    propTypes: {
+      schedule: React.PropTypes.object.isRequired
+    },
 
     _separator: function () {
       return <span>&nbsp;&nbsp;</span>;
     },
 
+    schedule: function () {
+      return this.props.schedule;
+    },
+
     currentActivity: function () {
-      return this.props.exercises[this.props.schedule.exercise_idx];
+      return this.schedule().exercises.at([this.schedule().exercise_idx]);
     },
 
     setNextActivity: function () {
@@ -31,7 +35,7 @@
           </div>
           <br/>
           <App.Timer
-            title={current_activity.name}
+            title={current_activity.get('name') || 'Not provided'}
             time={3}
             onFinish={this.setNextActivity}
           />
