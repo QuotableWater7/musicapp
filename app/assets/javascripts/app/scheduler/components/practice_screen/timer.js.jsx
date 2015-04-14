@@ -5,7 +5,8 @@
 
     propTypes: {
       title: React.PropTypes.string.isRequired,
-      time: React.PropTypes.number.isRequired
+      time: React.PropTypes.number.isRequired,
+      onFinish: React.PropTypes.func
     },
 
     getInitialState: function () {
@@ -37,8 +38,8 @@
       this.setState({ elapsed: total_time });
 
       if (total_time > this.props.time * 1000) {
-        console.log('time is up!');
         this.endTimer();
+        this.props.onFinish();
       }
     },
 
