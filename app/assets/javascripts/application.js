@@ -8,6 +8,7 @@
 //= require underscore
 //= require backbone
 //= require react
+//= require d3/d3
 //= require_tree ./util
 
 _.templateSettings = {
