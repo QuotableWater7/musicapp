@@ -3,8 +3,6 @@
 //= require bootstrap.min
 //= require bootstrap-slider
 //= require howler
-//= require cookies
-//= require countdown
 //= require underscore
 //= require backbone
 //= require react

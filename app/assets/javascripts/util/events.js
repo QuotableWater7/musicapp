@@ -4,6 +4,7 @@
 (function () {
   'use strict';
 
+  window.App = window.App || {};
   App.events = {
     subscribe: subscribe,
     unsubscribe: unsubscribe,
