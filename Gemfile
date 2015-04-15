@@ -22,12 +22,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-group :development do
+group :development, :test do
   gem 'spring'
   gem 'database_cleaner', '~> 1.3.0'
-end
-
-group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'shoulda-matchers'
   gem 'capybara'
