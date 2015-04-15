@@ -11,6 +11,7 @@ class PagesController < ApplicationController
       current_user.schedules.first || current_user.schedules.create({
         name: 'My Practice Schedule',
         duration: 60,
+        current_view: 'config',
       })
     end
 
