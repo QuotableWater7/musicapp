@@ -5,8 +5,7 @@
 
     defaults: {
       current_view: 'config',
-      exercise_idx: 0,
-      exercise_time: 5 * 60
+      exercise_idx: 0
     },
 
     url: function () { return '/schedules/' + this.get('id'); },
@@ -32,6 +31,21 @@
     save: function () {
       this.get('exercises').each(function (exercise) { exercise.save(); });
       return Backbone.Model.prototype.save.apply(this, arguments);
+    },
+
+    getters: {
+      num_exercises: function () {
+        return this.get('exercises').length;
+      },
+
+      total_importance: function () {
+        var total = 0;
+        this.get('exercises').each(function (exercise) {
+          total += exercise.get('importance');
+        });
+
+        return total;
+      }
     }
 
   });

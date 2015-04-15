@@ -45,10 +45,12 @@
   };
 
   model_proto.toJSON = function () {
-    if (_.isUndefined(this.serverProps)) { return backbone_toJSON.call(this); }
+    var json = backbone_toJSON.call(this);
 
-    var json = {};
-    _.each(this.serverProps, function (prop) { json[prop] = this.get(prop); });
+    _.each(this.getters, function (prop, key) {
+      json[key] = this.get(key);
+    }.bind(this));
+
     return json;
   };
 

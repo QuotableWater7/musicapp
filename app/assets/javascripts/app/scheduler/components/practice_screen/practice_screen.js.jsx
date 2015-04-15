@@ -29,6 +29,14 @@
       App.events.publish('schedule.update', update_data);
     },
 
+    timeForActivity: function () {
+      var schedule_time = this.schedule().duration;
+      var total_importance = this.schedule().total_importance;
+      var activity_importance = this.currentActivity().get('importance');
+
+      return schedule_time * activity_importance / total_importance;
+    },
+
     render: function () {
       var current_activity = this.currentActivity();
 
@@ -40,9 +48,10 @@
             <span className='btn btn-secondary'>&gt;&gt;</span>
           </div>
           <br/><br/><br/>
+          <h5>total time {this.timeForActivity()}</h5>
           <App.Timer
             title={current_activity.get('name')}
-            time={2}
+            time={this.timeForActivity}
             onFinish={this.setNextActivity}
           />
         </div>
