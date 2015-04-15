@@ -11,7 +11,7 @@
       _.bindAll(this, 'renderCurrent', 'save');
 
       this.initSchedule();
-      window.onbeforeunload = this.save;
+      this.schedule.on('change', this.save.bind(this));
 
       return this;
     },
