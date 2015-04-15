@@ -50,11 +50,11 @@
       return (
         <div className='practiceScreen'>
           <div className='col-md-12 text-center'>
-            <span className='btn btn-secondary' onClick={this.prevActivity}>
+            <span className='btn btn-default' onClick={this.prevActivity}>
               &lt;&lt;
             </span>
             {this._separator()}
-            <span className='btn btn-secondary' onClick={this.nextActivity}>
+            <span className='btn btn-default' onClick={this.nextActivity}>
               &gt;&gt;
             </span>
           </div>

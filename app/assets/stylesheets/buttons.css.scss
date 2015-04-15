@@ -16,6 +16,10 @@ $min-button-width: 80px;
   }
 }
 
+.btn-default {
+  background: #ccc;
+}
+
 .btn-secondary {
   @extend .btn;
 
