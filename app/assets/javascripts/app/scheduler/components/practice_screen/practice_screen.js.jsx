@@ -15,12 +15,18 @@
       return this.props.schedule;
     },
 
+    exerciseIdx: function () {
+      return this.schedule().exercise_idx;
+    },
+
     currentActivity: function () {
-      return this.schedule().exercises.at([this.schedule().exercise_idx]);
+      return this.schedule().exercises.at([this.exerciseIdx()]);
     },
 
     setNextActivity: function () {
-      App.events.publish('schedule.update', { exercise_idx: this.schedule().exercise_idx + 1 });
+      var num_exercises = this.schedule().exercises.length;
+      var update_data = { exercise_idx: (this.exerciseIdx() + 1) % num_exercises };
+      App.events.publish('schedule.update', update_data);
     },
 
     render: function () {
@@ -36,7 +42,7 @@
           <br/><br/><br/>
           <App.Timer
             title={current_activity.get('name')}
-            time={3}
+            time={2}
             onFinish={this.setNextActivity}
           />
         </div>
