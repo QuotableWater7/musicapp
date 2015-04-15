@@ -14,6 +14,7 @@
     },
 
     componentWillReceiveProps: function () {
+      this.endTimer();
       this.setState(this.getInitialState());
     },
 
@@ -42,7 +43,7 @@
     },
 
     render: function () {
-      var elapsed_str = (this.state.elapsed / 1000).toFixed(0);
+      var elapsed_str = Math.round(this.props.time - (this.state.elapsed / 1000));
 
       return (
         <div className='text-center'>

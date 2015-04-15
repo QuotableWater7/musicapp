@@ -23,7 +23,14 @@
       return this.schedule().exercises.at([this.exerciseIdx()]);
     },
 
-    setNextActivity: function () {
+    prevActivity: function () {
+      var num_exercises = this.schedule().exercises.length;
+      var next_index = this.exerciseIdx() - 1;
+      next_index = next_index < 0 ? next_index + num_exercises : next_index;
+      App.events.publish('schedule.update', { exercise_idx: next_index });
+    },
+
+    nextActivity: function () {
       var num_exercises = this.schedule().exercises.length;
       var update_data = { exercise_idx: (this.exerciseIdx() + 1) % num_exercises };
       App.events.publish('schedule.update', update_data);
@@ -34,7 +41,7 @@
       var total_importance = this.schedule().total_importance;
       var activity_importance = this.currentActivity().get('importance');
 
-      return (schedule_time * activity_importance / total_importance).toFixed(0);
+      return Math.round(schedule_time * activity_importance / total_importance);
     },
 
     render: function () {
@@ -43,18 +50,19 @@
       return (
         <div className='practiceScreen'>
           <div className='col-md-12 text-center'>
-            <span className='btn btn-secondary'>&lt;&lt;</span>
+            <span className='btn btn-secondary' onClick={this.prevActivity}>
+              &lt;&lt;
+            </span>
             {this._separator()}
-            <span className='btn btn-secondary'>&gt;&gt;</span>
+            <span className='btn btn-secondary' onClick={this.nextActivity}>
+              &gt;&gt;
+            </span>
           </div>
           <br/><br/><br/>
-          <h5 className='text-center'>
-            {this.timeForActivity()}s
-          </h5>
           <App.Timer
             title={current_activity.get('name')}
             time={this.timeForActivity()}
-            onFinish={this.setNextActivity}
+            onFinish={this.nextActivity}
           />
         </div>
       );
