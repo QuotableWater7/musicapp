@@ -51,7 +51,7 @@
           <h5>total time {this.timeForActivity()}</h5>
           <App.Timer
             title={current_activity.get('name')}
-            time={this.timeForActivity}
+            time={this.timeForActivity()}
             onFinish={this.setNextActivity}
           />
         </div>

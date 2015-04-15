@@ -17,6 +17,10 @@
       this.setState(this.getInitialState());
     },
 
+    componentWillUnmount: function () {
+      this.endTimer();
+    },
+
     startTimer: function () {
       var start_time = Date.now();
       this.setState({ start_time: start_time });
