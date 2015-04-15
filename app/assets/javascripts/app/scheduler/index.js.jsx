@@ -25,6 +25,7 @@
       React.render(
         <div>
           <App.Nav/>
+          <br/><br/>
           {this.renderConfig()}
           {this.renderPractice()}
         </div>,
