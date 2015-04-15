@@ -34,7 +34,7 @@
       var total_importance = this.schedule().total_importance;
       var activity_importance = this.currentActivity().get('importance');
 
-      return schedule_time * activity_importance / total_importance;
+      return (schedule_time * activity_importance / total_importance).toFixed(0);
     },
 
     render: function () {
@@ -48,7 +48,9 @@
             <span className='btn btn-secondary'>&gt;&gt;</span>
           </div>
           <br/><br/><br/>
-          <h5>total time {this.timeForActivity()}</h5>
+          <h5 className='text-center'>
+            {this.timeForActivity()}s
+          </h5>
           <App.Timer
             title={current_activity.get('name')}
             time={this.timeForActivity()}
