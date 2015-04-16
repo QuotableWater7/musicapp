@@ -11,9 +11,8 @@ RSpec.describe 'basic signup stuff' do
     click_button 'Create Account'
     expect(page).to have_content 'successfully created'
 
-    # pending 'the page seems to be blank'
-    # click_link 'App'
-    # expect(page).to have_content 'My Practice Schedule'
+    click_link 'App'
+    expect(page).to have_content 'My Practice Schedule'
   end
 
 end

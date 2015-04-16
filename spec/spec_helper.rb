@@ -5,6 +5,8 @@ require 'rspec/autorun'
 require 'database_cleaner'
 include SessionsHelper
 
+Capybara.default_driver = :selenium
+
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 

@@ -23,11 +23,12 @@ group :assets do
 end
 
 group :development, :test do
-  gem 'spring'
-  gem 'database_cleaner', '~> 1.3.0'
-  gem 'rspec-rails', '~> 3.0.0'
-  gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'database_cleaner', '~> 1.3.0'
   gem 'jasmine', '~> 2.0.2'
   gem 'jasmine-rails', '~> 0.9.1'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'selenium-webdriver', '~> 2.45.0'
+  gem 'shoulda-matchers'
+  gem 'spring'
 end
