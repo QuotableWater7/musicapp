@@ -19,15 +19,15 @@
       return (
         <div className='time-setter text-center'>
           <h1>{this.props.name}</h1>
-          <label>
-            Practice Time (min)
+          <div className='total-time'>
             <input
-              className='form-control'
+              className='exercise-input text-center'
               type='text'
               value={this.state.duration}
               onChange={this._changeState}
             />
-          </label>
+            &nbsp;min
+          </div>
           <br />
           <br />
         </div>
