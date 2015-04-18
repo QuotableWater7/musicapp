@@ -23,7 +23,11 @@
 
     practiceBtn: function () {
       return (
-        <span className='btn btn-primary' onClick={this.navigate('practice')}>
+        <span
+          className='btn btn-primary'
+          onClick={this.navigate('practice')}
+          disabled={this.props.schedule.exercises.length === 0}
+        >
           Practice
         </span>
       );

@@ -24,7 +24,7 @@
     renderCurrent: function () {
       React.render(
         <div>
-          <App.Nav/>
+          <App.Nav schedule={this.schedule.toJSON()}/>
           <br/><br/>
           {this.renderConfig()}
           {this.renderPractice()}
