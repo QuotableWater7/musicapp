@@ -18,7 +18,7 @@
     },
 
     _createExercise: function () {
-      this.create({ schedule_id: this.schedule_id });
+      this.add({ schedule_id: this.schedule_id });
     },
 
     _destroyExercise: function (cid) {

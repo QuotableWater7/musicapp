@@ -21,7 +21,7 @@
       this.set('exercises', exercises);
 
       // trigger change whenever exercises changes
-      exercises.on('add remove reset', function () {
+      exercises.on('add remove reset change', function () {
         this.trigger('change');
       }.bind(this));
 
