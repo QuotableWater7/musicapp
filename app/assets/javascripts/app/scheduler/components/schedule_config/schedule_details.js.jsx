@@ -12,17 +12,28 @@
     },
 
     _changeState: function () {
-      this.setState({ duration: event.target.value }, this._publishUpdate);
+      var data = {};
+      data[event.target.name] = event.target.value;
+      this.setState(data, this._publishUpdate);
     },
 
     render: function () {
       return (
         <div className='time-setter text-center'>
-          <h1>{this.props.name}</h1>
+          <h1>
+            <input
+              type='text'
+              className='exercise-input text-center'
+              name='name'
+              value={this.props.name}
+              onChange={this._changeState}
+            />
+          </h1>
           <div className='total-time'>
             <input
-              className='exercise-input text-center'
               type='text'
+              className='exercise-input text-center'
+              name='duration'
               value={this.state.duration}
               onChange={this._changeState}
             />
