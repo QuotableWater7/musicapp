@@ -4,7 +4,7 @@
   App.ExercisesTable = React.createClass({
 
     _renderExercise: function (exercise) {
-      return <App.ExerciseRow {...exercise} />
+      return <App.ExerciseRow key={exercise.cid} {...exercise} />
     },
 
     _renderExercises: function () {
