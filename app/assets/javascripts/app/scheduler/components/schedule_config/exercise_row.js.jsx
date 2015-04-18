@@ -43,7 +43,7 @@
               onChange={this._changeState}
             />
           </td>
-          <td>
+          <td className='text-right'>
             <button className='btn btn-delete'
               onClick={this._remove}>
               -

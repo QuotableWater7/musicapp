@@ -22,7 +22,7 @@
             <tr>
               <th className='activity'>Activity</th>
               <th className='importance'>Importance</th>
-              <th>
+              <th className='text-right'>
                 <button
                   className='btn btn-tertiary'
                   onClick={this._addModel}>
