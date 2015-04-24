@@ -23,23 +23,33 @@
     },
 
     startTimer: function () {
-      var start_time = Date.now();
-      this.setState({ start_time: start_time });
-      this.timer = setInterval(this.tick, 50);
+      this.setState({ timer: setInterval(this.tick, 50) });
     },
 
     endTimer: function () {
-      clearInterval(this.timer);
+      clearInterval(this.state.timer);
+      this.setState({ timer: null, last_tick: null });
     },
 
     tick: function () {
-      var total_time = new Date() - this.state.start_time;
-      this.setState({ elapsed: total_time });
+      var total_time = this.state.last_tick ? Date.now() - this.state.last_tick : 0;
+      this.setState({
+        elapsed: this.state.elapsed + total_time,
+        last_tick: Date.now()
+      });
 
       if (total_time > this.props.time * 1000) {
         this.endTimer();
         this.props.onFinish();
       }
+    },
+
+    _renderPlay: function () {
+      return <i className='fa fa-2x fa-play play-or-pause' onClick={this.startTimer}></i>;
+    },
+
+    _renderPause: function () {
+      return <i className='fa fa-2x fa-pause play-or-pause' onClick={this.endTimer}></i>;
     },
 
     render: function () {
@@ -48,11 +58,12 @@
       return (
         <div className='text-center'>
           <h1>{this.props.title}</h1>
-          <div className='btn btn-tertiary' onClick={this.startTimer}>Play</div>
-          <br/><br/>
-          <h3 className='activity-timer'>
-            {elapsed_str}
-          </h3>
+          <div className='activity-timer'>
+            <h3>{elapsed_str}</h3>
+            <img src='/assets/clock.jpg'/>
+          </div>
+          <br/>
+          {_.isNumber(this.state.timer) ? this._renderPause() : this._renderPlay()}
         </div>
       );
     }

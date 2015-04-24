@@ -59,6 +59,8 @@ GEM
     erubis (2.7.0)
     execjs (2.2.2)
     ffi (1.9.8)
+    font-awesome-rails (4.3.0.0)
+      railties (>= 3.2, < 5.0)
     haml (4.0.6)
       tilt
     hike (1.2.3)
@@ -182,6 +184,7 @@ DEPENDENCIES
   capybara
   database_cleaner (~> 1.3.0)
   execjs
+  font-awesome-rails
   haml
   jasmine (~> 2.0.2)
   jasmine-rails (~> 0.9.1)
