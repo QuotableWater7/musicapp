@@ -17,24 +17,26 @@
 
     render: function () {
       return (
-        <table className='table'>
-          <thead>
-            <tr>
-              <th className='activity'>Activity</th>
-              <th className='importance'>Importance</th>
-              <th className='text-right'>
-                <button
-                  className='btn btn-tertiary'
-                  onClick={this._addModel}>
-                  +
-                </button>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-          {this._renderExercises()}
-          </tbody>
-        </table>
+        <div className='col-sm-10 col-md-offset-1'>
+          <table className='table'>
+            <thead>
+              <tr>
+                <th className='activity col-sm-6'>Activity</th>
+                <th className='importance text-center col-sm-4'>Importance</th>
+                <th className='text-right col-sm-2'>
+                  <button
+                    className='btn btn-tertiary'
+                    onClick={this._addModel}>
+                    +
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            {this._renderExercises()}
+            </tbody>
+          </table>
+        </div>
       );
     }
 

@@ -36,9 +36,12 @@
           </td>
           <td>
             <input
+              className='importance-slider'
+              type='range'
               name='importance'
-              className='form-control exercise-input'
-              type='text'
+              min={1}
+              max={5}
+              step={1}
               value={this.state.importance}
               onChange={this._changeState}
             />
