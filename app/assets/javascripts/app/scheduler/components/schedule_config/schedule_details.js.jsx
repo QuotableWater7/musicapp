@@ -17,6 +17,13 @@
       this.setState(data, this._publishUpdate);
     },
 
+    _renderOptions: function () {
+      var vals = Array.prototype.slice.call(arguments);
+      return vals.map(function (val) {
+        return <option value={val}>{val}</option>;
+      }.bind(this));
+    },
+
     render: function () {
       return (
         <div className='time-setter text-center'>
@@ -31,15 +38,8 @@
           </h1>
           <div className='text-center'>
             <div className='total-time'>
-              <select>
-                <option>15</option>
-                <option>30</option>
-                <option>45</option>
-                <option>60</option>
-                <option>90</option>
-                <option>120</option>
-                <option>150</option>
-                <option>300</option>
+              <select name='duration' value={parseInt(this.state.duration)} onChange={this._changeState}>
+                {this._renderOptions(15, 30, 45, 60, 90, 120, 150, 300)}
               </select>
               &nbsp;min
             </div>
