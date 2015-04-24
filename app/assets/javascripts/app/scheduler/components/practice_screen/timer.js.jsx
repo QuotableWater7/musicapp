@@ -10,7 +10,7 @@
     },
 
     getInitialState: function () {
-      return { elapsed: 0 };
+      return { elapsed: 0, timer: null, last_tick: null };
     },
 
     componentWillReceiveProps: function () {
@@ -28,6 +28,10 @@
 
     endTimer: function () {
       clearInterval(this.state.timer);
+    },
+
+    pauseTimer: function () {
+      this.endTimer();
       this.setState({ timer: null, last_tick: null });
     },
 
@@ -49,7 +53,7 @@
     },
 
     _renderPause: function () {
-      return <i className='fa fa-2x fa-pause play-or-pause' onClick={this.endTimer}></i>;
+      return <i className='fa fa-2x fa-pause play-or-pause' onClick={this.pauseTimer}></i>;
     },
 
     render: function () {
