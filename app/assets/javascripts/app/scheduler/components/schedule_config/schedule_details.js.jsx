@@ -30,7 +30,7 @@
           <h1>
             <input
               type='text'
-              className='exercise-input text-center'
+              className='input-no-style text-center'
               name='name'
               value={this.props.name}
               onChange={this._changeState}

@@ -14,7 +14,6 @@
     _changeState: function () {
       var new_state = {};
       new_state[event.target.name] = event.target.value;
-      console.log(new_state);
       this.setState(new_state, this._notifyOfChange);
     },
 

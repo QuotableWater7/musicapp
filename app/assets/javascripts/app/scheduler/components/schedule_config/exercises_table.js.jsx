@@ -17,12 +17,12 @@
 
     render: function () {
       return (
-        <div className='col-sm-10 col-md-offset-1'>
-          <table className='table'>
+        <div className='col-sm-8 col-md-offset-2'>
+          <table className='table table-striped table-hover'>
             <thead>
               <tr>
-                <th className='activity col-sm-6'>Activity</th>
-                <th className='importance text-center col-sm-4'>Importance</th>
+                <th className='activity col-sm-4'>Activity</th>
+                <th className='importance text-center col-sm-6'>Importance</th>
                 <th className='text-right col-sm-2'>
                   <button
                     className='btn btn-link'
