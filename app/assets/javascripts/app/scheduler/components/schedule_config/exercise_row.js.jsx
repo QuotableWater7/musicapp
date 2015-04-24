@@ -48,9 +48,9 @@
             />
           </td>
           <td className='text-right'>
-            <button className='btn btn-delete'
+            <button className='btn btn-link no-underline'
               onClick={this._remove}>
-              -
+              Del
             </button>
           </td>
         </tr>

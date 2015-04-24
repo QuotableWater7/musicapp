@@ -52,8 +52,8 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-block;
   margin: 0 auto;
   padding: 3px 6px;
-  background: #777;
-  color: #FF6;
+  // background: #777;
+  // color: #FF6;
   font-family: 'Courier';
   border-radius: 3px;
 }
@@ -73,9 +73,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
-.importance-slider {
-  // width: 150px !important;
-}
+// .btn-link {
+//   &:hover {
+//     text-decoration: none;
+//   }
+// }
 
 input[type=range] {
   -webkit-appearance: none;

@@ -25,9 +25,9 @@
                 <th className='importance text-center col-sm-4'>Importance</th>
                 <th className='text-right col-sm-2'>
                   <button
-                    className='btn btn-tertiary'
+                    className='btn btn-link'
                     onClick={this._addModel}>
-                    +
+                    Add
                   </button>
                 </th>
               </tr>
