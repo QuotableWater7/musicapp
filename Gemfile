@@ -15,12 +15,9 @@ gem 'rails-assets-d3'
 gem 'rails-assets-underscore'
 gem 'react-rails', '~> 1.0.0.pre', github: 'reactjs/react-rails'
 gem 'react-router-rails', '~> 0.11.6.1'
-
-group :assets do
-  gem 'sass-rails'
-  gem 'therubyracer'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails'
+gem 'therubyracer'
+gem 'uglifier', '>= 1.0.3'
 
 group :development, :test do
   gem 'capybara'
