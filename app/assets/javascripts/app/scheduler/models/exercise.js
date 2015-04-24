@@ -5,7 +5,7 @@
 
     defaults: {
       name: 'New Activity',
-      importance: 5
+      importance: 50
     },
 
     initialize: function () {
