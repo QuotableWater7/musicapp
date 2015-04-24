@@ -14,6 +14,7 @@
     _changeState: function () {
       var new_state = {};
       new_state[event.target.name] = event.target.value;
+      console.log(new_state);
       this.setState(new_state, this._notifyOfChange);
     },
 
@@ -40,7 +41,7 @@
               type='range'
               name='importance'
               min={1}
-              max={5}
+              max={100}
               step={1}
               value={this.state.importance}
               onChange={this._changeState}

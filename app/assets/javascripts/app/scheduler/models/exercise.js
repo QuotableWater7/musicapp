@@ -39,6 +39,12 @@
     toJSON: function () {
       var json = Backbone.Model.prototype.toJSON.call(this);
       return _.extend(json, { cid: this.cid });
+    },
+
+    setters: {
+      importance: function (importance) {
+        return parseInt(importance);
+      }
     }
 
   });

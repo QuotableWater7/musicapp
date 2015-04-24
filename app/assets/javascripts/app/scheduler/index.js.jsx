@@ -17,6 +17,7 @@
           this.renderCurrent();
         }.bind(this)
       });
+      window.e = this.schedule.get('exercises');
 
       return this;
     },

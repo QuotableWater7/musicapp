@@ -29,15 +29,20 @@
               onChange={this._changeState}
             />
           </h1>
-          <div className='total-time'>
-            <input
-              type='text'
-              className='exercise-input text-center'
-              name='duration'
-              value={this.state.duration}
-              onChange={this._changeState}
-            />
-            &nbsp;min
+          <div className='text-center'>
+            <div className='total-time'>
+              <select>
+                <option>15</option>
+                <option>30</option>
+                <option>45</option>
+                <option>60</option>
+                <option>90</option>
+                <option>120</option>
+                <option>150</option>
+                <option>300</option>
+              </select>
+              &nbsp;min
+            </div>
           </div>
           <br />
           <br />
