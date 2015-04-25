@@ -37,14 +37,16 @@
 
     tick: function () {
       var total_time = this.state.last_tick ? Date.now() - this.state.last_tick : 0;
-      this.setState({
-        elapsed: this.state.elapsed + total_time,
-        last_tick: Date.now()
-      });
+      var elapsed = this.state.elapsed + total_time;
 
-      if (total_time > this.props.time * 1000) {
+      if (elapsed > this.props.time * 1000) {
         this.endTimer();
         this.props.onFinish();
+      } else {
+        this.setState({
+          elapsed: this.state.elapsed + total_time,
+          last_tick: Date.now()
+        });
       }
     },
 
