@@ -21,8 +21,8 @@
           <table className='table table-striped table-hover'>
             <thead>
               <tr>
-                <th className='activity col-sm-4'>Activity</th>
-                <th className='importance text-center col-sm-6'>Importance</th>
+                <th className='activity col-sm-4'>Category</th>
+                <th className='importance text-center col-sm-6'>Focus Level</th>
                 <th className='text-right col-sm-2'>
                   <button
                     className='btn btn-link'

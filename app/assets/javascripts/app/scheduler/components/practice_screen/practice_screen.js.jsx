@@ -61,7 +61,7 @@
           <br/><br/><br/>
           <App.Timer
             title={current_activity.get('name')}
-            time={this.timeForActivity()}
+            seconds={this.timeForActivity()}
             onFinish={this.nextActivity}
           />
         </div>

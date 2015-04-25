@@ -5,7 +5,7 @@
 
     propTypes: {
       title: React.PropTypes.string.isRequired,
-      time: React.PropTypes.number.isRequired,
+      seconds: React.PropTypes.number.isRequired,
       onFinish: React.PropTypes.func
     },
 
@@ -39,7 +39,7 @@
       var total_time = this.state.last_tick ? Date.now() - this.state.last_tick : 0;
       var elapsed = this.state.elapsed + total_time;
 
-      if (elapsed > this.props.time * 1000) {
+      if (elapsed > this.props.seconds * 1000) {
         this.endTimer();
         this.props.onFinish();
       } else {
@@ -59,7 +59,7 @@
     },
 
     stringForDisplay: function () {
-      var time_remaining = Math.round(this.props.time - (this.state.elapsed / 1000));
+      var time_remaining = Math.round(this.props.seconds - (this.state.elapsed / 1000));
       var duration = moment.duration(time_remaining, 'seconds');
       var hours = Math.floor(duration.asHours());
       var minutes_and_seconds = moment.utc(duration.asMilliseconds()).format("mm:ss");
