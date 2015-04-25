@@ -7,12 +7,12 @@ $min-button-width: 80px;
 .btn-primary {
   @extend .btn;
 
-  background: $blue;
+  background: $gray-darker;
   color: $white;
-  border: 1px solid $blue-darker;
+  border: 1px solid black;
 
   &:hover {
-    background: $blue-lighter;
+    background: black;
   }
 }
 
@@ -23,8 +23,13 @@ $min-button-width: 80px;
 .btn-secondary {
   @extend .btn;
 
-  background: $blue-lighter;
+  background: $gray;
   color: $white;
+  border: 1px solid black;
+
+  // &:hover {
+  //   background:
+  // }
 }
 
 .btn-tertiary {

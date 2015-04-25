@@ -5,7 +5,7 @@ $almost-white: #f5f5f5;
 $blue: #336699;
 $blue-darker: darken($blue, 10%);
 $blue-darkest: darken($blue, 20%);
-$blue-lighter: lighten($blue, 20%);
+$blue-lighter: lighten($blue, 10%);
 $blue-lightest: lighten($blue-lighter, 15%);
 $gray: #666666;
 $gray-darker: darken($gray, 20%);
@@ -18,7 +18,8 @@ $yellow-lighter: lighten($yellow, 15%);
 $red: #ff2222;
 $red-dull: darken($red, 10%);
 $lavendar: #E6E6FA;
-$lavendar-darker: darken($lavendar, 20%);
+$lavendar-darker: darken($lavendar, 30%);
+$lavendar-darkest: darken($lavendar, 20%);
 
 // site stuff
 $header-bg: $gray-darker;
