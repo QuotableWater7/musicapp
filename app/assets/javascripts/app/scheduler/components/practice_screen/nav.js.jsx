@@ -16,7 +16,7 @@
     configBtn: function () {
       return (
         <span className='btn btn-primary' onClick={this.navigate('config')}>
-          Config
+          Settings
         </span>
       );
     },
