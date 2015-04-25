@@ -45,6 +45,10 @@
         });
 
         return total;
+      },
+
+      seconds: function () {
+        return this.get('duration') * 60;
       }
     }
 

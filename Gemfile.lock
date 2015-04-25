@@ -86,6 +86,8 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    momentjs-rails (2.10.2)
+      railties (>= 3.1)
     multi_json (1.10.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -189,6 +191,7 @@ DEPENDENCIES
   jasmine (~> 2.0.2)
   jasmine-rails (~> 0.9.1)
   jquery-rails
+  momentjs-rails
   rails (~> 4.1.0)
   rails-assets-backbone
   rails-assets-d3

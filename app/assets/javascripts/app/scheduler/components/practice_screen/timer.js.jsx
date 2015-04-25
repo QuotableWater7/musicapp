@@ -58,14 +58,21 @@
       return <i className='fa fa-2x fa-pause play-or-pause' onClick={this.pauseTimer}></i>;
     },
 
+    stringForDisplay: function () {
+      var time_remaining = Math.round(this.props.time - (this.state.elapsed / 1000));
+      var duration = moment.duration(time_remaining, 'seconds');
+      var hours = Math.floor(duration.asHours());
+      var minutes_and_seconds = moment.utc(duration.asMilliseconds()).format("mm:ss");
+      return hours > 0 ? hours + ':' + minutes_and_seconds : minutes_and_seconds;
+    },
+
     render: function () {
-      var elapsed_str = Math.round(this.props.time - (this.state.elapsed / 1000));
 
       return (
         <div className='text-center'>
           <h1>{this.props.title}</h1>
           <div className='activity-timer'>
-            <h3>{elapsed_str}</h3>
+            <h3>{this.stringForDisplay()}</h3>
             <img src='/assets/clock.jpg'/>
           </div>
           <br/>

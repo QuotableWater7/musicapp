@@ -37,7 +37,7 @@
     },
 
     timeForActivity: function () {
-      var schedule_time = this.schedule().duration;
+      var schedule_time = this.schedule().seconds;
       var total_importance = this.schedule().total_importance;
       var activity_importance = this.currentActivity().get('importance');
 

@@ -7,6 +7,7 @@
 //= require backbone
 //= require react
 //= require d3/d3
+//= require moment
 //= require_tree ./util
 
 _.templateSettings = {
