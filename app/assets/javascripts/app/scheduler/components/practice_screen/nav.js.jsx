@@ -3,6 +3,10 @@
 
   App.Nav = React.createClass({
 
+    propTypes: {
+      schedule: React.PropTypes.object.isRequired
+    },
+
     separator: function () {
       return <span>&nbsp;&nbsp;</span>;
     },
@@ -13,9 +17,15 @@
       };
     },
 
+    classForButton: function (button) {
+      var is_current_view = this.props.schedule.current_view === button;
+      return 'btn ' + (is_current_view ? 'btn-primary' : 'btn-secondary');
+    },
+
     configBtn: function () {
+
       return (
-        <span className='btn btn-primary' onClick={this.navigate('config')}>
+        <span className={this.classForButton('config')} onClick={this.navigate('config')}>
           Settings
         </span>
       );
@@ -24,7 +34,7 @@
     practiceBtn: function () {
       return (
         <span
-          className='btn btn-primary'
+          className={this.classForButton('practice')}
           onClick={this.navigate('practice')}
           disabled={this.props.schedule.exercises.length === 0}
         >
