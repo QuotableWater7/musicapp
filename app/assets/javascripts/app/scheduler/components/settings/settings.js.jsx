@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  App.ScheduleConfig = React.createClass({
+  App.Settings = React.createClass({
 
     render: function () {
       return (

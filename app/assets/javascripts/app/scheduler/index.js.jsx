@@ -37,7 +37,7 @@
     renderConfig: function () {
       if (!this.currentViewIs('config')) { return false; }
       return (
-        <App.ScheduleConfig schedule={this.schedule.toJSON()}/>
+        <App.Settings schedule={this.schedule.toJSON()}/>
       );
     },
 
