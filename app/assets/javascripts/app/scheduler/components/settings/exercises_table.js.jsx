@@ -17,26 +17,24 @@
 
     render: function () {
       return (
-        <div className='col-sm-8 col-md-offset-2'>
-          <table className='table table-striped table-hover'>
-            <thead>
-              <tr>
-                <th className='activity col-sm-4'>Category</th>
-                <th className='importance text-center col-sm-6'>Focus Level</th>
-                <th className='text-right col-sm-2'>
-                  <button
-                    className='btn btn-link'
-                    onClick={this._addModel}>
-                    Add
-                  </button>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-            {this._renderExercises()}
-            </tbody>
-          </table>
-        </div>
+        <table className='table table-striped table-hover'>
+          <thead>
+            <tr>
+              <th className='activity col-sm-4'>Category</th>
+              <th className='importance text-center col-sm-6'>Focus Level</th>
+              <th className='text-right col-sm-2'>
+                <button
+                  className='btn btn-link'
+                  onClick={this._addModel}>
+                  Add
+                </button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          {this._renderExercises()}
+          </tbody>
+        </table>
       );
     }
 
