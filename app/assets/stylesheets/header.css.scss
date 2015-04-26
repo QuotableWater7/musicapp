@@ -20,6 +20,10 @@
           color: $header-text-active-color;
           background: $header-bg-lighter;
         }
+
+        &:hover {
+          color: $lavendar-darker;
+        }
       }
     }
   }
