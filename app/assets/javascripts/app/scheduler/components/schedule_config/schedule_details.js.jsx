@@ -26,7 +26,7 @@
 
     render: function () {
       return (
-        <div className='time-setter text-center'>
+        <div className='time-setter'>
           <h1>
             <input
               type='text'
@@ -36,14 +36,12 @@
               onChange={this._changeState}
             />
           </h1>
-          <div className='text-center'>
-            <div className='total-time'>
-              <select name='duration' value={parseInt(this.state.duration)} onChange={this._changeState}>
-                {this._renderOptions(15, 30, 45, 60, 90, 120, 150, 300)}
-              </select>
-              &nbsp;min
-            </div>
-          </div>
+          <span className='total-time'>
+            <select name='duration' value={parseInt(this.state.duration)} onChange={this._changeState}>
+              {this._renderOptions(15, 30, 45, 60, 90, 120, 150, 300)}
+            </select>
+            &nbsp;min
+          </span>
           <br />
           <br />
         </div>
