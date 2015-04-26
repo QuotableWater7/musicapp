@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   before_filter :require_login, only: [:app]
+  before_filter :redirect_if_logged_in, only: :index
 
   def app
     @schedule = schedule.to_json

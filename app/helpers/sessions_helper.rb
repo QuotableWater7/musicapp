@@ -23,9 +23,19 @@ module SessionsHelper
   end
 
   def require_login
-    unless current_user
-      flash.now[:error] = 'You must be logged in to view that page'
-      render new_session_path
-    end
+    return if current_user
+
+    flash.now[:error] = 'You must be logged in to view that page'
+    render new_session_path
   end
+
+  def referred_from_self
+    request.referrer && request.referrer.include?(request.host)
+  end
+
+  def redirect_if_logged_in
+    return unless current_user && !referred_from_self
+    redirect_to '/app'
+  end
+
 end
