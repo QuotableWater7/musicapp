@@ -5,6 +5,8 @@ require 'rspec/autorun'
 require 'database_cleaner'
 include SessionsHelper
 
+Dir[Rails.root.join('spec/support/*.rb')].each { |file| require file }
+
 Capybara.default_driver = :selenium
 
 RSpec.configure do |config|
@@ -28,5 +30,12 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
+  end
+end
+
+def load_flows
+  Dir[Rails.root.join('spec/support/feature_flows/*.rb')].each do |filename|
+    snake_file = File.basename(filename, '.*')
+    let(snake_file.to_sym) { snake_file.camelize.constantize.new }
   end
 end

@@ -30,4 +30,5 @@ group :development, :test do
   gem 'selenium-webdriver', '~> 2.45.0'
   gem 'shoulda-matchers'
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
