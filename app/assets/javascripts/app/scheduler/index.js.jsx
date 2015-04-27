@@ -13,7 +13,6 @@
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.schedule.on({
         change: function () {
-          console.log('wee');
           this.renderCurrent();
         }.bind(this)
       });
