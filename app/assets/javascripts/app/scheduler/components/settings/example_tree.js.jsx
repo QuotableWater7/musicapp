@@ -33,11 +33,11 @@
       var headers = Object.keys(this.menu_data);
 
       return headers.map(function (header) {
-        return this.renderGroup(header);
+        return this.renderHeader(header);
       }.bind(this))
     },
 
-    renderGroup: function (header) {
+    renderHeader: function (header) {
       var is_active_header = this.state[header];
       var klass = 'header ' + (is_active_header ? 'active' : '');
 
@@ -48,20 +48,34 @@
               <strong>{header}</strong>
             </td>
           </tr>
-          {is_active_header ? this.menu_data[header].map(this.renderSubItem) : null}
+          {is_active_header ? this.renderSubMenu(header) : null}
         </tbody>
       );
     },
 
-    renderSubItem: function (item) {
-      return <tr><td className='sub-item'>- {item}</td></tr>;
+    renderSubMenu: function (header, item) {
+      return this.menu_data[header].map(function (item) {
+        return (
+          <tr>
+            <td className='sub-item' onClick={this.addExercise(header, item)}>- {item}</td>
+          </tr>
+        );
+      }.bind(this));
+    },
+
+    addExercise: function (header, item) {
+      return function () {
+        App.events.publish('exercise.create', { name: header });
+      };
     },
 
     render: function () {
       return (
-        <table className='col-md-12 example-tree'>
-          {this.renderMenu()}
-        </table>
+        <div>
+          <table className='col-md-12 example-tree'>
+            {this.renderMenu()}
+          </table>
+        </div>
       );
     }
 

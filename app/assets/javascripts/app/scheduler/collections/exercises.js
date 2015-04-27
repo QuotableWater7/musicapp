@@ -17,8 +17,9 @@
       App.events.subscribe('exercise.create', this._createExercise);
     },
 
-    _createExercise: function () {
-      this.add({ schedule_id: this.schedule_id });
+    _createExercise: function (data) {
+      data = _.extend({ schedule_id: this.schedule_id }, data);
+      this.add(data);
     },
 
     _destroyExercise: function (cid) {
