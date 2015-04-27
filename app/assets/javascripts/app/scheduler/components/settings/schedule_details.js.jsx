@@ -27,23 +27,21 @@
     render: function () {
       return (
         <div className='time-setter'>
-          <div className='col-md-6'>
+          <div className='text-center'>
             <input
               type='text'
-              className='header-input'
+              className='header-input text-center'
               name='name'
               value={this.props.name}
               onChange={this._changeState}
             />
           </div>
-          <div className='total-time col-md-6 text-center'>
+          <div className='total-time text-center'>
             <select name='duration' value={parseInt(this.state.duration)} onChange={this._changeState}>
               {this._renderOptions(15, 30, 45, 60, 90, 120, 150, 300)}
             </select>
             &nbsp;min
           </div>
-          <br />
-          <br />
         </div>
       );
     }

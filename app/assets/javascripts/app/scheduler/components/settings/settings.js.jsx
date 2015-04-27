@@ -7,7 +7,7 @@
       return (
         <div>
           <div className='col-md-3'>
-            <div className='text-center'><small>(click sub items to add)</small></div>
+            <br/><br/><br/><br/><br/>
             <App.ExampleTree/>
           </div>
           <div className='scheduler-app col-md-9'>
