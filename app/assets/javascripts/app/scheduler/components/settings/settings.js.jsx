@@ -6,8 +6,11 @@
     render: function () {
       return (
         <div>
-          <App.ExampleTree/>
-          <div className='scheduler-app col-md-8'>
+          <div className='col-md-3'>
+            <div className='text-center'><small>(click sub items to add)</small></div>
+            <App.ExampleTree/>
+          </div>
+          <div className='scheduler-app col-md-9'>
             <App.ScheduleDetails {...this.props.schedule} />
             <App.ExercisesTable exercises={this.props.schedule.exercises.toJSON()} />
           </div>

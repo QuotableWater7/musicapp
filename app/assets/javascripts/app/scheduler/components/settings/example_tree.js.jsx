@@ -4,8 +4,13 @@
   App.ExampleTree = React.createClass({
 
     menu_data: {
-      Technique: ['all downstrokes', 'all upstrokes'],
-      Theory: ['triads', 'major 7th chords', 'major 6th chords']
+      'Warm Up': ['chromatic scale'],
+      Technique: [
+        'all downstrokes', 'all upstrokes', 'alternate picking', 'economy picking'
+      ],
+      Theory: [
+        'triads', 'major 7th chords', 'major 6th chords'
+      ]
     },
 
     getInitialState: function () {
@@ -17,34 +22,39 @@
         var update = {};
         update[menu_name] = !this.state[menu_name];
         this.setState(update);
-      };
+      }.bind(this);
     },
 
-    renderHeader: function (header) {
-      return (
-        <li onClick={this.toggleMenu(header.toLowerCase())}>{header}</li>
-      );
-    },
-
-    renderHeaders: function () {
+    renderMenu: function () {
       var headers = Object.keys(this.menu_data);
 
       return headers.map(function (header) {
-        return this.renderHeader(header);
+        return this.renderGroup(header);
       }.bind(this))
     },
 
-    renderSubMenu: function () {
+    renderGroup: function (header) {
+      return (
+        <tbody>
+          <tr onClick={this.toggleMenu(header)}>
+            <td className='header'>
+              <strong>{header}</strong>
+            </td>
+          </tr>
+          {this.state[header] ? this.menu_data[header].map(this.renderSubItem) : null}
+        </tbody>
+      );
+    },
 
+    renderSubItem: function (item) {
+      return <tr><td className='sub-item'>- {item}</td></tr>;
     },
 
     render: function () {
       return (
-        <div className='col-md-2'>
-          <ul className='unstyled-list'>
-            {this.renderHeaders('Technique', 'Theory')}
-          </ul>
-        </div>
+        <table className='col-md-12 example-tree'>
+          {this.renderMenu()}
+        </table>
       );
     }
 
