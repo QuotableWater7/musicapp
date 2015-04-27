@@ -13,7 +13,6 @@ $gray-lighter: lighten($gray, 50%);
 $gray-lightest: lighten($gray, 75%);
 $secondary-color: rgba(230, 230, 100, 1);
 $yellow: #ffff66;
-$yellow-darker: darken($yellow, 50%);
 $yellow-lighter: lighten($yellow, 15%);
 $red: #ff2222;
 $red-dull: darken($red, 10%);
@@ -34,6 +33,3 @@ $content-bg: $white;
 $footer-bg: $gray-darker;
 
 $tab-unsaved-bg: $yellow-lighter;
-
-$visualization-display-bg: $blue-lightest;
-$visualization-display-color: $yellow-darker;

@@ -38,14 +38,17 @@
     },
 
     renderGroup: function (header) {
+      var is_active_header = this.state[header];
+      var klass = 'header ' + (is_active_header ? 'active' : '');
+
       return (
         <tbody>
           <tr onClick={this.toggleMenu(header)}>
-            <td className='header'>
+            <td className={klass}>
               <strong>{header}</strong>
             </td>
           </tr>
-          {this.state[header] ? this.menu_data[header].map(this.renderSubItem) : null}
+          {is_active_header ? this.menu_data[header].map(this.renderSubItem) : null}
         </tbody>
       );
     },
