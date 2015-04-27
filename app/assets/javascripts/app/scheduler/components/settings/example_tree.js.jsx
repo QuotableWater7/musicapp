@@ -14,7 +14,7 @@
       ],
       'Scale Sequences': ['1 2 3', '1 2 b3', '5 6 8'],
       'Chord Progressions': ['I IV V', 'ii V I', 'I VI V IV'],
-      Tapping: ['trids', '7th chords', 'chord transitions']
+      Tapping: ['triads', '7th chords', 'chord transitions']
     },
 
     getInitialState: function () {
