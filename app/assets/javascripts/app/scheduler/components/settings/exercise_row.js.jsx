@@ -46,6 +46,7 @@
               onChange={this._changeState}
             />
           </td>
+          <td className='text-center'>5</td>
           <td className='text-right'>
             <button className='btn btn-link no-underline'
               onClick={this._remove}>

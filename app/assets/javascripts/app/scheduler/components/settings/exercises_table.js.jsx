@@ -8,7 +8,7 @@
     },
 
     _renderExercises: function () {
-      return this.props.exercises.map(this._renderExercise);
+      return this.props.exercises.toJSON().map(this._renderExercise);
     },
 
     _addModel: function () {
@@ -22,6 +22,7 @@
             <tr>
               <th className='activity col-sm-4'>Category</th>
               <th className='importance text-center col-sm-6'>Focus Level</th>
+              <th>Time</th>
               <th className='text-right col-sm-2'>
                 <button
                   className='btn btn-link'

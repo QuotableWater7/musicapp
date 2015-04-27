@@ -42,7 +42,7 @@
       var klass = 'header ' + (is_active_header ? 'active' : '');
 
       return (
-        <tbody>
+        <tbody key={header}>
           <tr onClick={this.toggleMenu(header)}>
             <td className={klass}>
               <strong>{header}</strong>

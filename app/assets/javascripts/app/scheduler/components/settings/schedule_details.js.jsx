@@ -20,7 +20,7 @@
     _renderOptions: function () {
       var vals = Array.prototype.slice.call(arguments);
       return vals.map(function (val) {
-        return <option value={val}>{val}</option>;
+        return <option key={val} value={val}>{val}</option>;
       }.bind(this));
     },
 

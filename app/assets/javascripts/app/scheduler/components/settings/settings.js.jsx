@@ -12,7 +12,7 @@
           </div>
           <div className='scheduler-app col-md-9'>
             <App.ScheduleDetails {...this.props.schedule} />
-            <App.ExercisesTable exercises={this.props.schedule.exercises.toJSON()} />
+            <App.ExercisesTable {...this.props.schedule} />
           </div>
         </div>
       );
