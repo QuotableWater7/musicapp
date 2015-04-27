@@ -4,7 +4,8 @@
   App.ExercisesTable = React.createClass({
 
     _renderExercise: function (exercise) {
-      return <App.ExerciseRow key={exercise.cid} {...exercise} />
+      var time = this.props.duration * (exercise.importance / this.props.total_importance);
+      return <App.ExerciseRow key={exercise.cid} {...exercise} time={time} />
     },
 
     _renderExercises: function () {
@@ -21,8 +22,8 @@
           <thead>
             <tr>
               <th className='activity col-sm-4'>Category</th>
-              <th className='importance text-center col-sm-6'>Focus Level</th>
-              <th>Time</th>
+              <th className='importance text-center col-sm-5'>Focus Level</th>
+              <th className='col-md-2'>Aprx. Min</th>
               <th className='text-right col-sm-2'>
                 <button
                   className='btn btn-link'
