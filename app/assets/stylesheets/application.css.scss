@@ -55,14 +55,15 @@ h1, h2, h3, h4, h5, h6 {
     padding: 3px;
     border: 1px solid black;
     border-collapse: collapse;
-    background: $blue-lighter;
+    background: $blue-lightest;
 
     &.active {
-      background: $yellow-lighter;
+      background: $blue;
+      color: white;
     }
 
     &:hover:not(.active) {
-      background: $blue-lightest;
+      background: $blue-lighter;
     }
   }
 
@@ -97,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: none !important;
   -webkit-box-shadow: none !important;
   padding: 3px !important;
+  font-size: 12px;
 
   &:hover {
     border: 1px solid #aaa;

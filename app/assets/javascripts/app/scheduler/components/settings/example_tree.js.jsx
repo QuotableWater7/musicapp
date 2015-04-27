@@ -65,7 +65,7 @@
 
     addExercise: function (header, item) {
       return function () {
-        App.events.publish('exercise.create', { name: header });
+        App.events.publish('exercise.create', { name: header + ' - ' + item });
       };
     },
 

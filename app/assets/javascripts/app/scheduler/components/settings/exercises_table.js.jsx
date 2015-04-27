@@ -21,10 +21,10 @@
         <table className='table table-striped table-hover'>
           <thead>
             <tr>
-              <th className='activity col-sm-4'>Category</th>
-              <th className='importance text-center col-sm-5'>Focus Level</th>
+              <th className='activity col-sm-5'>Category</th>
+              <th className='importance text-center col-sm-4'>Focus Level</th>
               <th className='col-md-2'>Aprx. Min</th>
-              <th className='text-right col-sm-2'>
+              <th className='text-right col-sm-1'>
                 <button
                   className='btn btn-link'
                   onClick={this._addModel}>
