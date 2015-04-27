@@ -13,11 +13,10 @@
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.schedule.on({
         change: function () {
-          this.schedule.save();
+          console.log('wee');
           this.renderCurrent();
         }.bind(this)
       });
-      window.e = this.schedule.get('exercises');
 
       return this;
     },

@@ -28,11 +28,6 @@
       exercises.fetch({ reset: true });
     },
 
-    save: function () {
-      this.get('exercises').each(function (exercise) { exercise.save(); });
-      return Backbone.Model.prototype.save.apply(this, arguments);
-    },
-
     getters: {
       num_exercises: function () {
         return this.get('exercises').length;

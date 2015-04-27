@@ -10,6 +10,7 @@
 
     initialize: function () {
       App.events.subscribe('exercise.' + this.cid + '.set', this.set.bind(this));
+      this.on('change add', function () { this.save(); }.bind(this));
     },
 
     exercisesPath: function () {
