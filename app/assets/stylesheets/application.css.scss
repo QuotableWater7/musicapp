@@ -52,17 +52,17 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
 
   .header {
-    // text-align: center;
     padding: 3px;
     border: 1px solid black;
     border-collapse: collapse;
+    background: $blue-lighter;
 
     &.active {
       background: $yellow-lighter;
     }
 
     &:hover:not(.active) {
-      background: #ccc;
+      background: $blue-lightest;
     }
   }
 
