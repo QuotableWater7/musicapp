@@ -48,6 +48,12 @@ h1, h2, h3, h4, h5, h6 {
   border: 0 !important;
 }
 
+.table-add-btn {
+  background: $blue-lightest !important;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
 .example-tree {
   cursor: pointer;
 

@@ -4,7 +4,7 @@
   App.Models.Exercise = Backbone.Model.extend({
 
     defaults: {
-      name: 'New Activity',
+      name: '[edit this name]',
       importance: 50
     },
 
