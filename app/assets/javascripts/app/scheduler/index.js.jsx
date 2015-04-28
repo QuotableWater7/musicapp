@@ -13,6 +13,7 @@
       this.schedule = new App.Models.Schedule(this.$el.data('schedule'));
       this.schedule.on({
         change: function () {
+          this.schedule.save();
           this.renderCurrent();
         }.bind(this)
       });
@@ -23,8 +24,6 @@
     renderCurrent: function () {
       React.render(
         <div>
-          <App.Nav schedule={this.schedule.toJSON()}/>
-          <br/><br/>
           {this.renderConfig()}
           {this.renderPractice()}
         </div>,

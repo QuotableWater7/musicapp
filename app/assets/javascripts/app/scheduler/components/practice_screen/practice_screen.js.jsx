@@ -58,12 +58,14 @@
               &gt;&gt;
             </span>
           </div>
-          <br/><br/><br/>
+          <br/><br/>
           <App.Timer
             title={current_activity.get('name')}
             seconds={this.timeForActivity()}
             onFinish={this.nextActivity}
           />
+          <br/><br/><br/>
+          <App.SettingsBtn/>
         </div>
       );
     }

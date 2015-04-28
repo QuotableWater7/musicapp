@@ -13,7 +13,9 @@
           <div className='scheduler-app col-md-9'>
             <App.ScheduleDetails {...this.props.schedule} />
             <App.ExercisesTable {...this.props.schedule} />
+            <App.PracticeBtn/>
           </div>
+          <br/>
         </div>
       );
     }
