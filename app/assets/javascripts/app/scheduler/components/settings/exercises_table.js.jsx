@@ -38,7 +38,7 @@
                 className='btn-sm btn-link text-center table-add-btn'
                 onClick={this._addModel}
               >
-                Add
+                Add Custom Topic
               </td>
             </tr>
           </tbody>

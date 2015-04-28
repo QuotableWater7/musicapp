@@ -107,12 +107,12 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 12px;
 
   &:hover {
-    border: 1px solid #aaa;
+    border: 1px solid #aaa !important;
     border-radius: 3px;
   }
 
   &:focus {
-    border: 1px solid #ccc;
+    border: 1px solid #ccc !important;
     border-radius: 3px;
   }
 }
