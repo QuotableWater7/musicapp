@@ -12,7 +12,7 @@
           </div>
           <div className='scheduler-app col-md-9'>
             <div className='alert alert-info text-center'>
-              Choose exercises to practice and adjust the amount of time you
+              <b>Note:</b> Choose exercises to practice and adjust the amount of time you
               would like to spend on them.  Then click the practice
               button at the bottom of the screen to begin!
             </div>

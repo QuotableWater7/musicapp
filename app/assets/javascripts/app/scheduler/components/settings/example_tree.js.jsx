@@ -72,8 +72,14 @@
     render: function () {
       return (
         <div>
-          <div className='text-center'><small>(click sub items to add)</small></div>
           <table className='col-md-12 example-tree'>
+            <thead>
+              <tr>
+                <td colspan='100' className='text-center'>
+                  (click sub items to add)
+                </td>
+              </tr>
+            </thead>
             {this.renderMenu()}
           </table>
         </div>
