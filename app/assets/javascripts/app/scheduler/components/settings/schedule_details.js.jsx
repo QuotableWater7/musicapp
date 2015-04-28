@@ -20,7 +20,7 @@
     _renderOptions: function () {
       var vals = Array.prototype.slice.call(arguments);
       return vals.map(function (val) {
-        return <option key={val} value={val}>{val}</option>;
+        return <option key={val} value={val}>{val} min</option>;
       }.bind(this));
     },
 
@@ -40,7 +40,6 @@
             <select name='duration' value={parseInt(this.state.duration)} onChange={this._changeState}>
               {this._renderOptions(15, 30, 45, 60, 90, 120, 150, 300)}
             </select>
-            &nbsp;min
           </div>
         </div>
       );
