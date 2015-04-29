@@ -7,9 +7,8 @@ $min-button-width: 80px;
 .btn-primary {
   @extend .btn;
 
-  background: $gray-darker;
+  background: $blue;
   color: $white;
-  border: 1px solid black;
 
   &:hover {
     background: black;

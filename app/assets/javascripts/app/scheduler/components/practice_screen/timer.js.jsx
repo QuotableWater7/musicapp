@@ -51,11 +51,21 @@
     },
 
     _renderPlay: function () {
-      return <i className='fa fa-2x fa-play play-or-pause' onClick={this.startTimer}></i>;
+      return (
+        <div className='btn btn-success' onClick={this.startTimer}>
+          Begin&nbsp;&nbsp;
+          <i className='fa fa-play play-or-pause'></i>
+        </div>
+      );
     },
 
     _renderPause: function () {
-      return <i className='fa fa-2x fa-pause play-or-pause' onClick={this.pauseTimer}></i>;
+      return (
+        <div className='btn btn-danger' onClick={this.pauseTimer}>
+          Pause&nbsp;&nbsp;
+          <i className='fa fa-pause play-or-pause'></i>
+        </div>
+      );
     },
 
     stringForDisplay: function () {
@@ -67,7 +77,6 @@
     },
 
     render: function () {
-
       return (
         <div className='text-center'>
           <h1>{this.props.title}</h1>
