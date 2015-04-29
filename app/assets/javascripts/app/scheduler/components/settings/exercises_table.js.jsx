@@ -18,7 +18,7 @@
 
     render: function () {
       return (
-        <table className='table table-striped table-hover settings-table'>
+        <table className='table table-hover settings-table'>
           <thead>
             <tr>
               <th className='activity col-sm-5'>Category</th>
