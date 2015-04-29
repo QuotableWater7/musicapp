@@ -26,12 +26,10 @@
       return (
         <tr>
           <td>
-            <input
+            <App.PencilInput
               name='name'
-              className='form-control exercise-input'
-              type='text'
               value={this.state.name}
-              onChange={this._changeState}
+              update={this._changeState}
             />
           </td>
           <td>
