@@ -32,5 +32,7 @@ module Musicapp
 
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.paths << Rails.root.join('app', 'assets', 'audios')
+
+    config.assets.js_compressor = :uglifier
   end
 end
