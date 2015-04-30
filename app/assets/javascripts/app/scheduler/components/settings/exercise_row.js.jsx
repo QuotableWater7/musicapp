@@ -40,7 +40,7 @@
               min={1}
               max={100}
               step={1}
-              value={this.state.importance}
+              value={this.props.importance}
               onChange={this._changeState}
             />
           </td>

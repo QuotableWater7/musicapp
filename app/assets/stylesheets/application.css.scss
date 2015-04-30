@@ -37,6 +37,10 @@ html, body {
 
 .settings-table {
   tr {
+    th a {
+      font-weight: normal;
+    }
+
     td {
       vertical-align: middle !important;
     }

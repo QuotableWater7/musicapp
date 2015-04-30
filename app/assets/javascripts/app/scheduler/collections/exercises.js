@@ -10,11 +10,12 @@
     },
 
     initialize: function (models, opts) {
-      _.bindAll(this, '_createExercise', '_destroyExercise');
+      _.bindAll(this, '_createExercise', '_destroyExercise', '_resetFocus');
 
       this.schedule_id = opts.schedule_id;
       App.events.subscribe('exercise.destroy', this._destroyExercise);
       App.events.subscribe('exercise.create', this._createExercise);
+      App.events.subscribe('exercises.resetFocus', this._resetFocus);
     },
 
     _createExercise: function (data) {
@@ -24,6 +25,10 @@
 
     _destroyExercise: function (cid) {
       this.get(cid).destroy();
+    },
+
+    _resetFocus: function () {
+      this.each(function (exercise) { exercise.set('importance', 50); });
     }
 
   });

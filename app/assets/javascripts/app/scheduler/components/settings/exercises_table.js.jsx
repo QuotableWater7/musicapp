@@ -16,13 +16,19 @@
       App.events.publish('exercise.create');
     },
 
+    resetFocus: function () {
+      App.events.publish('exercises.resetFocus');
+    },
+
     render: function () {
       return (
         <table className='table table-hover settings-table'>
           <thead>
             <tr>
               <th className='activity col-sm-5'>Category</th>
-              <th className='importance text-center col-sm-4'>Focus Level</th>
+              <th className='importance text-center col-sm-4'>
+                Focus Level <a href='#' onClick={this.resetFocus}>(reset all)</a>
+              </th>
               <th className='col-md-1 text-center'>Min</th>
               <th className='text-right col-sm-1'>
               </th>
