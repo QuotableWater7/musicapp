@@ -35,11 +35,15 @@
       this.setState({ timer: null, last_tick: null });
     },
 
+    totalSeconds: function () {
+      return Math.round(this.props.seconds / 15)*15;
+    },
+
     tick: function () {
       var total_time = this.state.last_tick ? Date.now() - this.state.last_tick : 0;
       var elapsed = this.state.elapsed + total_time;
 
-      if (elapsed > this.props.seconds * 1000) {
+      if (elapsed > this.totalSeconds() * 1000) {
         this.endTimer();
         this.props.onFinish();
       } else {
@@ -69,7 +73,7 @@
     },
 
     stringForDisplay: function () {
-      var time_remaining = Math.round(this.props.seconds - (this.state.elapsed / 1000));
+      var time_remaining = Math.round(this.totalSeconds() - (this.state.elapsed / 1000));
       var duration = moment.duration(time_remaining, 'seconds');
       var hours = Math.floor(duration.asHours());
       var minutes_and_seconds = moment.utc(duration.asMilliseconds()).format("mm:ss");
