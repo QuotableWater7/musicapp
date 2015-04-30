@@ -4,17 +4,23 @@
   App.ExampleTree = React.createClass({
 
     menu_data: {
-      'Warm Ups': ['chromatic scale', 'swing rhythm', 'strumming patterns'],
+      'Warm Ups': ['spider drill', 'chromatic scale', 'single string'],
       Technique: [
-        'all downstrokes', 'all upstrokes', 'alternate picking',
-        'economy picking', 'bending strings', 'sliding', 'legato'
+        'alternate picking', 'economy picking', 'finger picking', 'all downstrokes',
+        'all upstrokes', 'bending strings', 'sliding', 'all downstrokes',
+        'palm muting', 'legato', 'pinch harmonics', 'hammer on / pull off',
+        'sweep picking', 'tapping'
       ],
-      Theory: [
-        'triads', 'major 7th chords', 'major 6th chords'
+      Arpeggios: [
+        'triads', 'major 7th chords', 'major 6th chords', '9th chords',
+        'diminished chords'
+      ],
+      Scales: [
+        'major', 'minor', 'harmonic minor', 'pentatonic', 'blues', 'dorian',
+        'phrygian', 'dorian', 'lydian', 'mixolydian', 'aeolian', 'locrian'
       ],
       'Scale Sequences': ['1 2 3', '1 2 b3', '5 6 8'],
-      'Chord Progressions': ['I IV V', 'ii V I', 'I VI V IV'],
-      Tapping: ['triads', '7th chords', 'chord transitions']
+      'Chord Progressions': ['1 4 5', '2 5 1', '1 4 6 5'],
     },
 
     getInitialState: function () {
