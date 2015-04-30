@@ -197,10 +197,12 @@ input[type=range] {
   -webkit-appearance: none;
   width: 100%;
   margin: 4.8px 0;
+
+  &:focus {
+    outline: none;
+  }
 }
-input[type=range]:focus {
-  outline: none;
-}
+
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 8.4px;
