@@ -11,7 +11,7 @@ RSpec.describe 'basic signup stuff' do
     click_button 'Create Account'
     expect(page).to have_content 'successfully created'
 
-    click_link 'App'
+    click_link 'Practice!'
     expect(page).to have_content 'My Practice Schedule'
   end
 
