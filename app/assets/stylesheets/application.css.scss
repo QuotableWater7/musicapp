@@ -108,6 +108,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .inner-addon {
   position: relative;
+  i {
+    color: #888;
+  }
 }
 
 .inner-addon i {
@@ -121,6 +124,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pencil-input {
+  &:hover i {
+    color: black;
+  }
+
   input {
     cursor: pointer;
     border: 1px solid transparent !important;
