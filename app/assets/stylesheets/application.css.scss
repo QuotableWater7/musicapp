@@ -148,7 +148,6 @@ h1, h2, h3, h4, h5, h6 {
     background: transparent !important;
     box-shadow: none !important;
     -webkit-box-shadow: none !important;
-    padding: 3px !important;
 
     &:hover {
       border: 1px solid #aaa !important;
@@ -193,10 +192,6 @@ h1, h2, h3, h4, h5, h6 {
     height: 100px;
     z-index: 1;
   }
-}
-
-.form-control {
-  padding: 0;
 }
 
 .play-or-pause {
