@@ -43,6 +43,20 @@ html, body {
   }
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.remove-row {
+  @extend .pointer;
+
+  color: #888;
+
+  &:hover {
+    color: black;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin: 4px;
 }

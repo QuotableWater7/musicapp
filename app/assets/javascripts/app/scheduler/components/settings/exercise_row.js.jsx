@@ -45,11 +45,8 @@
             />
           </td>
           <td className='text-center'>{Math.round(this.props.time)}</td>
-          <td className='text-right'>
-            <button className='btn btn-link no-underline'
-              onClick={this._remove}>
-              Del
-            </button>
+          <td className='text-center remove-row' onClick={this._remove}>
+            <i className='fa fa-remove'></i>
           </td>
         </tr>
       );
