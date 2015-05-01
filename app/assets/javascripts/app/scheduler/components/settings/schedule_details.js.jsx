@@ -42,7 +42,7 @@
         <div className='time-setter'>
           {false ? this.renderHeader() : false}
           <div className='total-time text-center'>
-            Total Time:&nbsp;
+            Practice Time:&nbsp;
             <select name='duration' value={parseInt(this.state.duration)} onChange={this._changeState}>
               {this._renderOptions(15, 30, 45, 60, 90, 120, 150, 300)}
             </select>
