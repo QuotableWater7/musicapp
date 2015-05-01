@@ -66,6 +66,8 @@
           />
           <br/><br/><br/>
           <App.SettingsBtn/>
+          <br/><br/><hr/><br/><br/>
+          <App.PayMe/>
         </div>
       );
     }
