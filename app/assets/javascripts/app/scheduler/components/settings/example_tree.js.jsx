@@ -81,7 +81,7 @@
           <table className='col-md-12 example-tree'>
             <thead>
               <tr>
-                <td colspan='100' className='text-center'>
+                <td colSpan='100' className='text-center'>
                   (click sub items to add)
                 </td>
               </tr>

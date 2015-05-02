@@ -3,10 +3,6 @@
 
   App.PracticeScreen = React.createClass({
 
-    propTypes: {
-      schedule: React.PropTypes.object.isRequired
-    },
-
     _separator: function () {
       return <span>&nbsp;&nbsp;</span>;
     },
