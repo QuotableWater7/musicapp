@@ -4,23 +4,58 @@
   App.ExampleTree = React.createClass({
 
     menu_data: {
-      'Warm Ups': ['spider drill', 'chromatic scale', 'single string'],
+      'Warm Ups': [
+        { name: 'spider drill', notes: '' },
+        { name: 'chromatic scale', notes: '' },
+        { name: 'single string', notes: ''},
+      ],
       Technique: [
-        'alternate picking', 'economy picking', 'finger picking', 'all downstrokes',
-        'all upstrokes', 'bending strings', 'sliding', 'all downstrokes',
-        'palm muting', 'legato', 'pinch harmonics', 'hammer on / pull off',
-        'sweep picking', 'tapping'
+        { name: 'alternate picking', notes: '' },
+        { name: 'economy picking', notes: '' },
+        { name: 'finger picking', notes: '' },
+        { name: 'all downstrokes', notes: '' },
+        { name: 'all upstrokes', notes: '' },
+        { name: 'bending strings', notes: '' },
+        { name: 'sliding', notes: '' },
+        { name: 'all downstrokes', notes: '' },
+        { name: 'palm muting', notes: '' },
+        { name: 'legato', notes: '' },
+        { name: 'pinch harmonics', notes: '' },
+        { name: 'hammer on / pull off', notes: '' },
+        { name: 'sweep picking', notes: '' },
+        { name: 'tapping', notes: '' }
       ],
       Arpeggios: [
-        'triads', 'major 7th chords', 'major 6th chords', '9th chords',
-        'diminished chords'
+        { name: 'triads', notes: '' },
+        { name: 'major 7th chords', notes: '' },
+        { name: 'major 6th chords', notes: '' },
+        { name: '9th chords', notes: '' },
+        { name: 'diminished chords', notes: '' }
       ],
       Scales: [
-        'major', 'minor', 'harmonic minor', 'pentatonic', 'blues', 'dorian',
-        'phrygian', 'dorian', 'lydian', 'mixolydian', 'aeolian', 'locrian'
+        { name: 'major', notes: '' },
+        { name: 'minor', notes: '' },
+        { name: 'harmonic minor', notes: '' },
+        { name: 'pentatonic', notes: '' },
+        { name: 'blues', notes: '' },
+        { name: 'dorian', notes: '' },
+        { name: 'phrygian', notes: '' },
+        { name: 'dorian', notes: '' },
+        { name: 'lydian', notes: '' },
+        { name: 'mixolydian', notes: '' },
+        { name: 'aeolian', notes: '' },
+        { name: 'locrian', notes: '' }
       ],
-      'Scale Sequences': ['1 2 3', '1 2 b3', '5 6 8'],
-      'Chord Progressions': ['1 4 5', '2 5 1', '1 4 6 5'],
+      'Scale Sequences': [
+        { name: '1 2 3', notes: '' },
+        { name: '1 2 b3', notes: '' },
+        { name: '5 6 8', notes: '' }
+      ],
+      'Chord Progressions': [
+        { name: '1 4 5', notes: '' },
+        { name: '2 5 1', notes: '' },
+        { name: '1 4 6 5', notes: '' }
+      ],
     },
 
     getInitialState: function () {
@@ -71,7 +106,7 @@
 
     addExercise: function (header, item) {
       return function () {
-        App.events.publish('exercise.create', { name: header + ' - ' + item });
+        App.events.publish('exercise.create', { name: header + ' - ' + item.name });
       };
     },
 
