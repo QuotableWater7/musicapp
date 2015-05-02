@@ -64,11 +64,8 @@
             seconds={this.timeForActivity()}
             onFinish={this.nextActivity}
           />
-          <br/>
           <App.NoteEditor {...current_activity.toJSON()}/>
-          <br/><br/>
           <App.SettingsBtn/>
-          <br/><br/><hr/><br/><br/>
           <App.PayMe/>
         </div>
       );

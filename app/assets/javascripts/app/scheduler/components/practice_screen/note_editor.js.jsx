@@ -9,13 +9,17 @@
 
     render: function () {
       return (
-        <div className='col-md-8 col-md-offset-2 text-center'>
-          Notes
-          <textarea
-            name='notes'
-            onChange={this.notifyOfChanges}
-            value={this.props.notes}>
-          </textarea>
+        <div className='row'>
+          <div className='col-md-8 col-md-offset-2 text-center'>
+            <br/>
+            Notes
+            <textarea
+              name='notes'
+              onChange={this.notifyOfChanges}
+              value={this.props.notes}>
+            </textarea>
+            <br/>
+          </div>
         </div>
       );
     }

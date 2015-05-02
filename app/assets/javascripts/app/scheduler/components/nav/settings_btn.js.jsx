@@ -9,10 +9,13 @@
 
     render: function () {
       return (
-        <div className='col-md-12 text-center'>
-          <a href='#' onClick={this.changeView}>
-            Settings
-          </a>
+        <div className='row'>
+          <div className='col-md-12 text-center'>
+            <a href='#' onClick={this.changeView}>
+              Back to Settings
+            </a>
+            <br/><br/>
+          </div>
         </div>
       );
     }
