@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211164332) do
+ActiveRecord::Schema.define(version: 20150502212136) do
 
   create_table "exercises", force: true do |t|
     t.integer  "importance"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150211164332) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "notes",       default: ""
   end
 
   create_table "schedules", force: true do |t|

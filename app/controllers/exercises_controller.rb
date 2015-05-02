@@ -43,7 +43,7 @@ class ExercisesController < ApplicationController
     end
 
     def update_params
-      @update_params ||= params.permit(:id, :name, :importance)
+      @update_params ||= params.permit(:id, :name, :importance, :notes)
     end
 
 end

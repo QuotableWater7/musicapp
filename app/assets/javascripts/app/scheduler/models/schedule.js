@@ -5,6 +5,7 @@
 
     defaults: {
       current_view: 'config',
+      notes: '',
       exercise_idx: 0
     },
 
@@ -12,7 +13,6 @@
 
     initialize: function () {
       App.events.subscribe('schedule.update', this.set.bind(this));
-
       this.initExercises();
     },
 

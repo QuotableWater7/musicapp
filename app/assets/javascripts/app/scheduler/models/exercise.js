@@ -4,7 +4,7 @@
   App.Models.Exercise = Backbone.Model.extend({
 
     defaults: {
-      name: '[edit this name]',
+      name: '[edit]',
       importance: 50
     },
 
