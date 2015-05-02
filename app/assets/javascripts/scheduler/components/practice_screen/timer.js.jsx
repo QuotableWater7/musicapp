@@ -83,7 +83,7 @@
     render: function () {
       return (
         <div className='text-center'>
-          <h1>{this.props.title}</h1>
+          <h1>{this.props.title || 'No Title Provided'}</h1>
           <div className='activity-timer'>
             <h3>{this.stringForDisplay()}</h3>
             <img src='/assets/clock.jpg'/>
