@@ -14,6 +14,10 @@
       return 'form-control' + ' ' + this.props.classes;
     },
 
+    highlightAll: function (event) {
+      event.target.select();
+    },
+
     render: function () {
       return (
         <div className='pencil-input inner-addon right-addon'>
@@ -24,6 +28,7 @@
             className={this.fullClass()}
             value={this.props.value}
             onChange={this.props.update}
+            onClick={this.highlightAll}
           />
         </div>
       );
