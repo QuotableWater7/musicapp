@@ -24,9 +24,9 @@
             <App.ExampleTree/>
           </div>
           <div className='scheduler-app col-md-9'>
-            <App.ScheduleDetails {...this.props.schedule} />
+            <App.ScheduleDetails {...this.props} />
             <br/>
-            <App.ExercisesTable {...this.props.schedule} />
+            <App.ExercisesTable {...this.props} />
             <App.PracticeBtn/>
           </div>
           <br/>

@@ -11,34 +11,30 @@
       return <span>&nbsp;&nbsp;</span>;
     },
 
-    schedule: function () {
-      return this.props.schedule;
-    },
-
     exerciseIdx: function () {
-      return this.schedule().exercise_idx;
+      return this.props.exercise_idx;
     },
 
     currentActivity: function () {
-      return this.schedule().exercises.at([this.exerciseIdx()]);
+      return this.props.exercises.at([this.exerciseIdx()]);
     },
 
     prevActivity: function () {
-      var num_exercises = this.schedule().exercises.length;
+      var num_exercises = this.props.num_exercises;
       var next_index = this.exerciseIdx() - 1;
       next_index = next_index < 0 ? next_index + num_exercises : next_index;
       App.events.publish('schedule.update', { exercise_idx: next_index });
     },
 
     nextActivity: function () {
-      var num_exercises = this.schedule().exercises.length;
+      var num_exercises = this.props.num_exercises;
       var update_data = { exercise_idx: (this.exerciseIdx() + 1) % num_exercises };
       App.events.publish('schedule.update', update_data);
     },
 
     timeForActivity: function () {
-      var schedule_time = this.schedule().seconds;
-      var total_importance = this.schedule().total_importance;
+      var schedule_time = this.props.seconds;
+      var total_importance = this.props.total_importance;
       var activity_importance = this.currentActivity().get('importance');
 
       return Math.round(schedule_time * activity_importance / total_importance);

@@ -34,14 +34,14 @@
     renderConfig: function () {
       if (!this.currentViewIs('config')) { return false; }
       return (
-        <App.Settings schedule={this.schedule.toJSON()}/>
+        <App.Settings {...this.schedule.toJSON()}/>
       );
     },
 
     renderPractice: function () {
       if (!this.currentViewIs('practice')) { return false; }
       return (
-        <App.PracticeScreen schedule={this.schedule.toJSON()}/>
+        <App.PracticeScreen {...this.schedule.toJSON()}/>
       );
     },
 
