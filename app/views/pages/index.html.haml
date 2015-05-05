@@ -5,7 +5,9 @@
     %h3.text-center Welcome to Self Taught Music!
     %hr
     %p This tool helps musicians organize their practice time in a more optimal way.  The tool allows you to select your available time and a list of activities to practice.  After weighting the activities by importance, the time is divied up and you can practice without having to worry about when to change focus!
-    .text-center= image_tag 'example-picture-2.png'
+    .text-center
+      = link_to '/app' do
+        = image_tag 'example-picture-2.png'
 %br
 .row
   .col-md-8.col-md-offset-2
