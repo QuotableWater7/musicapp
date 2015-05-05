@@ -36,6 +36,13 @@
       return Math.round(schedule_time * activity_importance / total_importance);
     },
 
+    title: function () {
+      var currIdx = this.exerciseIdx() + 1;
+      var total_exercises = this.props.num_exercises;
+      var progress = '(' + currIdx + '/' + total_exercises + ')';
+      return [progress, this.currentActivity().get('name')].join(' ');
+    },
+
     renderActivityChangeButtons: function () {
       return (
         <div className='col-md-12 text-center'>
@@ -58,7 +65,7 @@
           {this.renderActivityChangeButtons()}
           <br/><br/>
           <App.Timer
-            title={current_activity.get('name')}
+            title={this.title()}
             seconds={this.timeForActivity()}
             onFinish={this.nextActivity}
           />

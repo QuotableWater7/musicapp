@@ -27,7 +27,7 @@
             <App.ScheduleDetails {...this.props} />
             <br/>
             <App.ExercisesTable {...this.props} />
-            <App.PracticeBtn/>
+            <App.PracticeBtn {...this.props}/>
           </div>
           <br/>
         </div>
