@@ -36,20 +36,26 @@
       return Math.round(schedule_time * activity_importance / total_importance);
     },
 
+    renderActivityChangeButtons: function () {
+      return (
+        <div className='col-md-12 text-center'>
+          <span className='btn btn-default' onClick={this.prevActivity}>
+            &lt;&lt;
+          </span>
+          {this._separator()}
+          <span className='btn btn-default' onClick={this.nextActivity}>
+            &gt;&gt;
+          </span>
+        </div>
+      );
+    },
+
     render: function () {
       var current_activity = this.currentActivity();
 
       return (
         <div className='practiceScreen'>
-          <div className='col-md-12 text-center'>
-            <span className='btn btn-default' onClick={this.prevActivity}>
-              &lt;&lt;
-            </span>
-            {this._separator()}
-            <span className='btn btn-default' onClick={this.nextActivity}>
-              &gt;&gt;
-            </span>
-          </div>
+          {this.renderActivityChangeButtons()}
           <br/><br/>
           <App.Timer
             title={current_activity.get('name')}
