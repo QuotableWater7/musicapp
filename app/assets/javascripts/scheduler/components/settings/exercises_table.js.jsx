@@ -25,7 +25,9 @@
         <table className='table table-hover settings-table'>
           <thead>
             <tr>
-              <th className='activity col-sm-5'>Category</th>
+              <th className='activity col-sm-5'>
+                &nbsp;&nbsp;&nbsp;Category
+              </th>
               <th className='importance text-center col-sm-4'>
                 Focus Level <a href='#' onClick={this.resetFocus}>(reset all)</a>
               </th>
