@@ -11,6 +11,21 @@
       return this.props.num_exercises === 0;
     },
 
+    renderWarning: function () {
+      if (!this.isDisabled()) { return false; }
+
+      return (
+        <div className='row'>
+          <div className='col-md-10 col-md-offset-1'>
+            <br/>
+            <div className='warning-text'>
+              You must add items to practice before continuing!
+            </div>
+          </div>
+        </div>
+      );
+    },
+
     render: function () {
       return (
         <div className='col-md-12 text-center'>
@@ -21,6 +36,7 @@
           >
             Begin Practice <i className='fa fa-music'></i>
           </button>
+          {this.renderWarning()}
         </div>
       );
     }

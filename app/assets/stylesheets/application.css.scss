@@ -35,6 +35,10 @@ html, body {
   min-height: 100%;
 }
 
+.warning-text {
+  color: $red-dull;
+}
+
 .settings-table {
   tr {
     th a {
