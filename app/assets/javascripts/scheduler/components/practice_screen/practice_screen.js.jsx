@@ -58,7 +58,7 @@
     },
 
     render: function () {
-      var current_activity = this.currentActivity();
+      var current_activity_props = this.currentActivity().toJSON();
 
       return (
         <div className='practiceScreen'>
@@ -69,7 +69,8 @@
             seconds={this.timeForActivity()}
             onFinish={this.nextActivity}
           />
-          <App.NoteEditor {...current_activity.toJSON()}/>
+          <App.NoteEditor {...current_activity_props}/>
+          <App.LinksDisplay {...current_activity_props}/>
           <App.SettingsBtn/>
           <App.PayMe/>
         </div>

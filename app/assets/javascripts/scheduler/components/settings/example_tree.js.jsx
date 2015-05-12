@@ -297,7 +297,7 @@
       return this.menu_data[header].map(function (item) {
         return (
           <tr>
-            <td className='sub-item' onClick={this.addExercise(header, item)}>- {item}</td>
+            <td className='sub-item' onClick={this.addExercise(header, item)}>- {item.name}</td>
           </tr>
         );
       }.bind(this));
@@ -305,9 +305,10 @@
 
     addExercise: function (header, item) {
       return function () {
-        App.events.publish('exercise.create', {
-          name: header + ': ' + item.name }
-          );
+        var name = [header, item.name].join(': ');
+        var data = _.extend({ name: name }, item);
+
+        App.events.publish('exercise.create', data);
       };
     },
 
