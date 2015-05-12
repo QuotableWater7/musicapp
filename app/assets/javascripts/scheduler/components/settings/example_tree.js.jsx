@@ -5,56 +5,256 @@
 
     menu_data: {
       'Warm Ups': [
-        { name: 'spider drill', notes: '' },
-        { name: 'chromatic scale', notes: '' },
-        { name: 'single string', notes: ''},
+        {
+          name: 'spider drill',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'chromatic scale',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'single string',
+          notes: '',
+          links: [],
+          songs: []
+        },
       ],
       Technique: [
-        { name: 'alternate picking', notes: '' },
-        { name: 'economy picking', notes: '' },
-        { name: 'finger picking', notes: '' },
-        { name: 'all downstrokes', notes: '' },
-        { name: 'all upstrokes', notes: '' },
-        { name: 'bending strings', notes: '' },
-        { name: 'sliding', notes: '' },
-        { name: 'all downstrokes', notes: '' },
-        { name: 'palm muting', notes: '' },
-        { name: 'legato', notes: '' },
-        { name: 'pinch harmonics', notes: '' },
-        { name: 'hammer on / pull off', notes: '' },
-        { name: 'sweep picking', notes: '' },
-        { name: 'tapping', notes: '' }
+        {
+          name: 'alternate picking',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'economy picking',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'finger picking',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'all downstrokes',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'all upstrokes',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'bending strings',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'sliding',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'all downstrokes',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'palm muting',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'legato',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'pinch harmonics',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'hammer on / pull off',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'sweep picking',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'tapping',
+          notes: '',
+          links: [],
+          songs: []
+        }
       ],
       Arpeggios: [
-        { name: 'triads', notes: '' },
-        { name: 'major 7th chords', notes: '' },
-        { name: 'major 6th chords', notes: '' },
-        { name: '9th chords', notes: '' },
-        { name: 'diminished chords', notes: '' }
+        {
+          name: 'triads',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'major 7th chords',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'major 6th chords',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: '9th chords',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'diminished chords',
+          notes: '',
+          links: [],
+          songs: []
+        }
       ],
       Scales: [
-        { name: 'major', notes: '' },
-        { name: 'minor', notes: '' },
-        { name: 'harmonic minor', notes: '' },
-        { name: 'pentatonic', notes: '' },
-        { name: 'blues', notes: '' },
-        { name: 'dorian', notes: '' },
-        { name: 'phrygian', notes: '' },
-        { name: 'dorian', notes: '' },
-        { name: 'lydian', notes: '' },
-        { name: 'mixolydian', notes: '' },
-        { name: 'aeolian', notes: '' },
-        { name: 'locrian', notes: '' }
+        {
+          name: 'major',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'minor',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'harmonic minor',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'pentatonic',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'blues',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'dorian',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'phrygian',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'dorian',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'lydian',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'mixolydian',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'aeolian',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: 'locrian',
+          notes: '',
+          links: [],
+          songs: []
+        }
       ],
       'Scale Sequences': [
-        { name: '1 2 3', notes: '' },
-        { name: '1 2 b3', notes: '' },
-        { name: '5 6 8', notes: '' }
+        {
+          name: '1 2 3',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: '1 2 b3',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: '5 6 8',
+          notes: '',
+          links: [],
+          songs: []
+        }
       ],
       'Chord Progressions': [
-        { name: '1 4 5', notes: '' },
-        { name: '2 5 1', notes: '' },
-        { name: '1 4 6 5', notes: '' }
+        {
+          name: '1 4 5',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: '2 5 1',
+          notes: '',
+          links: [],
+          songs: []
+        },
+        {
+          name: '1 4 6 5',
+          notes: '',
+          links: [],
+          songs: []
+        }
       ],
     },
 
@@ -106,7 +306,9 @@
 
     addExercise: function (header, item) {
       return function () {
-        App.events.publish('exercise.create', { name: header + ': ' + item.name });
+        App.events.publish('exercise.create', {
+          name: header + ': ' + item.name }
+          );
       };
     },
 
