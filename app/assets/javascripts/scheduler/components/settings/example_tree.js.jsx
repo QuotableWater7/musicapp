@@ -8,21 +8,20 @@
         {
           name: 'spider drill',
           notes: '',
-          links: [],
+          links: [
+            'http://www.fretmeup.com/spider-exercises/',
+            'https://www.youtube.com/watch?v=B_o-tG09Bj8'
+          ],
           songs: []
         },
         {
           name: 'chromatic scale',
           notes: '',
-          links: [],
+          links: [
+            'http://www.cyberfret.com/guitar-scales/chromatic-scales-for-guitar/'
+          ],
           songs: []
-        },
-        {
-          name: 'single string',
-          notes: '',
-          links: [],
-          songs: []
-        },
+        }
       ],
       Technique: [
         {
