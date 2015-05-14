@@ -70,7 +70,6 @@
             onFinish={this.nextActivity}
           />
           <App.NoteEditor {...current_activity_props}/>
-          <App.LinksDisplay {...current_activity_props}/>
           <App.SettingsBtn/>
           <App.PayMe/>
         </div>
