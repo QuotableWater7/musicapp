@@ -306,8 +306,7 @@
     addExercise: function (header, item) {
       return function () {
         var name = [header, item.name].join(': ');
-        var data = _.extend({ name: name }, item);
-
+        var data = _.defaults({ name: name }, item);
         App.events.publish('exercise.create', data);
       };
     },
