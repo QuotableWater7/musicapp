@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
 gem 'rails', '~> 4.1.0'
-gem 'sqlite3'
 gem 'jquery-rails'
 
 gem 'ads-rails'
@@ -31,4 +30,5 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'spring'
   gem 'spring-commands-rspec'
+  gem 'sqlite3'
 end
